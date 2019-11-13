@@ -1,0 +1,260 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@using myResources = Resources.CardtrendApplication;
+
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Locations#/">All Locations</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Locations#/56484950"> Location Profile</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Location Details</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+
+    <div class="portlet box blue">
+        <div class="portlet-title">
+            <div class="caption">LOCATION BUSINESS INFO</div>
+        </div>
+        <div class="portlet-body form">
+            <form action="#" class="horizontal-form form">
+                <div class="form-body">
+                    <!-- BEGIN BASIC INFORMATION -->
+                    <div class="page-bar quick-info">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <span class="tooltips" data-original-title="Location Name">Station 123 KLCC</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Location No.">56484950</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Location Status">Active</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Merchant Account No.">893273388</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Created On">01/05/2017</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END BASIC INFORMATION -->
+                    @*<h3 class="form-section">Account Info</h3>*@
+                    <div class="main-content">
+                        <h4 class="form-section">Location General Info</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Location No.<span>(required)</span></label>
+                                    <input class="form-control" value="56484950" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Merchant Account No.</label>
+                                    <input readonly="readonly" class="form-control" value="5501039" />
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Location Name<span>(required)</span></label>
+                                    <input class="form-control" value="Station 123 KLCC" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>State / Region<span>(required)</span></label>
+                                    <select class="form-control">
+                                        <option>Selangor</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Person In Charge</label>
+                                    <input class="form-control" value="" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Ref. No.</label>
+                                    <input class="form-control" value="" />
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Created On</label>
+                                    <input readonly="readonly" class="form-control input-medium" value="22/12/2017" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Created By</label>
+                                    <input readonly="readonly" class="form-control input-medium" value="user01" />
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Location Status</label>
+                                    <input readonly="readonly" class="form-control" value="Active" />
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-cus">
+                                <div class="more-info">
+                                    <a href="javascript:;">View history</a>
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="form-section">Location Business / Company Info</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Business Name<span>(required)</span></label>
+                                    <input class="form-control" value="Gas Station KLCC" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Company Name</label>
+                                    <input class="form-control" value="KLCC Oil Service" />
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Company Type</label>
+                                    <select class="form-control">
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Company Registration No.</label>
+                                    <input class="form-control" value="" />
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Company Registration Date</label>
+                                    <div class="input-icon right input-medium"><i class="material-icons">today</i><input autocomplete="on" class="form-control ng-valid ng-isolate-scope ng-empty ng-dirty ng-valid-parse ng-touched" date_picker="" section="gen" type="text" value="15/04/2016" style=""></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Business Category</label>
+                                    <select class="form-control">
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions right">
+                    <button type="button" ng-click="backToList();" class="btn white">Cancel</button>
+                    <button type="button" class="btn blue">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/ng-template" id="CrdStsHis">
+    <div class="ngdialog-message">
+        <div class="modal-header">
+            <h4 class="modal-title">Card Status History</h4>
+        </div>
+        <div class="modal-body">
+            <!-- BEGIN BASIC INFORMATION -->
+            <div class="page-bar quick-info">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="bg-green status-block"></i>
+                        <span>HSBC Sentul</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>9894934943</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>Postpaid</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>VIP</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>02/12/2016</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- END BASIC INFORMATION -->
+            <div class="portlet-body ">
+                <table dtable options="crdStsHisLst" class="table table-bordered table-striped table-condensed ">
+                    <thead class="">
+                        <tr>
+                            <th>Changed From</th>
+                            <th>Changed To</th>
+                            <th>Status Change Reason</th>
+                            <th>Other Status Change Reason</th>
+                            <th>Remarks</th>
+                            <th>Changed On</th>
+                            <th>Changed By</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/javascript">
+    $(function () {
+        $('.date-picker').datepicker();
+        $('body').removeClass('layout1menu');
+    });
+</script>

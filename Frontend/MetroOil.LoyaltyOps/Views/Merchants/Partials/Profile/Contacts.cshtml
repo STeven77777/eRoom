@@ -1,0 +1,91 @@
+﻿<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Merchants#/">All Merchants</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Merchants#/59854578">Merchant Profile</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Merchant Details</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    @*<h1 class="page-title">
+            All Customers
+        </h1>*@
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+    <div class="portlet box blue">
+        <div class="portlet-title">
+            <div class="caption">
+                <span class="caption-subject">Contact</span>
+            </div>
+            <div class="actions">
+                <div class="btn-group">
+                    <button ng-click="gotoContactNew();" type="button" class="btn blue btn-circle btn-outline"><i class="fa fa-plus" aria-hidden="true"></i>Add</button>
+                </div>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div class="portlet-body ">
+                <!-- BEGIN BASIC INFORMATION -->
+                <div class="page-bar quick-info">
+                    <ul class="page-breadcrumb">
+                        <li>
+                            <span class="tooltips" data-original-title="Business Name">Lim Oil & Gas</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="tooltips" data-original-title="Merchant Account No.">59854578</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="tooltips" data-original-title="Merchant Account Status">Active</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="tooltips" data-original-title="Created On">01/05/2016</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END BASIC INFORMATION -->
+                <div>
+                    <table dtable options="dtOptions" class="table table-bordered table-striped table-condensed  hover">
+                        <thead class="">
+                            <tr>
+                                <th>#</th>
+                                <th>Contact Person</th>
+                                <th>Position</th>
+                                <th>Work Phone No.</th>
+                                <th>Mobile Phone No.</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tb-pointer"></tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- END FORM-->
+            <!-- END MAIN CONTENT-->
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('body').removeClass('layout1menu');
+    });
+</script>

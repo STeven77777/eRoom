@@ -1,0 +1,139 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@model MetroOil.LoyaltyOps.Models.BusnLocationSearchModel
+@{
+    var urlPrefix = System.Configuration.ConfigurationManager.AppSettings["urlPrefix"];
+}
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="@urlPrefix/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Business Location Search</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+    <div class="row">
+        <div class="col-md-3 search-box">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <span class="caption-subject">Search Options</span>
+                    </div>
+                    <div class="actions">
+                        <div class="btn-group">
+                            <button ng-click="ClearSearch();" type="button" class="btn blue btn-circle btn-outline">Clear</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="panel-group accordion" id="accordion-account">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion-account" data-target="#account-detail" aria-expanded="false"> ACCOUNT </a>
+                                </h4>
+                            </div>
+                            <div id="account-detail" class="panel-collapse collapse" aria-expanded="false">
+                                <div class="">
+                                    @Html.CustomNgTextBoxFor(model => model.BusnLocation, null, new { @placeholder = "Input a merchant account number" })
+                                    @Html.CustomNgTextBoxFor(model => model.BusnName, null, new { @placeholder = "Input a business name" })
+                                    @Html.CustomNgTextBoxFor(model => model.DBAName, null, new { @placeholder = "Input a company name" })
+                                    @Html.CustomNgSelectListFor(model => model.DBAState, Model.DBAStates, null, new { @LstName = "DBAStates" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-group accordion" id="accordion3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" data-target="#collapse_3_2" aria-expanded="false"> CONTACT </a>
+                                </h4>
+                            </div>
+                            <div id="collapse_3_2" class="panel-collapse collapse" aria-expanded="false">
+                                <div class="">
+                                    @Html.CustomNgTextBoxFor(model => model.HpNo, null, new { @placeholder = "Input a mobile phone number" })
+                                    @Html.CustomNgTextBoxFor(model => model.EmailAddress, null, new { @placeholder = "Input an email address" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-group accordion" id="accordion-address">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion-address" data-target="#address-detail" aria-expanded="false"> ADDRESS </a>
+                                </h4>
+                            </div>
+                            <div id="address-detail" class="panel-collapse collapse" aria-expanded="false">
+                                <div class="">
+                                    @Html.CustomNgTextBoxFor(model => model.City, null, new { @placeholder = "Input a city name" })
+                                    <div class="form-group">
+                                        <label>State</label>
+                                        <select class="multiselect" multiselect-dropdown="" ng-model="_Object.SelectedStates" ng-options="item.Value as item.Text for item in _Selects.States" multiple="multiple" button-width="auto" data-width="100%" data-placeholder="State: All" noneselecttext="State: All"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet-footer">
+                    <button ng-click="OnSearch();" type="button" class="btn blue"><i class="material-icons">search</i> Search</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <span class="caption-subject">Results</span>
+                    </div>
+                </div>
+                <div class="portlet-body result-search">
+                    <table dtable options="dtOptions" class="table table-bordered hover">
+                        <thead class="">
+                            <tr>
+                                <th>#</th>
+                                <th>Business Location No.</th>
+                                <th>Business Location Name</th>
+                                <th>DBA State/Region</th>
+                                <th>Business Location Status</th>
+                                <th>Merchant Account No.</th>
+                                <th>Created On</th>
+                                <th>Created By</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tb-pointer"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            // Remove left menu
+            $('body').addClass('layout1menu');
+
+            $(".mt-multiselect").each(function (index) {
+                $(this).multiselect({
+                    nonSelectedText: $(this).attr('noneSelectText'),
+                    maxHeight: 250
+                });
+            });
+        });
+    </script>
+    <!-- END FORM-->
+    <!-- END MAIN CONTENT-->
+
+</div>

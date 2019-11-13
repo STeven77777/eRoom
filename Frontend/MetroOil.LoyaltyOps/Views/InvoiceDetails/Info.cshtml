@@ -1,0 +1,223 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@model MetroOil.LoyaltyOps.Models.eRoom.InvoiceDetailModel
+@{
+    var urlPrefix = System.Configuration.ConfigurationManager.AppSettings["urlPrefix"];
+}
+<div class="page-content">
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="@urlPrefix/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                @*<a href="#/Accounts/{{$root.obj.merchAcctNoHash}}">Account Summary</a>*@
+                <span>Business Location Summary</span>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Business Location Profile</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <div class="portlet box blue ">
+        <div class="portlet-title">
+            <div class="caption">BUSINESS LOCATION INFO</div>
+        </div>
+        <div class="portlet-body form">
+            <form class="horizontal-form form">
+                <div class="form-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.InvoiceDetailID, null, new { })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.InvoiceID, null, new { })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.ServiceID, null, new { })
+                        </div>                      
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            @*@Html.CustomNgTextBoxFor(model => model.Birthday, null, new { })*@
+                            @Html.CustomNgTextBoxFor(model => model.ServiceID, null, new { })
+                            @*@Html.CustomNgTextBoxFor(model => model.ElectricFrom, null, new { @date_time = "", @view = "date", @min_view = "date", @auto_close = "true", @format = "DD/MM/YYYY", @section = "gen" })*@
+                            @*<input ng-model="_Object.Birthday" datetime-picker date-format="dd/MM/yyyy" date-only />*@
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.ServicePrice, null, new { })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.ServiceCount, null, new { })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.ServiceTotal, null, new { })
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.CreateDate, null, new { })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.CreateUser, null, new { })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.UpdateDate, null, new { })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.UpdateUser, null, new { })
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.IsDelete, null, new { })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.DeleteDate, null, new { })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.DeleteUser, null, new { })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.Description, null, new { })
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.CreateDate, null, new { @disabled = "disabled" })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.CreateUser, null, new { @disabled = "disabled" })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.UpdateDate, null, new { @disabled = "disabled" })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.UpdateUser, null, new { @disabled = "disabled" })
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            @*<div class="form-group">
+                                    <div class="mt-checkbox-list">
+                                        <label class="mt-checkbox mt-checkbox-outline">
+                                            <input ng-model="_object.IsDelete" section="new" type="checkbox" class="ng-pristine ng-untouched ng-valid ng-empty">Is Delete<span></span>
+                                        </label>
+                                    </div><span></span>
+                                </div>*@
+                            @Html.CustomNgCheckBoxFor(model => model.IsDelete, null, new { @section = "IsDelete" })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.DeleteDate, null, new { @disabled = "disabled" })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.DeleteUser, null, new { @disabled = "disabled" })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.Description, null, new { })
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="form-actions right">
+                    <button ng-click="BackToList();" type="button" class="btn white">Cancel</button>
+                    @if (Html.SectionIsEnabled("BusnLotInfoSave"))
+                    {
+                        <button type="button" data-validation-form data-customsubmit="SaveInfo();" class="btn blue">Save</button>
+                    }
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- END FORM-->
+    <!-- END MAIN CONTENT-->
+</div>
+
+<div class="modal md-modal fade" role="dialog" app-modal trigger="modelChangeSts" data-keyboard="false" data-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" data-toggle="modal">
+                <h4 class="modal-title">Change Business Location Status</h4>
+                <button ng-click="modelChangeSts=false;" aria-label="Close" class="ngdialog-close"></button>
+            </div>
+            <div class="modal-body">
+                <span id="ErrorResultChangeSts"></span>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>New Account Status</label>
+                            <select class="form-control" ng-model="_Object.StsNew">
+                                <option ng-repeat="item in _Selects.Stses" ng-if="item.Value!=_Object.Sts" value="{{item.Value}}">{{item.Text}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Current Account Status</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-form-action">
+                <button ng-click="modelChangeSts=false;" class="btn btn-default btn-cons">Cancel</button>
+                <button type="button" ng-click="SaveSts()" class="btn blue">Save</button>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal md-modal fade" role="dialog" app-modal trigger="modelShowHistory" data-keyboard="false" data-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" data-toggle="modal">
+                <h4 class="modal-title">HISTORY OF CHANGE</h4>
+                <button ng-click="modelShowHistory=false;" aria-label="Close" class="ngdialog-close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="portlet-body ">
+                    <table dtable options="stsHisLst" class="table table-bordered table-striped table-condensed ">
+                        <thead class="">
+                            <tr>
+                                <th>Changed From</th>
+                                <th>Changed To</th>
+                                <th>Status Change Reason</th>
+                                <th>Ghi Chú</th>
+                                <th>Changed On</th>
+                                <th>Changed By</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/ng/services/httpInterceptors.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('body').removeClass('layout1menu');
+    });
+</script>

@@ -1,0 +1,91 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@model MetroOil.LoyaltyOps.Models.Admin.SysUserModel
+@{
+    var urlPrefix = System.Configuration.ConfigurationManager.AppSettings["urlPrefix"];
+}
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="@urlPrefix/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            @*<li>
+                <a href="#/">Administration</a>
+                <i class="fa fa-caret-right"></i>
+            </li>*@
+            <li>
+                <a href="#/SysUsers">System Users </a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Create System Users</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+
+    <div class="portlet box blue">
+        <div class="portlet-title">
+            <div class="caption">Create System Users</div>
+        </div>
+        <div class="portlet-body form">
+            <form class="horizontal-form form">
+                <div class="form-body">
+                    <h4 class="form-section">User Info</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.CustomNgTextBoxFor(model => model.FullName, null, new { @section = "gen" })
+                        </div>
+                        <div class="col-md-6">
+                            @Html.CustomNgSelectListFor(model => model.TitleCd, Model.Titles, null, new { @LstName = "Titles", @section = "gen", @class = "input-medium" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Mobile Phone No.</label>
+                                <div class="input-group">
+                                    @Html.CustomNgSelectListFor(model => model.HpCtryCode, Model.HpCtryCodes, null, new { @emptyWrapper = "", @LstName = "HpCtryCodes", @section = "gen", @class = "input-small" })
+                                    @Html.CustomNgTextBoxFor(model => model.HpNo, null, new { @emptyWrapper = "", @section = "gen", @class = "input-small-left" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.CustomNgTextBoxFor(model => model.EmailAddress, null, new { @section = "gen", @placeholder = "e.g. john.smith@gmail.com" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.CustomNgSelectListFor(model => model.UserGroupCd, Model.UserGroups, null, new { @LstName = "UserGroups", @section = "gen" })
+                        </div>
+                    </div>
+                    <!--/row-->
+                    <h4 class="form-section">Login Credentials</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.CustomNgTextBoxFor(model => model.LoginID, null, new { @section = "gen" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions right">
+                    <button type="button" ng-click="BackToList();" class="btn white">Cancel</button>
+                    <button type="button" data-validation-form data-customsubmit="SaveInfo()" class="btn blue">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('.date-picker').datepicker();
+        $('body').addClass('layout1menu');
+    });
+</script>

@@ -1,0 +1,100 @@
+﻿@using MetroOil.LoyaltyOps.Helpers;
+@using AcctLeftMenu = Resources.AccountLeftMenu
+@{
+                /**/
+
+                string pgCd = ViewBag.PgCd;
+                if (pgCd == null)
+                {
+                    pgCd = string.Empty;
+                }
+}
+@*<li class="nav-item  no-submenu start ">
+        <a href="/Members#/{{$root.obj.acctNoHash}}" class="nav-link nav-toggle">
+            <i class="material-icons">assessment</i>
+            <span class="title">@AcctLeftMenu.AcctSummary</span>
+        </a>
+    </li>*@
+<li class="nav-item">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="material-icons">account_box</i>
+        <span class="title">Member Profile</span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+        @if (Html.SectionIsEnabled("MemInfo"))
+        {
+            <li class="nav-item pagekey_MemInfo">
+                <a target="_top" href="#/{{$root.obj.acctNoHash}}/Info" class="nav-link ">
+                    <span class="title">Member Info</span>
+                </a>
+            </li>
+        }
+        @if (Html.SectionIsEnabled("MemCont"))
+        {
+            <li class="nav-item pagekey_MemCont">
+                <a target="_top" href="#/{{$root.obj.acctNoHash}}/Contact" class="nav-link ">
+                    <span class="title">@AcctLeftMenu.CusContact</span>
+                </a>
+            </li>
+        }
+        @if (Html.SectionIsEnabled("MemAddr"))
+        {
+            <li class="nav-item pagekey_MemAddr pagekey_MemAddrD pagekey_MemAddrNew">
+                <a target="_top" href="#/{{$root.obj.acctNoHash}}/Address" class="nav-link ">
+                    <span class="title">@AcctLeftMenu.CusAddress</span>
+                </a>
+            </li>
+        }
+    </ul>
+</li>
+<li class="nav-item">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="material-icons">credit_card</i>
+        <span class="title">Card</span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+        @if (Html.SectionIsEnabled("MemCrdInfo"))
+        {
+            <li class="nav-item pagekey_MemCrdInfo">
+                <a target="_top" href="#/{{$root.obj.acctNoHash}}/Cards/Info" class="nav-link ">
+                    <span class="title">Card Info</span>
+                </a>
+            </li>
+        }
+        @if (Html.SectionIsEnabled("MemCrds"))
+        {
+            <li class="nav-item pagekey_MemCrds pagekey_MemCrdD">
+                <a target="_top" href="#/{{$root.obj.acctNoHash}}/Cards" class="nav-link ">
+                    <span class="title">Card History</span>
+                </a>
+            </li>
+        }
+    </ul>
+</li>
+<li class="nav-item">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="material-icons">receipt</i>
+        <span class="title">@AcctLeftMenu.Transactions</span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+        @if (Html.SectionIsEnabled("MemTxnPoints"))
+        {
+            <li class="nav-item pagekey_MemTxnPoints">
+                <a target="_top" href="#/{{$root.obj.acctNoHash}}/Transactions/Points" class="nav-link ">
+                    <span class="title">Points</span>
+                </a>
+            </li>
+        }
+        @if (Html.SectionIsEnabled("MemTxnVouchers"))
+        {
+            <li class="nav-item pagekey_MemTxnVouchers">
+                <a target="_top" href="#/{{$root.obj.acctNoHash}}/Transactions/Vouchers" class="nav-link ">
+                    <span class="title">Vouchers</span>
+                </a>
+            </li>
+        }
+    </ul>
+</li>

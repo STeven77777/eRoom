@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="eRoomModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ElectricUsing">
+    <Key>
+      <PropertyRef Name="ElectricUsingID" />
+    </Key>
+    <Property Name="ElectricUsingID" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ServiceID" Type="nvarchar" MaxLength="255" />
+    <Property Name="RoomID" Type="nvarchar" MaxLength="255" />
+    <Property Name="ElectricMonth" Type="int" />
+    <Property Name="ElectricFrom" Type="int" />
+    <Property Name="ElectricTo" Type="int" />
+    <Property Name="ElectricUse" Type="int" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsDelete" Type="bit" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="DeleteUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Invoice">
+    <Key>
+      <PropertyRef Name="InvoiceID" />
+    </Key>
+    <Property Name="InvoiceID" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="InvoiceMonth" Type="int" />
+    <Property Name="RoomID" Type="nvarchar" MaxLength="255" />
+    <Property Name="InvoiceTotal" Type="real" />
+    <Property Name="InvoicePaid" Type="real" />
+    <Property Name="InvoiceRemain" Type="real" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsDelete" Type="bit" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="DeleteUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="InvoiceDetail">
+    <Key>
+      <PropertyRef Name="InvoiceDetailID" />
+    </Key>
+    <Property Name="InvoiceDetailID" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="InvoiceID" Type="nvarchar" MaxLength="255" />
+    <Property Name="ServiceID" Type="nvarchar" MaxLength="255" />
+    <Property Name="ServicePrice" Type="real" />
+    <Property Name="ServiceCount" Type="real" />
+    <Property Name="ServiceTotal" Type="real" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsDelete" Type="bit" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="DeleteUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Motorbike">
+    <Key>
+      <PropertyRef Name="MotorbikeID" />
+    </Key>
+    <Property Name="MotorbikeID" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="MotorbikeName" Type="nvarchar" MaxLength="255" />
+    <Property Name="MotorTypeID" Type="nvarchar" MaxLength="255" />
+    <Property Name="PeopleID" Type="nvarchar" MaxLength="255" />
+    <Property Name="Color" Type="nvarchar" MaxLength="255" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsDelete" Type="bit" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="DeleteUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="MotorType">
+    <Key>
+      <PropertyRef Name="MotorTypeID" />
+    </Key>
+    <Property Name="MotorTypeID" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="MotorTypeName" Type="nvarchar" MaxLength="255" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsDelete" Type="bit" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="DeleteUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="People">
+    <Key>
+      <PropertyRef Name="PeopleID" />
+    </Key>
+    <Property Name="PeopleID" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="255" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="255" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="255" />
+    <Property Name="Birthday" Type="date" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="255" />
+    <Property Name="JobName" Type="nvarchar" MaxLength="255" />
+    <Property Name="HomeTown" Type="nvarchar" MaxLength="255" />
+    <Property Name="FatherFullName" Type="nvarchar" MaxLength="255" />
+    <Property Name="FatherID" Type="nvarchar" MaxLength="255" />
+    <Property Name="FatherPhone" Type="nvarchar" MaxLength="255" />
+    <Property Name="FatherJob" Type="nvarchar" MaxLength="255" />
+    <Property Name="MotherFullName" Type="nvarchar" MaxLength="255" />
+    <Property Name="MotherID" Type="nvarchar" MaxLength="255" />
+    <Property Name="MotherPhone" Type="nvarchar" MaxLength="255" />
+    <Property Name="MotherJob" Type="nvarchar" MaxLength="255" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsDelete" Type="bit" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="DeleteUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Receipt">
+    <Key>
+      <PropertyRef Name="ReceiptID" />
+    </Key>
+    <Property Name="ReceiptID" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="BillID" Type="nvarchar" MaxLength="255" />
+    <Property Name="PeopleID" Type="nvarchar" MaxLength="255" />
+    <Property Name="ReceiptAmount" Type="real" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsDelete" Type="bit" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="DeleteUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="ReferenceLibrary">
+    <Key>
+      <PropertyRef Name="IssNo" />
+      <PropertyRef Name="RefType" />
+      <PropertyRef Name="RefCd" />
+    </Key>
+    <Property Name="IssNo" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="RefType" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="RefCd" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="RefNo" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="RefInd" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="RefId" Type="nvarchar" MaxLength="100" />
+    <Property Name="MapInd" Type="nvarchar" MaxLength="100" />
+    <Property Name="Descp" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="RefLib">
+    <Key>
+      <PropertyRef Name="IssNo" />
+      <PropertyRef Name="RefType" />
+      <PropertyRef Name="RefCd" />
+    </Key>
+    <Property Name="IssNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RefType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RefCd" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RefNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RefInd" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RefId" Type="nvarchar" MaxLength="50" />
+    <Property Name="MapInd" Type="nvarchar" MaxLength="50" />
+    <Property Name="Descp" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="RoomID" />
+    </Key>
+    <Property Name="RoomID" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="RoomTypeID" Type="int" />
+    <Property Name="RoomName" Type="nvarchar" MaxLength="255" />
+    <Property Name="StatusID" Type="nvarchar" MaxLength="255" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsDelete" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="DeleteUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="RoomDetail">
+    <Key>
+      <PropertyRef Name="RoomDetailID" />
+    </Key>
+    <Property Name="RoomDetailID" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="RoomID" Type="nvarchar" MaxLength="255" />
+    <Property Name="DateIn" Type="datetime" />
+    <Property Name="DateOut" Type="datetime" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsDelete" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="DeleteUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="RoomPeople">
+    <Key>
+      <PropertyRef Name="RoomPeopleID" />
+    </Key>
+    <Property Name="RoomPeopleID" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="PeopleID" Type="nvarchar" MaxLength="255" />
+    <Property Name="RoomDetailID" Type="nvarchar" MaxLength="255" />
+    <Property Name="DateIn" Type="datetime" />
+    <Property Name="DateOut" Type="datetime" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsDelete" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="DeleteUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="RoomStatus">
+    <Key>
+      <PropertyRef Name="RoomStatusID" />
+    </Key>
+    <Property Name="RoomStatusID" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="StatusName" Type="varchar" MaxLength="255" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsDelete" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="DeleteUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="RoomType">
+    <Key>
+      <PropertyRef Name="RoomTypeID" />
+    </Key>
+    <Property Name="RoomTypeID" Type="int" Nullable="false" />
+    <Property Name="RoomTypeName" Type="nvarchar" MaxLength="255" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsDelete" Type="bit" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="DeleteUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="ServiceID" />
+    </Key>
+    <Property Name="ServiceID" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="RoomTypeID" Type="int" />
+    <Property Name="ServiceName" Type="nvarchar" MaxLength="255" />
+    <Property Name="ServicePrice" Type="real" />
+    <Property Name="IsDefault" Type="int" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsDelete" Type="bit" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="DeleteUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="ServiceType">
+    <Key>
+      <PropertyRef Name="ServiceTypeID" />
+    </Key>
+    <Property Name="ServiceTypeID" Type="int" Nullable="false" />
+    <Property Name="ServiceTypeName" Type="nvarchar" MaxLength="255" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsDelete" Type="bit" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="DeleteUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="WaterUsing">
+    <Key>
+      <PropertyRef Name="WaterUsingID" />
+    </Key>
+    <Property Name="WaterUsingID" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ServiceID" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="RoomID" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="WaterFrom" Type="int" Nullable="false" />
+    <Property Name="WaterTo" Type="int" Nullable="false" />
+    <Property Name="WaterUse" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateUser" Type="varchar" MaxLength="255" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsDelete" Type="bit" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="DeleteUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityContainer Name="eRoomModelStoreContainer">
+    <EntitySet Name="ElectricUsing" EntityType="Self.ElectricUsing" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InvoiceDetail" EntityType="Self.InvoiceDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Motorbike" EntityType="Self.Motorbike" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MotorType" EntityType="Self.MotorType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="People" EntityType="Self.People" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Receipt" EntityType="Self.Receipt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReferenceLibrary" EntityType="Self.ReferenceLibrary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RefLib" EntityType="Self.RefLib" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoomDetail" EntityType="Self.RoomDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoomPeople" EntityType="Self.RoomPeople" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoomStatus" EntityType="Self.RoomStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoomType" EntityType="Self.RoomType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServiceType" EntityType="Self.ServiceType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WaterUsing" EntityType="Self.WaterUsing" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

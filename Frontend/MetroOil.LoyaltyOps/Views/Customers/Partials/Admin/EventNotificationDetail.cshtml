@@ -1,0 +1,357 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+
+<div class="page-content">
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Customers#/">All Customers</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Customers#/9894934943">Account Summary</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Event &amp; Notification</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <div class="portlet box blue ">
+        <div class="portlet-title">
+            <div class="caption">Event &amp; Notification</div>
+            <div class="tools-btn">
+                <div class="btn-group btn-group-circle">
+                    <button type="button" ng-click="onDisableNotify($event);" class="btn btn-outline disable-notify selected btn-sm">Disable</button>
+                    <button type="button" ng-click="onActivateNotify($event);" class="btn btn-outline activate-notify btn-sm">Activate</button>
+                </div>
+            </div>
+        </div>
+        <div class="portlet-body form">
+            <form id="fullApplicationForm" class="horizontal-form form">
+                <div class="form-body">
+                    <!-- BEGIN BASIC INFORMATION -->
+                    <div class="page-bar quick-info">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <span class="tooltips" data-original-title="Company Name on Card">HSBC Sentul</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Customer Account No.">9894934943</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Program Type">Postpaid</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Customer Class">VIP</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Approved On">15/04/2016</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END BASIC INFORMATION -->
+                    <div class="main-content">
+                        <h4 class="form-section">Event Info</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Event Code</label>
+                                    <select class="form-control">
+                                        <option>10091</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Event Title</label>
+                                    <select class="form-control">
+                                        <option>Account Overdue</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <textarea class="form-control" readonly>Trigger notification when account payment is overdue</textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Scope</label>
+                                    <select class="form-control">
+                                        <option>Account</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Account No.</label>
+                                    <input type="text" class="form-control" readonly value="3243483" />
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Severity</label>
+                                    <select class="form-control">
+                                        <option>High</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Created On</label>
+                                    <div class="input-icon right input-medium">
+                                        <i class="material-icons">today</i>
+                                        <input readonly autocomplete="on" disabled="" class="form-control ng-valid ng-isolate-scope ng-dirty ng-not-empty ng-touched" date_picker="" id="ExpDate" name="ExpDate" section="gen" type="text" value="02/03/2017" style="">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Created By</label>
+                                    <input class="form-control" readonly="readonly" value="user01" />
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <h4 class="form-section">Notification Occurrence</h4>
+                        <div class="form-group">
+                            <label>Occurrence</label>
+                            <div class="mt-radio-inline">
+                                <label class="mt-radio">
+                                    <input type="radio" ng-value="true" ng-change="occurrenceChange()" ng-model="occurrenceVal" name="occurrenceRadios" id="occurrenceOpt1" value="option1" checked=""> Every time the event occurs
+                                    <span></span>
+                                </label>
+                                <label class="mt-radio">
+                                    <input type="radio" ng-value="false" ng-change="occurrenceChange()" ng-model="occurrenceVal" name="occurrenceRadios" id="occurrenceOpt2" value="option2" checked=""> Set frequency of occurrence
+                                    <span></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div id="frequencyPanel" ng-hide="occurrenceVal">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Set frequency of occurrence:</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Frequency of Occurrence</label>
+                                        <select class="form-control">
+                                            <option></option>
+                                            <option>Day</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Number of Occurrence</label>
+                                        <input type="text" class="form-control" value="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-section section-custom">
+                            <h4>Notification Criteria</h4>
+                            <div class="right-actions">
+                                <span ng-click="" class="action tooltips" data-original-title="Reset Criteria"><i class="material-icons">undo</i></span>
+                                <span ng-click="loadNotificationCriteriaItemsNew();" class="action tooltips" data-original-title="Add Criteria"><i class="material-icons">add</i></span>
+                            </div>
+                        </div>
+                        <table class="table table-bordered table-striped table-condensed  ng-isolate-scope dataTable no-footer">
+                            <thead class="">
+                                <tr>
+                                    <th>Checking Period</th>
+                                    <th>Frequency of Checking</th>
+                                    <th>Number of Checking</th>
+                                    <th>Min. Value</th>
+                                    <th>Max. Value</th>
+                                    <th style="min-width:76px">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in NotificationCriteriaItems">
+                                    <td>
+                                        <input ng-show="item.isEdit" ng-disabled="isEdit" amount ng-model="item.CheckingPeriod" ng-class="input.$valid?'':'errorthere'" class="form-control acctno" type="text" />
+                                        <span ng-hide="item.isEdit">
+                                            {{item.CheckingPeriod}}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <input ng-show="item.isEdit" ng-disabled="isEdit" amount ng-model="item.FrequencyChecking" ng-class="input.$valid?'':'errorthere'" class="form-control acctno" type="text" />
+                                        <span ng-hide="item.isEdit">
+                                            {{item.FrequencyChecking}}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <input ng-show="item.isEdit" ng-disabled="isEdit" amount ng-model="item.NoChecking" ng-class="input.$valid?'':'errorthere'" class="form-control acctno" type="text" />
+                                        <span ng-hide="item.isEdit">
+                                            {{item.NoChecking}}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <input ng-show="item.isEdit" ng-disabled="isEdit" amount ng-model="item.MinValue" ng-class="input.$valid?'':'errorthere'" class="form-control acctno" type="text" />
+                                        <span ng-hide="item.isEdit">
+                                            {{item.MinValue}}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <input ng-show="item.isEdit" ng-disabled="isEdit" amount ng-model="item.MaxValue" ng-class="input.$valid?'':'errorthere'" class="form-control acctno" type="text" />
+                                        <span ng-hide="item.isEdit">
+                                            {{item.MaxValue}}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="btn-group" ng-show="item.isEdit">
+                                            <a href="javascript:;" id="btnCancelRow" ng-click="notificationCriteriaItemsCancel(item);" class="btn btn-sm btn-small grey-cascade"><i class="fa fa-times"></i></a>
+                                            <a href="javascript:;" id="btnSaveRow" ng-click="notificationCriteriaItemsSave(item);" class="btn btn-sm btn-small green"><i class="fa fa-check"></i></a>
+                                        </div>
+                                        <div class="btn-group" ng-hide="item.isEdit">
+                                            <a href="javascript:;" id="btnDeleteRow" ng-click="notificationCriteriaItemsDelete(item);" class="btn btn-sm btn-small red"><i class="fa fa-trash-o"></i></a>
+                                            <a href="javascript:;" id="btnEditRow" ng-click="notificationCriteriaItemsEdit(item);" class="btn btn-sm btn-small btn-success"><i class="fa fa-pencil"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="form-section section-custom">
+                            <h4>Notification Recipient</h4>
+                            <div class="right-actions">
+                                <span ng-click="loadNotificationRecipientItemsNew();" class="action tooltips" data-original-title="Add Recipient"><i class="material-icons">add</i></span>
+                            </div>
+                        </div>
+                        <table class="table table-bordered table-striped table-condensed  ng-isolate-scope dataTable no-footer">
+                            <thead class="">
+                                <tr>
+                                    <th>Recipient Name</th>
+                                    <th>Mobile Phone No.</th>
+                                    <th>Email</th>
+                                    <th>Preferred Language</th>
+                                    <th style="min-width:126px;">Notification Channel</th>
+                                    <th style="min-width:76px">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in NotificationRecipientItems">
+                                    <td>
+                                        <input ng-show="item.isEdit" ng-disabled="isEdit" amount ng-model="item.RecipientName" ng-class="input.$valid?'':'errorthere'" class="form-control acctno" type="text" />
+                                        <span ng-hide="item.isEdit">
+                                            {{item.RecipientName}}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <input ng-show="item.isEdit" ng-disabled="isEdit" amount ng-model="item.MobilePhoneNo" ng-class="input.$valid?'':'errorthere'" class="form-control acctno" type="text" />
+                                        <span ng-hide="item.isEdit">
+                                            {{item.MobilePhoneNo}}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <input ng-show="item.isEdit" ng-disabled="isEdit" amount ng-model="item.Email" ng-class="input.$valid?'':'errorthere'" class="form-control acctno" type="text" />
+                                        <span ng-hide="item.isEdit">
+                                            {{item.Email}}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        @*<input ng-show="item.isEdit" ng-disabled="isEdit" amount ng-model="item.PreferredLanguage" ng-class="input.$valid?'':'errorthere'" class="form-control acctno" type="text" />*@
+                                        <select class="form-control" ng-show="item.isEdit" ng-disabled="isEdit" ng-model="item.PreferredLanguage">
+                                            <option></option>
+                                            <option value="English">English</option>
+                                        </select>
+                                        <span ng-hide="item.isEdit">
+                                            {{item.PreferredLanguage}}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        @*<input ng-show="item.isEdit" ng-disabled="isEdit" amount ng-model="item.NotificationChannel" ng-class="input.$valid?'':'errorthere'" class="form-control acctno" type="text" />*@
+                                        <div ng-show="item.isEdit" ng-disabled="isEdit" class="mt-checkbox-inline" ng-model="item.NotificationChannel">
+                                            <label class="mt-checkbox">
+                                                <input type="checkbox" id="inlineCheckbox21" value="option1"> SMS
+                                                <span></span>
+                                            </label>
+                                            <label class="mt-checkbox">
+                                                <input type="checkbox" id="inlineCheckbox22" value="option2"> Email
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                        <span ng-hide="item.isEdit">
+                                            {{item.NotificationChannel}}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="btn-group" ng-show="item.isEdit">
+                                            <a href="javascript:;" id="btnCancelRow" ng-click="notificationRecipientItemsCancel(item);" class="btn btn-sm btn-small grey-cascade"><i class="fa fa-times"></i></a>
+                                            <a href="javascript:;" id="btnSaveRow" ng-click="notificationRecipientItemsSave(item);" class="btn btn-sm btn-small green"><i class="fa fa-check"></i></a>
+                                        </div>
+                                        <div class="btn-group" ng-hide="item.isEdit">
+                                            <a href="javascript:;" id="btnDeleteRow" ng-click="notificationRecipientItemsDelete(item);" class="btn btn-sm btn-small red"><i class="fa fa-trash-o"></i></a>
+                                            <a href="javascript:;" id="btnEditRow" ng-click="notificationRecipientItemsEdit(item);" class="btn btn-sm btn-small btn-success"><i class="fa fa-pencil"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="form-actions right">
+                    <a ng-click="backToMainContent();" class="link quick-link">< Back to list</a>
+                    <div class="main-content">
+                        <button type="button" ng-click="backToMainContent();" class="btn white">Cancel</button>
+                        <button type="button" data-validation-form data-customsubmit="SaveGeneralInfo();" class="btn blue">Save</button>
+                    </div>
+                </div>
+            </form>
+            <script type="text/javascript">
+                $(function () {
+                    App.init(); // init metronic core componets
+                });
+            </script>
+        </div>
+    </div>
+    <!-- END FORM-->
+    <!-- END MAIN CONTENT-->
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('body').removeClass('layout1menu');
+        $('.date-picker').datepicker();
+    });
+    function showStatusHistory() {
+        $('.main-content').hide();
+        $('.stt-history').show();
+    };
+
+    function backToMainContent() {
+        $('.main-content').show();
+        $('.stt-history').hide();
+    }
+</script>

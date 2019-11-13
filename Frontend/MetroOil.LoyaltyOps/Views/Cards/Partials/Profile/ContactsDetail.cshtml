@@ -1,0 +1,190 @@
+﻿<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Cards#/">All Cards</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Cards#/738278">Card Summary</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Contact</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    @*<h1 class="page-title">
+            All Customers
+        </h1>*@
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+    <div class="portlet box blue ">
+        <div class="portlet-title">
+            <div class="caption">Contact</div>
+            <div class="tools">
+                <a ng-click="deleteContact();" href="javascript:;" class="tooltips" title="" data-original-title="Delete Contact"><i class="icon-trash"></i></a>
+            </div>
+        </div>
+        <div class="portlet-body form">
+            <form id="fullApplicationForm" class="horizontal-form form">
+                <div class="form-body">
+                    <!-- BEGIN BASIC INFORMATION -->
+                    <div class="page-bar quick-info">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <span class="tooltips" data-original-title="Name on Card">Alex Tan</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Card No.">738278</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Card Type">Standalone</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Customer Account No.">9894934943</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Company / Individual Name">HSBC Sentul</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Program Type">Postpaid</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Created On">22/12/2017</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END BASIC INFORMATION -->
+                    <div class="main-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="mt-checkbox-list">
+                                        <label class="mt-checkbox mt-checkbox-outline">
+                                            <input type="checkbox"> Main Contact
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Contact Person<span>(required)</span></label>
+                                    <input class="form-control" value="Mohd Rizal" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Position</label>
+                                    <select class="form-control">
+                                        <option>Sales Manager</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Home Phone No.</label>
+                                    <input class="form-control" placeholder="e.g. +60183267856" />
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Work Phone No.</label>
+                                    <input class="form-control" value="+60183267856" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Mobile Phone No.</label>
+                                    <input class="form-control" value="+60183267856" />
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Fax No.</label>
+                                    <input class="form-control" value="+60183267856" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input class="form-control" value="mohn.rizal@hsbc.com" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Created On</label>
+                                    <div class="input-icon right input-medium">
+                                        <i class="material-icons">today</i>
+                                        <input autocomplete="on" disabled class="form-control ng-valid ng-isolate-scope ng-dirty ng-not-empty ng-touched" date_picker="" id="" section="gen" type="text" value="12/03/2016" style="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Created By</label>
+                                    <input class="form-control" disabled value="user01" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions right">
+                    <a ng-click="backToList();" class="link quick-link">< Back to list</a>
+                    <div class="main-content">
+                        <button ng-click="backToList();" type="button" class="btn white">Cancel</button>
+                        <button type="button" data-validation-form data-customsubmit="#" class="btn blue">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/ng-template" id="ConfirmDelete">
+    <div class="ngdialog-message">
+        <div class="modal-header">
+            <h4 class="modal-title">Confirmation</h4>
+        </div>
+        <div class="modal-body">
+            <span>Delete this contact?</span>
+        </div>
+        <div class="modal-form-action">
+            <button ng-click="closeThisDialog(0)" type="button" class="btn white">No</button>
+            <button type="button" class="btn blue">Delete</button>
+        </div>
+    </div>
+</script>
+<script type="text/javascript">
+    $(function () {
+        $('body').removeClass('layout1menu');
+    });
+</script>

@@ -1,0 +1,232 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@model MetroOil.LoyaltyOps.Models.Merchants.Account.MerchantAcctModel
+@{
+    var urlPrefix = System.Configuration.ConfigurationManager.AppSettings["urlPrefix"];
+}
+<div class="page-content">
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="@urlPrefix/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                @*<a href="#/Accounts/{{$root.obj.merchAcctNoHash}}">Account Summary</a>*@
+                <span>Account Summary</span>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Merchant Profile</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <div class="portlet box blue ">
+        <div class="portlet-title">
+            <div class="caption">MERCHANT ACCOUNT/BUSINESS INFO</div>
+        </div>
+        <div class="portlet-body form">
+            <form class="horizontal-form form">
+                <div class="form-body">
+                    <!-- BEGIN BASIC INFORMATION -->
+                    <div class="page-bar quick-info">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <span class="tooltips" data-original-title="Business Name">{{_GeneralInfo.BusnName}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Merchant Account No.">{{_GeneralInfo.AcctNo}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Account Status">{{_GeneralInfo.StatusName}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Created On">{{_GeneralInfo.CreatedDateStr}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END BASIC INFORMATION -->
+                    <div>
+                        <div class="form-section section-custom">
+                            <h4>Merchant Account Info</h4>
+                            <div class="right-actions">
+                                <span ng-click="ShowHistory();" class="action tooltips" data-original-title="View History of Change"><i class="material-icons">history</i></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.AcctNo, null, new { @section = "gen", @readonly = "readonly" })
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Account Status</label>
+                                    <div class="input-group">
+                                        <input class="form-control" ng-model="_Object.StatusName" type="text" readonly>
+                                        @if (Html.SectionIsEnabled("MerchAcctInfoChangeSts"))
+                                        {
+                                            <span class="input-group-btn">
+                                                <button ng-click="modelChangeSts=true;" class="btn btn-success" type="button">
+                                                    Change Status
+                                                </button>
+                                            </span>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.PersonInChargeFullName, null, new { @section = "gen" })
+
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.CreatedByName, null, new { @disabled = "disabled" })
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.CreatedDate, null, new { @date_time = "", @view = "date", @min_view = "date", @auto_close = "true", @format = "YYYY/MM/DD", @section = "gen", @disabled = "disabled" })
+                            </div>
+                        </div>
+
+                        <h4 class="form-section">Merchant Business/ Company Info</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.BusnName, null, new { @section = "gen" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.CoRegName, null, new { @section = "gen" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.CoRegNo, null, new { @section = "gen" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.CoRegDate, null, new { @date_time = "", @view = "date", @min_view = "date", @auto_close = "true", @format = "YYYY/MM/DD", @section = "gen" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgSelectListFor(model => model.Ownership, Model.OwnershipTypes, null, new { @LstName = "OwnershipTypes" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgSelectListFor(model => model.BusnSize, Model.BusnSizes, null, new { @LstName = "BusnSizes" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.TaxId, null, new { @section = "gen" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.AgreementNo, null, new { @section = "gen" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.AgreementDate, null, new { @date_time = "", @view = "date", @min_view = "date", @auto_close = "true", @format = "YYYY/MM/DD", @section = "gen" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions right">
+                    <button ng-click="GoBack();" type="button" class="btn white">Cancel</button>
+                    @if (Html.SectionIsEnabled("MerchAcctInfoSave"))
+                    {
+                        <button type="button" data-validation-form data-customsubmit="SaveInfo();" class="btn blue">Save</button>
+                    }
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- END FORM-->
+    <!-- END MAIN CONTENT-->
+</div>
+
+<div class="modal md-modal fade" role="dialog" app-modal trigger="modelChangeSts" data-keyboard="false" data-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" data-toggle="modal">
+                <h4 class="modal-title">Change Account Status</h4>
+                <button ng-click="modelChangeSts=false;" aria-label="Close" class="ngdialog-close"></button>
+            </div>
+            <div class="modal-body">
+                <span id="ErrorResultChangeSts"></span>
+                <div class="row">
+                    <div class="col-md-6">
+                        @*@Html.CustomNgSelectListFor(model => model.StsNew, Model.AccountStatuses, null, new { @LstName = "AccountStatuses" })*@
+                        <div class="form-group">
+                            <label>New Account Status</label>
+                            <select class="form-control" ng-model="_Object.StsNew">
+                                <option ng-repeat="item in _Selects.AccountStatuses" ng-if="item.Value!=_Object.Sts" value="{{item.Value}}">{{item.Text}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Current Account Status</label>
+                            @Html.CustomNgSelectListFor(model => model.Sts, Model.AccountStatuses, null, new { @emptyWrapper = "", @LstName = "AccountStatuses", @disabled = "disabled" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        @Html.CustomNgSelectListFor(model => model.StsNewReason, Model.StsNewReasons, null, new { @LstName = "StsNewReasons" })
+                    </div>
+                    <div class="col-md-6">
+                        @Html.CustomNgTextAreaFor(model => model.StsNewRemarks)
+                    </div>
+                </div>
+            </div>
+            <div class="modal-form-action">
+                <button ng-click="modelChangeSts=false;" class="btn btn-default btn-cons">Cancel</button>
+                <button type="button" ng-click="SaveAcctSts()" class="btn blue">Save</button>
+                @*<button data-validation-form data-customsubmit="SearchTxn();" class="btn btn-primary btn-cons">Search</button>*@
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal md-modal fade" role="dialog" app-modal trigger="modelShowHistory" data-keyboard="false" data-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" data-toggle="modal">
+                <h4 class="modal-title">HISTORY OF CHANGE</h4>
+                <button ng-click="modelShowHistory=false;" aria-label="Close" class="ngdialog-close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="portlet-body ">
+                    <table dtable options="acctStsHisLst" class="table table-bordered table-striped table-condensed ">
+                        <thead class="">
+                            <tr>
+                                <th>Changed From</th>
+                                <th>Changed To</th>
+                                <th>Status Change Reason</th>
+                                <th>Description</th>
+                                <th>Changed On</th>
+                                <th>Changed By</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/ng/services/httpInterceptors.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('body').removeClass('layout1menu');
+    });
+</script>

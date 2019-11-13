@@ -1,0 +1,136 @@
+﻿@model MetroOil.LoyaltyOps.Models.LoginModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<!--
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.7
+Version: 4.7.1
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <title>User Login</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="" name="author" />
+    @Styles.Render("~/Content/Styles/css")
+    @Styles.Render("~/Content/Styles/global")
+    @Styles.Render("~/Content/Styles/login")
+    <link rel="shortcut icon" href="~/favicon.png" />
+</head>
+<!-- END HEAD -->
+<body class=" login">
+    <input type="hidden" id="hdUrlPrefix" value="@System.Configuration.ConfigurationManager.AppSettings["urlPrefix"]" />
+    <div class="row">
+        <div class="col-lg-6 bg-side" style="background-image:url(@Url.Content("~/assets/layouts/layout/img/login-bg.jpg"))">
+            <div class="sub-title">Welcome to</div>
+            <div class="title">Loyalty Ops</div>
+            <div class="copyright">
+                <img src="@Url.Content("~/assets/layouts/layout/img/cardtrendlogo.png")" alt="">
+                <p>Cardtrend Copyright © 2018</p>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <!-- BEGIN LOGIN -->
+            <div class="content">
+                <div class="alert alert-danger" style="display: none;">
+                    <a class="alert-btn" data-close="alert" onclick="$(this).closest('div').hide();"><i class="fa fa-times"></i></a>
+                    <span id="e-message"></span>
+                </div>
+                <div class="alert alert-success" style="display: none;">
+                    <a class="alert-btn" data-close="alert" onclick="$(this).closest('div').hide();"><i class="fa fa-check"></i></a>
+                    <span id="s-message"></span>
+                </div>
+                <div id="formLogin">
+                    <!-- BEGIN LOGIN FORM -->
+                    <form class="login-form" action="@Url.Action("Login","Auth")" method="post" id="loginFrm">
+                        <div class="form-group form-md-line-input form-md-floating-label">
+                            @Html.TextBoxFor(model => model.LoginID, new { @class = "form-control", placeholder = "Enter Username" })
+                            @Html.ValidationMessageFor(model => model.LoginID)
+                        </div>
+                        <div class="form-group form-md-line-input form-md-floating-label">
+                            @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "Enter Password" })
+                            @Html.ValidationMessageFor(model => model.Password)
+                        </div>
+                        <div class="form-actions">
+                            <div class="pull-left">
+                                <a href="javascript:;" id="btnForgotPassword" class="forget-password">Forgot Password?</a>
+                            </div>
+                        </div>
+                        @Html.HiddenFor(model => model.ReturnUrl)
+                        <div class="form-actions loginbtn">
+                            <button type="submit" id="btnLogin" class="btn btn-sm btn-circle">Login</button>
+                        </div>
+                    </form>
+                    <!-- END LOGIN FORM -->
+                </div>
+                <div id="formRecover" style="display:none">
+                    <!-- BEGIN FORGOT PWD FORM -->
+                    <form action="@Url.Action("ForgotPwd","Auth")" method="post" id="recoverFrm">
+                        <span class="form-title">Forgot Password</span>
+                        <span class="form-subtitle">Enter your email address below. You will receive an email with a verification code to reset your password.</span>
+                        <div class="form-group form-md-line-input form-md-floating-label">
+                            @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control", placeholder = "Enter email address" })
+                            @Html.ValidationMessageFor(model => model.EmailAddress)
+                        </div>
+                        <div class="form-actions recoverbtn">
+                            <a href="javascript:;" id="btnSubmitEmailPassword" class="btn btn-sm btn-circle">Submit</a>
+                            <a href="javascript:;" class="btn btn-sm black btn-circle btn-outline btnBackToLogin">Back</a>
+                        </div>
+                    </form>
+                    <!-- END FORGOT PWD FORM -->
+                </div>
+                <div id="formSetpassword" style="display:none">
+                    <!-- BEGIN SET NEW PWD FORM -->
+                    <form action="@Url.Action("ForgotPwd","Auth")" method="post" id="resetpwdFrm">
+                        <span class="form-title">Reset Password</span>
+                        <span class="form-subtitle">An email with verification code has been sent to your email address. Enter the verification code below and create a new password.</span>
+                        <div class="form-group form-md-line-input form-md-floating-label">
+                            @Html.TextBoxFor(model => model.VerificationCode, new { @class = "form-control", placeholder = "Enter verification code" })
+                            @Html.ValidationMessageFor(model => model.VerificationCode)
+                        </div>
+                        <div class="form-group form-md-line-input form-md-floating-label">
+                            @Html.PasswordFor(model => model.NewPassword, new { @class = "form-control", placeholder = "Enter new password" })
+                            @Html.ValidationMessageFor(model => model.NewPassword)
+                        </div>
+                        <div class="form-group form-md-line-input form-md-floating-label">
+                            @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm new password" })
+                            @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                        </div>
+                        <div class="form-actions resetpwrbtn">
+                            <a data-validation-form id="btnResetNow" href="javascript:;" class="btn btn-sm btn-circle">Confirm</a>
+                            <a href="javascript:;" class="btn btn-sm black btn-circle btn-outline btnBackToLogin">Cancel</a>
+                        </div>
+                    </form>
+                    <!-- END SET NEW PWD FORM -->
+                </div>
+            </div>
+            <!-- END LOGIN -->
+        </div>
+    </div>
+
+    <!--[if lt IE 9]>
+    <script src="../assets/global/plugins/respond.min.js"></script>
+    <script src="../assets/global/plugins/excanvas.min.js"></script>
+    <script src="../assets/global/plugins/ie8.fix.min.js"></script>
+    <![endif]-->
+    @Scripts.Render("~/Content/Scripts/core")
+    @Scripts.Render("~/Content/Scripts/global")
+    @Scripts.Render("~/Content/Scripts/login-page")
+</body>
+</html>

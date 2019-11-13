@@ -1,0 +1,31 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Access Denied</title>
+    @Styles.Render("~/Content/Styles/css")
+    @Styles.Render("~/Content/Styles/global")
+    @Styles.Render("~/Content/Styles/error")
+</head>
+<body class="page-500-full-page">
+    <div class="row">
+        <div class="col-md-12 page-500">
+            <div class=" number font-red"> 403 </div>
+            <div class=" details">
+                <h3>Access Denied</h3>
+                <p>
+                    The requested resource is not able to access with your credentiials
+                    <br>
+                </p>
+                <p>
+                    <a href="@Url.Action("Index","Home")" class="btn red btn-outline"> Return home </a>
+                    <br>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

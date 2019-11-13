@@ -1,0 +1,124 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@model MetroOil.LoyaltyOps.Models.Merchants.MerchantUserModel
+@{
+    var urlPrefix = System.Configuration.ConfigurationManager.AppSettings["urlPrefix"];
+}
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="@urlPrefix/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="#/Users">Merchant User Search</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Merchant User Profile</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+
+    <div class="portlet box blue">
+        <div class="portlet-title">
+            <div class="caption">Merchant User Profile</div>
+        </div>
+        <div class="portlet-body form">
+            <form class="horizontal-form form">
+                <div class="form-body">
+                    <h4 class="form-section">User Info</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.CustomNgTextBoxFor(model => model.UserId, null, new { @section = "gen", @readonly = "readonly" })
+                        </div>
+                        <div class="col-md-6">
+                            @Html.CustomNgTextBoxFor(model => model.FullName, null, new { @section = "gen" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.CustomNgSelectListFor(model => model.TitleCd, Model.Titles, null, new { @LstName = "Titles", @section = "gen", @class = "input-medium" })
+                        </div>
+                        <div class="col-md-6">
+                            @*@Html.CustomNgTextBoxFor(model => model.HpNo, null, new { @section = "gen" })*@
+                            <div class="form-group">
+                                <label>Mobile Phone No.</label>
+                                <div class="input-group">
+                                    @Html.CustomNgSelectListFor(model => model.HpCtryCode, Model.HpCtryCodes, null, new { @emptyWrapper = "", @LstName = "HpCtryCodes", @section = "gen", @class = "input-small" })
+                                    @Html.CustomNgTextBoxFor(model => model.HpNo, null, new { @emptyWrapper = "", @section = "gen", @class = "input-small-left" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.CustomNgTextBoxFor(model => model.EmailAddress, null, new { @section = "gen", @placeholder = "e.g. john.smith@gmail.com" })
+                        </div>
+                        <div class="col-md-6">
+                            @Html.CustomNgSelectListFor(model => model.BusnLocationUserRoleCd, Model.BusnLocationUserRoles, null, new { @LstName = "BusnLocationUserRoles", @section = "gen" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.CustomNgSelectListFor(model => model.BusnLocationNo, Model.BusnLocationNos, null, new { @LstName = "BusnLocationNos", @section = "gen" })
+                        </div>
+                        <div class="col-md-6">
+                            @Html.CustomNgSelectListFor(model => model.Sts, Model.Stses, null, new { @LstName = "Stses", @section = "gen" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.CustomNgTextBoxFor(model => model.CreatedDate, null, new { @date_time = "", @view = "date", @min_view = "date", @auto_close = "true", @format = "YYYY/MM/DD", @section = "gen", @disabled = "disabled" })
+                        </div>
+                        <div class="col-md-6">
+                            @Html.CustomNgTextBoxFor(model => model.CreatedByName, null, new { @section = "gen", @readonly = "readonly", @class = "input-medium" })
+                        </div>
+                    </div>
+                    <!--/row-->
+                    <h4 class="form-section">Login Credentials</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.CustomNgTextBoxFor(model => model.LoginID, null, new { @section = "gen", @readonly = "readonly" })
+                        </div>
+                        <div class="col-md-6">
+                            <label>Login Access</label>
+                            @Html.CustomNgCheckBoxFor(model=> model.IsLockedOut)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @if (Html.SectionIsEnabled("MerchUserInfoResetPwd"))
+                            {
+                            <button ng-click="ResetPassword()" class="btn btn-success btn-left" type="button">
+                                Reset Password
+                            </button>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions right">
+                    <button type="button" ng-click="BackToList();" class="btn white">Cancel</button>
+                    @if (Html.SectionIsEnabled("MerchUserInfoSave"))
+                    {
+                        <button type="button" data-validation-form data-customsubmit="SaveInfo()" class="btn blue">Save</button>
+                    }
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('.date-picker').datepicker();
+        $('body').addClass('layout1menu');
+    });
+</script>

@@ -1,0 +1,261 @@
+﻿@using MetroOil.LoyaltyOps.Helpers;
+@using TopMenu = Resources.TopMenu;
+@{
+    string pgCd = ViewBag.PgCd;
+    if (pgCd == null)
+    {
+        pgCd = string.Empty;
+    }
+    var urlPrefix = System.Configuration.ConfigurationManager.AppSettings["urlPrefix"];
+}
+<div class="page-header navbar navbar-fixed-top">
+    <!-- BEGIN HEADER INNER -->
+    <div class="page-header-inner ">
+        <!-- BEGIN LOGO -->
+        <div class="page-logo">
+            <a href="~/" target="_self">
+                <img src="@Url.Content("~/assets/layouts/layout/img/cardtrendlogo2.png")" alt="logo" class="logo-default" />
+            </a>
+            <div class="menu-toggler sidebar-toggler">
+                @*<i class="fa fa-bars" aria-hidden="true"></i>*@
+            </div>
+        </div>
+        <!-- END LOGO -->
+        <!-- BEGIN MEGA MENU -->
+        <!-- DOC: Remove "hor-menu-light" class to have a horizontal menu with theme background instead of white background -->
+        <!-- DOC: This is desktop version of the horizontal menu. The mobile version is defined(duplicated) in the responsive menu below along with sidebar menu. So the horizontal menu has 2 seperate versions -->
+        <div class="hor-menu hidden-sm hidden-xs" id="topMenu">
+            <ul class="nav navbar-nav" routing-top-menu>
+                <!-- DOC: Remove data-hover="megamenu-dropdown" and data-close-others="true" attributes below to disable the horizontal opening on mouse hover -->
+                @if (Html.SectionIsEnabled("Members"))
+                {
+                    <li class="classic-menu-dropdown" aria-haspopup="true">
+                        <a data-link="Customers">
+                            @TopMenu.Members
+                        </a>
+                        <ul class="dropdown-menu pull-left">
+                            @if (Html.SectionIsEnabled("MemSearch"))
+                            {
+                                <li>
+                                    <a target="_top" href="@(urlPrefix +"/Members#/")">@TopMenu.MemberSearch</a>
+                                </li>
+                            }
+                            @*<li>
+                                <a href="/Cards#/">@TopMenu.CrdSearch</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">@TopMenu.CusCollection</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">@TopMenu.CusFraud</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">@TopMenu.CusPinMailer</a>
+                            </li>*@
+                        </ul>
+                    </li>
+                }
+                @if (Html.SectionIsEnabled("Merchants"))
+                {
+                    <li class="classic-menu-dropdown" aria-haspopup="true" data-hover="megamenu-dropdown" data-close-others="true">
+                        <a data-link="Merchants">
+                            @TopMenu.MerMerchant
+                        </a>
+                        <ul class="dropdown-menu pull-left">
+                            @if (Html.SectionIsEnabled("MerchAccts"))
+                            {
+                                <li>
+                                    <a target="_top" href="@(urlPrefix +"/Merchants#/Accounts")">Merchant Account Search</a>
+                                </li>
+                            }
+                            @if (Html.SectionIsEnabled("BusnLotSearch"))
+                            {
+                                <li>
+                                    <a target="_top" href="@(urlPrefix +"/BusnLocations#/")">Business Location Search</a>
+                                </li>
+                            }
+                            @if (Html.SectionIsEnabled("MerchUsers"))
+                            {
+                                <li>
+                                    <a target="_top" href="@(urlPrefix +"/Merchants#/Users")">Merchant User Search</a>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                }
+                @*<li class="classic-menu-dropdown" aria-haspopup="true" data-hover="megamenu-dropdown" data-close-others="true">
+                    <a data-link="Transactions">
+                        @TopMenu.Transactions
+                    </a>
+                    <ul class="dropdown-menu pull-left">
+                        <li>
+                            <a href="javascript:;">@TopMenu.CusPayment</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">@TopMenu.CusAdjustment</a>
+                        </li>
+                        <li>
+                            <a target="_top" href="#">Merchant Adjustment</a>
+                        </li>
+                        <li>
+                            <a target="_top" href="#">Merchant Reimbursement</a>
+                        </li>
+                        <li>
+                            <a target="_top" href="#">Manual Transactions</a>
+                        </li>
+                    </ul>
+                </li>*@
+                @if (Html.SectionIsEnabled("Reports"))
+                {
+                    <li class="classic-menu-dropdown" aria-haspopup="true">
+                        <a href="javascript:;" data-hover="megamenu-dropdown" data-close-others="true">
+                            @TopMenu.RptReports
+                        </a>
+                        <ul class="dropdown-menu pull-left">
+                            @if (Html.SectionIsEnabled("RptViewer"))
+                            {
+                                <li>
+                                    <a href="@(urlPrefix +"/Reports#/ReportViewer")">Report Viewer</a>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                }
+                @*<li class="classic-menu-dropdown" aria-haspopup="true">
+                    <a href="javascript:;" data-hover="megamenu-dropdown" data-close-others="true">
+                        @TopMenu.SptSupport
+                    </a>
+                </li>*@
+                @if (Html.SectionIsEnabled("Admin"))
+                {
+                    <li class="classic-menu-dropdown" aria-haspopup="true">
+                        <a href="javascript:;" data-hover="megamenu-dropdown" data-close-others="true">
+                            @TopMenu.AdAdmin
+                        </a>
+                        <ul class="dropdown-menu pull-left">
+                            @if (Html.SectionIsEnabled("AdSysUsers"))
+                            {
+                                <li>
+                                    <a href="@(urlPrefix +"/Admin#/SysUsers")">System Users</a>
+                                </li>
+                            }
+                            @if (Html.SectionIsEnabled("AdUserRoleAccLst"))
+                            {
+                                <li>
+                                    <a href="@(urlPrefix + "/Admin#/UserAccessManagement")">User Role Access</a>
+                                </li>
+                            }
+                            @if (Html.SectionIsEnabled("AdRwdItms"))
+                            {
+                                <li>
+                                    <a href="@(urlPrefix + "/Admin#/AdRwdItms")">Reward Items</a>
+                                </li>
+                            }
+                            @if (Html.SectionIsEnabled("AdQRCodeCards"))
+                            {
+                                <li>
+                                    <a href="@(urlPrefix + "/Admin#/QRCodeCards")">QR Code Cards</a>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                }
+            </ul>
+        </div>
+        <!-- END MEGA MENU -->
+        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+            @*<i class="fa fa-bars" aria-hidden="true"></i>*@
+        </a>
+        <!-- END RESPONSIVE MENU TOGGLER -->
+        <!-- BEGIN TOP NAVIGATION MENU -->
+        <div class="top-menu">
+            <ul class="nav navbar-nav pull-right">
+                <!-- BEGIN USER LOGIN DROPDOWN -->
+                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                <li class="dropdown dropdown-user">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        <i class="fa fa-user-circle" aria-hidden="true"></i>
+                        <span class="username username-hide-on-mobile"> @Helper.GetClaimsInfo("userid") </span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-default">
+                        @*<li>
+                            <a href="#">
+                                <i class="icon-user"></i> My Profile
+                            </a>
+                        </li>*@
+                        @*<li>
+                            <a onclick="$('#pwCngModal').modal('show');">
+                                <i class="icon-lock"></i> Change Password
+                            </a>
+                        </li>*@
+                        <li>
+                            <a onclick="$('#formLgoff').submit();">
+                                <i class="icon-key"></i> Log Out
+                            </a>
+                            <form method="post" id="formLgoff" action="@Url.Action("LogOff","Auth")">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" />
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+                <!-- END USER LOGIN DROPDOWN -->
+            </ul>
+        </div>
+        <!-- END TOP NAVIGATION MENU -->
+    </div>
+    <!-- END HEADER INNER -->
+</div>
+<div class="modal md-modal md-effect-1" data-keyboard="true" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel" tabindex="-1" id="pwCngModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" data-toggle="modal">
+                <h4 class="modal-title">Change Password</h4>
+                <button ng-click="modalOpen=false;" data-dismiss="modal" aria-label="Dismiss" class="ngdialog-close"></button>
+                @*<button type="button" ng-click="modalOpen=false;" class="close" data-dismiss="modal" aria-hidden="true">X</button>*@
+            </div>
+            <div class="modal-body">
+                <form id="frmUpdPw">
+
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <div class="form-group">
+                                <label for="OldPassword">Current Password</label>
+                                <input type="password" name="OldPassword" id="OldPassword" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Password">New Password</label>
+                                <input type="password" name="Password" id="Password" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="ConfirmPassword">Re-type New Password</label>
+                                <input type="password" name="ConfirmPassword" id="ConfirmPassword" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="lock-border">
+                                <i class="material-icons">lock</i>
+                            </div>
+                            <div class="pw-condition">
+                                <p>Password must contain:</p>
+                                <ul>
+                                    <li><span>At least 8 characters</span></li>
+                                    <li><span>At least 1 lower case letter (a-z)</span></li>
+                                    <li><span>At least 1 UPPER CASE letter (A-Z)</span></li>
+                                    <li><span>At least 1 number (0-9)</span></li>
+                                    <li><span>At least 1 special character (~!@@#$%^&*)</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-form-action">
+                <button ng-click="modalOpen=false;" data-dismiss="modal" aria-label="Dismiss" type="button" class="btn white">Cancel</button>
+                <button type="button" class="btn blue">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

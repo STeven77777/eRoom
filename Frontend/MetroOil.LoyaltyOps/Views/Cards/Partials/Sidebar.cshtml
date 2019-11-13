@@ -1,0 +1,112 @@
+﻿@using AcctLeftMenu = Resources.AccountLeftMenu
+@{
+    string pgCd = ViewBag.PgCd;
+    if (pgCd == null)
+    {
+        pgCd = string.Empty;
+    }
+}
+<li class="heading">
+    <h3 class="uppercase">INFO</h3>
+</li>
+<li class="nav-item  no-submenu start ">
+    <a href="/Cards#/738278" class="nav-link nav-toggle">
+        <i class="material-icons">assessment</i>
+        <span class="title">Card Summary</span>
+    </a>
+</li>
+<li class="nav-item start ">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="material-icons">account_box</i>
+        <span class="title">Card Profile</span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+        <li class="nav-item">
+            <a target="_top" href="/Cards#/738278/CardInfo" class="nav-link ">
+                <span class="title">Card Info</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a target="_top" href="/Cards#/738278/Contact" class="nav-link ">
+                <span class="title">@AcctLeftMenu.CusContact</span>
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a target="_top" href="/Cards#/738278/Address" class="nav-link ">
+                <span class="title">@AcctLeftMenu.CusAddress</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="nav-item  ">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="material-icons">account_balance</i>
+        <span class="title">@AcctLeftMenu.FinFinancialDetails</span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+        <li class="nav-item ">
+            <a target="_top" href="/Cards#/738278/FinancialPosition" class="nav-link ">
+                <span class="title">Financial Position</span>
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a target="_top" href="#" class="nav-link ">
+                <span class="title">Fees & Charges</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="heading">
+    <h3 class="uppercase">CONTROLS</h3>
+</li>
+<li class="nav-item ">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="material-icons">monetization_on</i>
+        <span class="title">@AcctLeftMenu.PrdPricingDetails</span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+        <li class="nav-item  ">
+            <a target="_top" href="/Cards#/738278/ProductPrice" class="nav-link ">
+                <span class="title">Product Price</span>
+            </a>
+        </li>
+        <li class="nav-item  ">
+            <a target="_top" href="/Cards#/738278/DiscountRebate" class="nav-link ">
+                <span class="title">Discount &amp; Rebate Plan</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="nav-item  ">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="material-icons">security</i>
+        <span class="title">@AcctLeftMenu.UsUsageControl</span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+        <li class="nav-item  ">
+            <a target="_top" href="/Cards#/738278/UsageControl/ProductAcceptance" class="nav-link ">
+                <span class="title">Product Acceptance</span>
+            </a>
+        </li>
+        <li class="nav-item  ">
+            <a target="_top" href="/Cards#/738278/UsageControl/VelocityLimit" class="nav-link ">
+                <span class="title">Velocity Limit</span>
+            </a>
+        </li>
+        <li class="nav-item  ">
+            <a target="_top" href="/Cards#/738278/UsageControl/LocationAcceptance" class="nav-link ">
+                <span class="title">Location Acceptance</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="nav-item no-submenu">
+    <a target="_top" href="/Cards#/738278/PINTries" class="nav-link nav-toggle">
+        <i class="material-icons">fiber_pin</i>
+        <span class="title">PIN Tries</span>
+    </a>
+</li>

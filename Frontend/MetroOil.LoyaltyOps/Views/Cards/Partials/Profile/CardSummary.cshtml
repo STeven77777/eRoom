@@ -1,0 +1,107 @@
+﻿<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Cards#/">All Cards</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Card Summary</span>
+            </li>
+        </ul>
+        @*<div class="page-toolbar">
+            <div class="actions">
+                
+            </div>
+        </div>*@
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <span class="page-title">
+        Card Summary
+    </span>
+    <!-- BEGIN BASIC INFORMATION -->
+    <div class="page-bar quick-info">
+        <ul class="page-breadcrumb">
+            <li>
+                <span class="tooltips" data-original-title="Name on Card">Alex Tan</span>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <span class="tooltips" data-original-title="Card No.">738278</span>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <span class="tooltips" data-original-title="Card Type">Standalone</span>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <span class="tooltips" data-original-title="Customer Account No.">9894934943</span>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <span class="tooltips" data-original-title="Company / Individual Name">HSBC Sentul</span>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <span class="tooltips" data-original-title="Program Type">Postpaid</span>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <span class="tooltips" data-original-title="Created On">22/12/2017</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END BASIC INFORMATION -->
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <div class="portlet box blue ">
+        <div class="row">
+            <div class="col-md-4 card-graphic">
+                <img class="" src="~/Content/img/cardsummary.png" />
+                <p class="title">Available Balance</p>
+                <p class="value">RM 1,000.00</p>
+            </div>
+            <div class="col-md-8">
+                <div class="card-recent-txn">
+                    <p class="title">Total Spending <span>(as of 25/03/2018)</span></p>
+                    <p class="value">RM 2,000.00</p>
+                    <p class="title">Last Total Spending (statement date: 28/02/2018)</p>
+                    <p class="value">RM 3,000.00</p>
+                    <p class="title">Recent Transactions</p>
+                    <table dtable options="recentTxn" class="table table-bordered table-striped table-condensed  hover">
+                        <thead class="">
+                            <tr>
+                                <th>Txn Date</th>
+                                <th>Txn Amt. (RM)</th>
+                                <th>Txn No.</th>
+                                <th>Location No.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in RecentTxnItems">
+                                <td>{{item.TxnDate}}</td>
+                                <td>{{item.TxnAmt}}</td>
+                                <td>{{item.TxnNo}}</td>
+                                <td>{{item.LocationNo}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT-->
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('body').removeClass('layout1menu');
+    });
+</script>

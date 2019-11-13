@@ -1,0 +1,147 @@
+﻿<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Customers#/">All Customers</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Customers#/9894934943">Account Summary</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>File Manager</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    @*<h1 class="page-title">
+            All Customers
+        </h1>*@
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+    <div class="portlet box blue">
+        <div class="portlet-title">
+            <div class="caption">
+                <span class="caption-subject">File Manager</span>
+            </div>
+            @*<div class="actions">
+                <div class="btn-group">
+                    <button ng-click="showUploadFiles();" type="button" class="btn blue btn-circle btn-outline"><i class="material-icons">file_upload</i>Upload Files</button>
+                </div>
+            </div>*@
+        </div>
+        <div class="portlet-body">
+            <div class="portlet-body ">
+                <!-- BEGIN BASIC INFORMATION -->
+                <div class="page-bar quick-info">
+                    <ul class="page-breadcrumb">
+                        <li>
+                            <span class="tooltips" data-original-title="Company Name on Card">HSBC Sentul</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="tooltips" data-original-title="Customer Account No.">9894934943</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="tooltips" data-original-title="Program Type">Postpaid</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="tooltips" data-original-title="Customer Class">VIP</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="tooltips" data-original-title="Approved On">15/04/2016</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END BASIC INFORMATION -->
+                <ng-dropzone class="dropzone dropzone-file-area" options="dzOptions" callbacks="dzCallbacks" methods="dzMethods"></ng-dropzone>
+                <div id="fileManagerList">
+                    <table dtable options="dtOptions" class="table table-bordered table-striped table-condensed  hover">
+                        <thead class="">
+                            <tr>
+                                <th><input style="margin-left:-8px;" type="checkbox" name="select_all" value="1" id="example-select-all"></th>
+                                <th>#</th>
+                                <th>File Name</th>
+                                <th>File Type</th>
+                                <th>Uploaded By</th>
+                                <th>Uploaded On</th>
+                                <th>File Size</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="form-actions-custom right">
+                    <button id="deleteFilesBtn" disabled type="button" class="btn bg-red1 txt-white"><i class="material-icons">delete_forever</i>Delete</button>
+                    <button id="downloadFilesBtn" disabled type="button" data-validation-form data-customsubmit="" class="btn bg-purple txt-white"><i class="material-icons">file_download</i>Download</button>
+                </div>
+            </div>
+            <!-- END FORM-->
+            <!-- END MAIN CONTENT-->
+        </div>
+    </div>
+
+    @*<script type="text/ng-template" id="dropzonemodel">
+        <div class="ngdialog-message">
+            <div class="modal-header">
+                <h4 class="modal-title">Upload files</h4>
+            </div>
+            <div class="modal-body model-scroll">
+                <div class="portlet-body ">
+                    <ng-dropzone class="dropzone dropzone-file-area" options="dzOptions" callbacks="dzCallbacks" methods="dzMethods"></ng-dropzone>
+                </div>
+            </div>
+        </div>
+    </script>*@
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('body').removeClass('layout1menu');
+
+        $('#example-select-all').on('click', function () {
+            // Get all rows with search applied
+            //var rows = table.rows({ 'search': 'applied' }).nodes();
+            // Check/uncheck checkboxes for all rows in the table
+            //$('input[type="checkbox"]', rows).prop('checked', this.checked);
+            $('input[type="checkbox"]').prop('checked', this.checked);
+        });
+
+        // Handle click on checkbox to set state of "Select all" control
+        $('#fileManagerList').on('change', 'input[type="checkbox"]', function () {
+
+            // If checkbox is not checked
+            if (!this.checked) {
+                var el = $('#example-select-all').get(0);
+                // If "Select all" control is checked and has 'indeterminate' property
+                if (el && el.checked && ('indeterminate' in el)) {
+                    // Set visual state of "Select all" control
+                    // as 'indeterminate'
+                    el.indeterminate = true;
+                }
+            }
+
+            if ($("#fileManagerList tbody input[type='checkbox']:checked").length > 0) {
+                $('#deleteFilesBtn').removeAttr('disabled');
+                $('#downloadFilesBtn').removeAttr('disabled');
+            }
+            else {
+                // none is checked
+                $('#deleteFilesBtn').attr('disabled', 'disabled');
+                $('#downloadFilesBtn').attr('disabled', 'disabled');
+            }
+        });
+    });
+</script>

@@ -1,0 +1,157 @@
+﻿<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Customers#/">All Customers</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>All Cards</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    @*<h1 class="page-title">
+            All Customers
+        </h1>*@
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+    <div class="portlet box blue">
+        <div class="portlet-title">
+            <div class="caption">
+                <span class="caption-subject">All Cards</span>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div class="portlet-body ">
+                <div class="tabbable-line">
+                    <ul class="nav nav-tabs ">
+                        <li class="active">
+                            <a data-target="#tab_pending" data-toggle="tab" aria-expanded="true"> Pending </a>
+                        </li>
+                        <li class="">
+                            <a data-target="#tab_all" data-toggle="tab" aria-expanded="false"> All </a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab_pending">
+                            <ul class="criteria-list">
+                                <li>
+                                    <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" noneselecttext="Card Status: All"></select>
+                                </li>
+                                <li>
+                                    <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" noneselecttext="Card Type: All"></select>
+                                </li>
+                                <li>
+                                    <span class="multiselect-native-select">
+                                        <div class="btn-group">
+                                            <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="Created On: All" aria-expanded="true">
+                                                <span class="multiselect-selected-text">Created On: All</span>
+                                                <b class="caret"></b>
+                                            </button>
+                                            <ul class="multiselect-container dropdown-menu" style="max-height: 250px; overflow-y: auto; overflow-x: hidden;">
+                                                <li>
+                                                    <div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+                                                        <input type="text" class="form-control" name="from">
+                                                        <span class="input-group-addon"> to </span>
+                                                        <input type="text" class="form-control" name="to">
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </span>
+                                </li>
+                                <li>
+                                    <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" noneselecttext="Created By: All"></select>
+                                </li>
+                            </ul>
+                            <table dtable options="pendingCrds" class="table table-bordered table-striped table-condensed ">
+                                <thead class="">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Temporary Card No.</th>
+                                        <th>Account No.</th>
+                                        <th>Name on Card</th>
+                                        <th>Card Type</th>
+                                        <th>Card Status</th>
+                                        <th>Created On</th>
+                                        <th>Created By</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tb-pointer"></tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="tab_all">
+                            <ul class="criteria-list">
+                                <li>
+                                    <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" noneselecttext="Card Status: All"></select>
+                                </li>
+                                <li>
+                                    <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" noneselecttext="Card Type: All"></select>
+                                </li>
+                                <li>
+                                    <span class="multiselect-native-select">
+                                        <div class="btn-group">
+                                            <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="Created On: All" aria-expanded="true">
+                                                <span class="multiselect-selected-text">Created On: All</span>
+                                                <b class="caret"></b>
+                                            </button>
+                                            <ul class="multiselect-container dropdown-menu" style="max-height: 250px; overflow-y: auto; overflow-x: hidden;">
+                                                <li>
+                                                    <div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+                                                        <input type="text" class="form-control" name="from">
+                                                        <span class="input-group-addon"> to </span>
+                                                        <input type="text" class="form-control" name="to">
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </span>
+                                </li>
+                                <li>
+                                    <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" noneselecttext="Created By: All"></select>
+                                </li>
+                            </ul>
+                            <table dtable options="allCrds" class="table table-bordered table-striped table-condensed  hover">
+                                <thead class="">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Card No.</th>
+                                        <th>Temporary Card No.</th>
+                                        <th>Account No.</th>
+                                        <th>Name on Card</th>
+                                        <th>Card Type</th>
+                                        <th>Card Status</th>
+                                        <th>Created On</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tb-pointer"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('body').addClass('layout1menu');
+        $(".mt-multiselect").each(function (index) {
+            $(this).multiselect({
+                nonSelectedText: $(this).attr('noneSelectText'),
+                maxHeight: 250
+            });
+        });
+    });
+</script>

@@ -1,0 +1,209 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@model MetroOil.LoyaltyOps.Models.ContactModel
+@{
+    var urlPrefix = System.Configuration.ConfigurationManager.AppSettings["urlPrefix"];
+}
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="@urlPrefix/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                @*<a href="Members#/{{_GeneralInfo.AcctNoHash}}">Account Summary</a>*@
+                <span>Account Summary</span>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Member Profile</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    @*<h1 class="page-title">
+            All Customers
+        </h1>*@
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+    <div class="portlet box blue ">
+        <div class="portlet-title">
+            <div class="caption">Contact</div>
+            <div class="tools">
+                <a ng-click="ShowHistory();" href="javascript:;" class="tooltips" title="View History of Change"><i class="material-icons">history</i></a>
+            </div>
+        </div>
+        <div class="portlet-body form">
+            <form id="ContactDetailForm" class="horizontal-form form">
+                <div class="form-body">
+                    <!-- BEGIN BASIC INFORMATION -->
+                    <div class="page-bar quick-info">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <span class="tooltips" data-original-title="Member Account No.">{{_GeneralInfo.AcctNo}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Member Full Name">{{_GeneralInfo.FullName}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Account Status">{{_GeneralInfo.StsName}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Member Joining Date">{{_GeneralInfo.JoinDateStr}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END BASIC INFORMATION -->
+                    <div class="main-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Mobile Phone No.<span>(required)</span></label>
+                                    <div class="input-group">
+                                        @Html.CustomNgSelectListFor(model => model.HpCtryCode, Model.HpCtryCodes, null, new { @emptyWrapper = "", @LstName = "HpCtryCodes", @section = "gen", @class = "input-small", @disabled = "disabled" })
+                                        <input readonly class="input-small-left form-control ng-valid ng-touched ng-not-empty ng-dirty ng-valid-parse" data-val="true" data-val-regex="Mobile Phone No. is invalid." data-val-regex-pattern="^([\+]?(?:00)?[0-9]{1,12})$" data-val-required="The Mobile Phone No. field is required." emptywrapper="" id="HpNo" name="HpNo" ng-model="_Object.HpNo" section="gen" type="text" value="" style="">
+                                        @if (Html.SectionIsEnabled("MemContChangePhoneNo"))
+                                        {
+                                            <span class="input-group-btn">
+                                                <button ng-click="modelChangeHp=true;" class="btn btn-success" type="button">
+                                                    Change
+                                                </button>
+                                            </span>
+                                        }
+                                    </div>
+                                    <span class="check-ic"><span class="verified" ng-show="_Object.VerifyHpNo"><i class="material-icons">done</i> This number has been verified.</span><span class="no-verified" ng-hide="_Object.VerifyHpNo"><i class="material-icons">error_outline</i> This number is not verified yet.</span></span>
+                                    <span class="help-block"><span class="field-validation-valid" data-valmsg-for="HpNo" data-valmsg-replace="true"></span></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Work Phone No.</label>
+                                    <div class="input-group">
+                                        @Html.CustomNgSelectListFor(model => model.WorkTelCtryCode, Model.WorkTelCtryCodes, null, new { @emptyWrapper = "", @LstName = "WorkTelCtryCodes", @section = "cont", @class = "input-small" })
+                                        @Html.CustomNgTextBoxFor(model => model.WorkTelNo, null, new { @emptyWrapper = "", @section = "cont", @class = "input-small-left" })
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Fax No.</label>
+                                    <div class="input-group">
+                                        @Html.CustomNgSelectListFor(model => model.FaxCtryCode, Model.FaxCtryCodes, null, new { @emptyWrapper = "", @LstName = "FaxCtryCodes", @section = "cont", @class = "input-small" })
+                                        @Html.CustomNgTextBoxFor(model => model.FaxNo, null, new { @emptyWrapper = "", @section = "cont", @class = "input-small-left" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.EmailAddress, null, new { @section = "cont" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions right">
+                    <div class="main-content">
+                        <button ng-click="GoBack();" type="button" class="btn white">Cancel</button>
+                        @if (Html.SectionIsEnabled("MemContSave"))
+                        {
+                            <button type="button" data-validation-form data-customsubmit="SaveInfo();" class="btn blue">Save</button>
+                        }
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal md-modal fade" role="dialog" app-modal trigger="modelChangeHp" data-keyboard="false" data-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" data-toggle="modal">
+                <h4 class="modal-title">CHANGE OF MOBILE PHONE NO.</h4>
+                <button ng-click="modelChangeHp=false;" aria-label="Close" class="ngdialog-close"></button>
+            </div>
+            <div class="modal-body">
+                <span id="ErrorResultHpNo"></span>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>New Mobile Phone No.</label>
+                            <div class="input-group">
+                                @Html.CustomNgSelectListFor(model => model.HpNewHpCtryCode, Model.HpNewHpCtryCodes, null, new { @emptyWrapper = "", @LstName = "HpNewHpCtryCodes", @section = "cont", @class = "input-small" })
+                                @Html.CustomNgTextBoxFor(model => model.HpNewHpNo, null, new { @emptyWrapper = "", @section = "cont", @class = "input-small-left" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Current Mobile Phone No.</label>
+                            <div class="input-group">
+                                @Html.CustomNgSelectListFor(model => model.HpCtryCode, Model.HpCtryCodes, null, new { @emptyWrapper = "", @LstName = "HpCtryCodes", @section = "cont", @class = "input-small", @disabled = "disabled" })
+                                @*@Html.CustomNgTextBoxFor(model => model.HpNo, null, new { @emptyWrapper = "", @section = "cont", @class = "input-small-left", @disabled="disabled" })*@
+                                <input type="text" ng-model="_Object.HpNo" class="form-control input-small-left" disabled />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        @Html.CustomNgTextAreaFor(model => model.HpNewRemarks)
+                        @*<div class="form-group">
+                                <label>Remarks</label>
+                                <textarea ng-model="ngDialogData.Descp" class="form-control" />
+                            </div>*@
+                    </div>
+                </div>
+            </div>
+            <div class="modal-form-action">
+                <button ng-click="modelChangeHp=false;" class="btn btn-default btn-cons">Cancel</button>
+                <button type="button" ng-click="ChangeHpNo()" class="btn blue">Save</button>
+                @*<button data-validation-form data-customsubmit="SearchTxn();" class="btn btn-primary btn-cons">Search</button>*@
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal md-modal fade" role="dialog" app-modal trigger="modelShowHistory" data-keyboard="false" data-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" data-toggle="modal">
+                <h4 class="modal-title">HISTORY OF CHANGE</h4>
+                <button ng-click="modelShowHistory=false;" aria-label="Close" class="ngdialog-close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="portlet-body ">
+                    <table dtable options="contactChangeHist" class="table table-bordered table-striped table-condensed ">
+                        <thead class="">
+                            <tr>
+                                <th>Field</th>
+                                <th>Changed From</th>
+                                <th>Changed To</th>
+                                <th>Remarks</th>
+                                <th>Changed On</th>
+                                <th>Changed By</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('body').removeClass('layout1menu');
+    });
+</script>

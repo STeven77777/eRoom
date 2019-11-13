@@ -1,0 +1,503 @@
+﻿<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Customers#/">All Customers</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Customers#/9894934943">Account Summary</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="#">Transactions</a>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    @*<h1 class="page-title">
+            All Customers
+        </h1>*@
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+    <span class="page-title">
+        Transactions
+    </span>
+    <div class="portlet-body">
+        <div class="portlet-body ">
+            <div class="tabbable-line">
+                <ul class="nav nav-tabs ">
+                    <li class="active">
+                        <a data-target="#tab_1" data-toggle="tab" aria-expanded="true"> Unposted </a>
+                    </li>
+                    <li class="">
+                        <a data-target="#tab_2" data-toggle="tab" aria-expanded="false"> Posted </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1">
+                        <!-- BEGIN BASIC INFORMATION -->
+                        <div class="page-bar quick-info">
+                            <ul class="page-breadcrumb">
+                                <li>
+                                    <span class="tooltips" data-original-title="Company Name on Card">HSBC Sentul</span>
+                                    <i class="fa fa-circle"></i>
+                                </li>
+                                <li>
+                                    <span class="tooltips" data-original-title="Customer Account No.">9894934943</span>
+                                    <i class="fa fa-circle"></i>
+                                </li>
+                                <li>
+                                    <span class="tooltips" data-original-title="Program Type">Postpaid</span>
+                                    <i class="fa fa-circle"></i>
+                                </li>
+                                <li>
+                                    <span class="tooltips" data-original-title="Customer Class">VIP</span>
+                                    <i class="fa fa-circle"></i>
+                                </li>
+                                <li>
+                                    <span class="tooltips" data-original-title="Approved On">15/04/2016</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- END BASIC INFORMATION -->
+                        <div class="horizontal-form form custom-panel">
+                            <div class="form-body">
+                                <div class="head-custom">
+                                    @*<div class="form-section section-custom">
+                                        <div class="right-actions">
+                                            <span ng-click="" class="action tooltips" data-original-title="View History"><i class="material-icons">history</i></span>
+                                        </div>
+                                    </div>*@
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Card No.</label>
+                                                <input type="text" class="form-control" placeholder="Input a card number"/>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Transaction Code</label>
+                                                <select class="form-control"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Transaction No.</label>
+                                                <input type="text" class="form-control" placeholder="Input a transaction number" />
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Transaction Category</label>
+                                                <select class="form-control"></select>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <div class="row">
+                                        @*<div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Transaction Amount</label>
+                                                <div class="input-daterange input-group ng-isolate-scope"><input placeholder="Min." class="form-control ng-valid ng-dirty ng-valid-parse ng-touched ng-not-empty" type="text" value="" style=""> <span class="input-group-addon">to</span><input placeholder="Max." class="form-control ng-valid ng-dirty ng-valid-parse ng-touched ng-not-empty" type="text" value="" style=""></div>
+                                            </div>
+                                        </div>*@
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Transaction Date &amp; Time</label>
+                                                <div class="input-daterange input-group ng-isolate-scope"><input datetime-picker class="form-control ng-valid ng-dirty ng-valid-parse ng-touched ng-not-empty" type="text" value="" style=""> <span class="input-group-addon">to</span><input datetime-picker class="form-control ng-valid ng-dirty ng-valid-parse ng-touched ng-not-empty" type="text" value="" style=""></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions no-style right">
+                                <div class="main-content right">
+                                    <button type="button" data-validation-form data-customsubmit="SaveGeneralInfo();" class="btn txt-white bg-blue-light1">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="horizontal-form form custom-panel-1">
+                            <div class=" form-body">
+                                <table id="txnLst" dtable options="txnLst" class="table table-bordered table-striped table-condensed  hover">
+                                    <thead class="">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Txn. No.</th>
+                                            <th>Card No.</th>
+                                            <th>Txn. Type</th>
+                                            <th>Txn. Category</th>
+                                            <th>Txn. Date</th>
+                                            <th>Txn. Amt.</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="tb-pointer"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab_2">
+                        <!-- BEGIN BASIC INFORMATION -->
+                        <div class="page-bar quick-info">
+                            <ul class="page-breadcrumb">
+                                <li>
+                                    <span class="tooltips" data-original-title="Company Name on Card">HSBC Sentul</span>
+                                    <i class="fa fa-circle"></i>
+                                </li>
+                                <li>
+                                    <span class="tooltips" data-original-title="Customer Account No.">9894934943</span>
+                                    <i class="fa fa-circle"></i>
+                                </li>
+                                <li>
+                                    <span class="tooltips" data-original-title="Program Type">Postpaid</span>
+                                    <i class="fa fa-circle"></i>
+                                </li>
+                                <li>
+                                    <span class="tooltips" data-original-title="Customer Class">VIP</span>
+                                    <i class="fa fa-circle"></i>
+                                </li>
+                                <li>
+                                    <span class="tooltips" data-original-title="Approved On">15/04/2016</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- END BASIC INFORMATION -->
+                        <div class="horizontal-form form custom-panel">
+                            <div class="form-body">
+                                <div class="head-custom">
+                                    @*<div class="form-section section-custom">
+                        <div class="right-actions">
+                            <span ng-click="" class="action tooltips" data-original-title="View History"><i class="material-icons">history</i></span>
+                        </div>
+                    </div>*@
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Card No.</label>
+                                                <input type="text" class="form-control" placeholder="Input a card number" />
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Transaction Code</label>
+                                                <select class="form-control"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Transaction No.</label>
+                                                <input type="text" class="form-control" placeholder="Input a transaction number" />
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Transaction Category</label>
+                                                <select class="form-control"></select>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <div class="row">
+                                        @*<div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Transaction Amount</label>
+                                                <div class="input-daterange input-group ng-isolate-scope"><input placeholder="Min." class="form-control ng-valid ng-dirty ng-valid-parse ng-touched ng-not-empty" type="text" value="" style=""> <span class="input-group-addon">to</span><input placeholder="Max." class="form-control ng-valid ng-dirty ng-valid-parse ng-touched ng-not-empty" type="text" value="" style=""></div>
+                                            </div>
+                                        </div>*@
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Transaction Date &amp; Time</label>
+                                                <div class="input-daterange input-group ng-isolate-scope"><input datetime-picker class="form-control ng-valid ng-dirty ng-valid-parse ng-touched ng-not-empty" type="text" value="" style=""> <span class="input-group-addon">to</span><input datetime-picker class="form-control ng-valid ng-dirty ng-valid-parse ng-touched ng-not-empty" type="text" value="" style=""></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions no-style right">
+                                <div class="main-content right">
+                                    <button type="button" data-validation-form data-customsubmit="SaveGeneralInfo();" class="btn txt-white bg-blue-light1">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="horizontal-form form custom-panel-1">
+                            <div class=" form-body">
+                                <table id="txnPstedLst" dtable options="txnPstedLst" class="table table-bordered table-striped table-condensed  hover">
+                                    <thead class="">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Txn. No.</th>
+                                            <th>Card No.</th>
+                                            <th>Txn. Type</th>
+                                            <th>Txn. Category</th>
+                                            <th>Txn. Date</th>
+                                            <th>Txn. Amt.</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="tb-pointer"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END FORM-->
+        <!-- END MAIN CONTENT-->
+    </div>
+</div>
+<a id="TxnDetailTarget" class="help-dialog" data-toggle="modal" data-target="#TxnDetail" style="display:none"></a>
+<div id="TxnDetail" class="modal" tabindex="-1" data-width="80%">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h4 class="modal-title">Transaction Details</h4>
+    </div>
+    <div class="modal-body">
+        <div class="portlet-body ">
+            <!-- BEGIN BASIC INFORMATION -->
+            <div class="page-bar quick-info">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="bg-green status-block"></i>
+                        <span>HSBC Sentul</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>9894934943</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>Postpaid</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>VIP</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>02/12/2016</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="panel-group accordion" id="accordion3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" data-target="#collapse_3_1" aria-expanded="false"> Card Info </a>
+                        </h4>
+                    </div>
+                    <div id="collapse_3_1" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                        <div class="panel-body">
+                            <div class="row form-group">
+                                <div class="col-md-2">
+                                    <label class="txt-bold">Name on Card</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <span>HSBC Sentul</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-2">
+                                    <label class="txt-bold">Card No.</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <span>708294193940488</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-2">
+                                    <label class="txt-bold">Auth. Card No.</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <span>-</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="txt-bold">Vehicle Reg. No.</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <span>WWS 2134</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" data-target="#collapse_3_2" aria-expanded="false"> Point of Sale Info </a>
+                        </h4>
+                    </div>
+                    <div id="collapse_3_2" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                        <div class="panel-body">
+                            <div class="row form-group">
+                                <div class="col-md-2">
+                                    <label class="txt-bold">Merchant No.</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>349020</span>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="txt-bold">STAN</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>2834040</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-2">
+                                    <label class="txt-bold">Site ID</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>183939</span>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="txt-bold">Approval Code</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>1839348</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-2">
+                                    <label class="txt-bold">Terminal ID</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>839404</span>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="txt-bold">Retrieval Ref. No.</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>938493754</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="txt-bold">Receipt No.</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>112404059595995</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" data-target="#collapse_3_3" aria-expanded="false"> Transaction Info </a>
+                        </h4>
+                    </div>
+                    <div id="collapse_3_3" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                        <div class="panel-body">
+                            <div class="row form-group">
+                                <div class="col-md-2">
+                                    <label class="txt-bold">Txn. No.</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>2023930</span>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="txt-bold">Txn. Date</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>01/05/2017</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-2">
+                                    <label class="txt-bold">Txn. Type</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>Instant Transaction</span>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="txt-bold">Txn. Amt.</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>50.00</span>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-2">
+                                    <label class="txt-bold">Txn. Category</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>Payment</span>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="txt-bold">Posting Date</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>02/05/2017</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label class="txt-bold">Txn. Desc.</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <span></span>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="txt-bold">Status</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>Unbilled</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END BASIC INFORMATION -->
+            <div class="txn-item">
+                <p>Transaction Item</p>
+                <table id="txnItemLst" dtable options="txnItemLst" class="table table-bordered table-striped table-condensed ">
+                    <thead class="">
+                        <tr>
+                            <th>#</th>
+                            <th>Product Code</th>
+                            <th>Product Name</th>
+                            <th>Product Category</th>
+                            <th>Product Type</th>
+                            <th>Pricing Model</th>
+                            <th>Product Quantity</th>
+                            <th>Product Amt.</th>
+                            <th>Tax Rate (%)</th>
+                            <th>Tax Amt.</th>
+                            <th>Tax Code</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('body').removeClass('layout1menu');
+    });
+</script>

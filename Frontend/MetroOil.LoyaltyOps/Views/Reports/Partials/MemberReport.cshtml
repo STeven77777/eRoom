@@ -1,0 +1,52 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@model MetroOil.LoyaltyOps.Models.Merchants.MerchantModel
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a>Reports</a>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+
+    <div class="portlet box blue">
+        <div class="portlet-title">
+            <div class="caption">
+                <span class="caption-subject">Member Report</span>
+            </div>
+        </div>
+        <div class="portlet-body result-search">
+            <table dtable options="memberRpt" class="table table-bordered hover">
+                <thead class="">
+                    <tr>
+                        <th>#</th>
+                        <th>Member Account No.</th>
+                        <th>Full Name</th>
+                        <th>Title</th>
+                        <th>Identity No.</th>
+                        <th>Account Status</th>
+                        <th>Joining Date</th>
+                    </tr>
+                </thead>
+                <tbody class="tb-pointer"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('body').removeClass('layout1menu');
+    });
+</script>

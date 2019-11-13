@@ -1,0 +1,109 @@
+﻿<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Cards#/">All Cards</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Cards#/738278">Card Summary</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Address</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    @*<h1 class="page-title">
+            All Customers
+        </h1>*@
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+    <div class="portlet box blue">
+        <div class="portlet-title">
+            <div class="caption">
+                <span class="caption-subject">Address</span>
+            </div>
+            <div class="tools">
+                <a ng-click="gotoAddressNew();" href="javascript:;" class="tooltips" title="Add Address"><i class="material-icons">add</i></a>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div class="portlet-body ">
+                <!-- BEGIN BASIC INFORMATION -->
+                <div class="page-bar quick-info">
+                    <ul class="page-breadcrumb">
+                        <li>
+                            <span class="tooltips" data-original-title="Name on Card">Alex Tan</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="tooltips" data-original-title="Card No.">738278</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="tooltips" data-original-title="Card Type">Standalone</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="tooltips" data-original-title="Customer Account No.">9894934943</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="tooltips" data-original-title="Company / Individual Name">HSBC Sentul</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="tooltips" data-original-title="Program Type">Postpaid</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="tooltips" data-original-title="Created On">22/12/2017</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END BASIC INFORMATION -->
+                <div>
+                    <table dtable options="dtOptions" class="table table-bordered table-striped table-condensed  hover">
+                        <thead class="">
+                            <tr>
+                                <th>#</th>
+                                <th>Mailing Address</th>
+                                <th>Address Type</th>
+                                <th>Address Line 1</th>
+                                <th>Address Line 2</th>
+                                <th>Address Line 3</th>
+                                <th>Address Line 4</th>
+                                <th>Address Line 5</th>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>Postal Code</th>
+                                <th>Country</th>
+                                <th>Created On</th>
+                                <th>Created By</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tb-pointer"></tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- END FORM-->
+            <!-- END MAIN CONTENT-->
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('body').removeClass('layout1menu');
+        });
+    </script>
+</div>

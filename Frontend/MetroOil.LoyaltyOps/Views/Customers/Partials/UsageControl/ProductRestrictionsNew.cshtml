@@ -1,0 +1,137 @@
+﻿@using CardTrend.FleetOps.Helpers
+@model CardTrend.FleetOps.Models.ProductRestrictionsModel
+
+<div class="page-content">
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Customers#/">All Customers</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Customers#/9894934943">Account Summary</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Usage Control</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <div class="portlet box blue ">
+        <div class="portlet-title">
+            <div class="caption">Product Restrictions</div>
+        </div>
+        <div class="portlet-body form">
+            <form id="fullApplicationForm" class="horizontal-form form">
+                <div class="form-body">
+                    <!-- BEGIN BASIC INFORMATION -->
+                    <div class="page-bar quick-info">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <span class="tooltips" data-original-title="Company Name on Card">HSBC Sentul</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Customer Account No.">9894934943</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Program Type">Postpaid</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Customer Class">VIP</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Approved On">15/04/2016</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END BASIC INFORMATION -->
+                    <div>
+                        @*<h4 class="form-section">Plan Info</h4>*@
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Product Group<span>(required)</span></label>
+                                    <select class="form-control">
+                                        <option>001</option>
+                                        <option>002</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Total Count Limit</label>
+                                    <input type="text" class="form-control" value="" />
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Total Amount Limit</label>
+                                    <input type="text" class="form-control" value="" />
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Total Volume Limit</label>
+                                    <input type="text" class="form-control" value="" />
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Amount Limit Per Transaction</label>
+                                    <input type="text" class="form-control" value="" />
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Volume Limit Per Transaction</label>
+                                    <input type="text" class="form-control" value="" />
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                    </div>
+                </div>
+                <div class="form-actions right">
+                    <a ng-click="backToList();" class="link quick-link">< Back to list</a>
+                    <button type="button" ng-click="backToList();" class="btn white">Cancel</button>
+                    <button type="button" data-validation-form data-customsubmit="" class="btn blue">Save</button>
+                </div>
+            </form>
+            <script type="text/javascript">
+                $(function () {
+                    App.init(); // init metronic core componets
+                });
+            </script>
+        </div>
+    </div>
+    <!-- END FORM-->
+    <!-- END MAIN CONTENT-->
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('body').removeClass('layout1menu');
+        $('.date-picker').datepicker();
+    });
+</script>

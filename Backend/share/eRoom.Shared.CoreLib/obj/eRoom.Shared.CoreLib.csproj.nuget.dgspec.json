@@ -1,0 +1,95 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\Backend\\share\\eRoom.Shared.CoreLib\\eRoom.Shared.CoreLib.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\Backend\\share\\eRoom.Shared.CoreLib\\eRoom.Shared.CoreLib.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\Backend\\share\\eRoom.Shared.CoreLib\\eRoom.Shared.CoreLib.csproj",
+        "projectName": "eRoom.Shared.CoreLib",
+        "projectPath": "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\Backend\\share\\eRoom.Shared.CoreLib\\eRoom.Shared.CoreLib.csproj",
+        "packagesPath": "C:\\Users\\tung.pham\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\Backend\\share\\eRoom.Shared.CoreLib\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\tung.pham\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\SharedLibrary\\eRoom.Shared.Entity\\eRoom.Shared.Entity.csproj": {
+                "projectPath": "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\SharedLibrary\\eRoom.Shared.Entity\\eRoom.Shared.Entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.30, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[4.6.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\SharedLibrary\\eRoom.Shared.Entity\\eRoom.Shared.Entity.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\SharedLibrary\\eRoom.Shared.Entity\\eRoom.Shared.Entity.csproj",
+        "projectName": "eRoom.Shared.Entity",
+        "projectPath": "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\SharedLibrary\\eRoom.Shared.Entity\\eRoom.Shared.Entity.csproj"
+      },
+      "frameworks": {
+        "net46": {}
+      }
+    }
+  }
+}

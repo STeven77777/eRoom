@@ -1,0 +1,118 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@model MetroOil.LoyaltyOps.Models.eRoom.MotorTypeModel
+@{
+    var urlPrefix = System.Configuration.ConfigurationManager.AppSettings["urlPrefix"];
+}
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="@urlPrefix/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Motor Type Search</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+    <div class="row">
+        <div class="col-md-3 search-box">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <span class="caption-subject">Search Options</span>
+                    </div>
+                    <div class="actions">
+                        <div class="btn-group">
+                            <button ng-click="ClearSearch();" type="button" class="btn blue btn-circle btn-outline">Clear</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="panel-group accordion" id="accordion-account">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion-account" data-target="#account-detail" aria-expanded="false"> TÌM THEO SỐ </a>
+                                </h4>
+                            </div>
+                            <div id="account-detail" class="panel-collapse collapse" aria-expanded="false">
+                                <div class="">
+                                    @Html.CustomNgTextBoxFor(model => model.MotorTypeID, null, new { @placeholder = "Nhập số" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-group accordion" id="accordion3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" data-target="#collapse_3_2" aria-expanded="false"> TÌM THEO THÁNG </a>
+                                </h4>
+                            </div>
+                            <div id="collapse_3_2" class="panel-collapse collapse" aria-expanded="false">
+                                <div class="">
+                                    @Html.CustomNgTextBoxFor(model => model.CreateDate, null, new { @date_time = "", @view = "month", @min_view = "month", @auto_close = "true", @format = "MM", @section = "gen" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="portlet-footer">
+                    <button ng-click="OnSearch();" type="button" class="btn blue"><i class="material-icons">search</i> Search</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <span class="caption-subject">Results</span>
+                    </div>
+                </div>
+                <div class="portlet-body result-search">
+                    <table dtable options="dtOptions" class="table table-bordered hover">
+                        <thead class="">
+                            <tr>
+                                <th>#</th>
+                                <th>Mã Loại Xe.</th>
+                                <th>Tên Loại Xe</th>
+                                <th>Ngày Tạo</th>
+                                <th>Người Tạo</th>
+                                <th>Ngày Cập Nhật</th>
+                                <th>Người Cập Nhật</th>
+                                <th>Ghi Chú</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tb-pointer"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            // Remove left menu
+            $('body').addClass('layout1menu');
+
+            $(".mt-multiselect").each(function (index) {
+                $(this).multiselect({
+                    nonSelectedText: $(this).attr('noneSelectText'),
+                    maxHeight: 250
+                });
+            });
+        });
+    </script>
+    <!-- END FORM-->
+    <!-- END MAIN CONTENT-->
+
+</div>

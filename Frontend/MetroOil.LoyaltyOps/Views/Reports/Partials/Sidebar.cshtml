@@ -1,0 +1,38 @@
+﻿@using AcctLeftMenu = Resources.AccountLeftMenu
+@{
+    string pgCd = ViewBag.PgCd;
+    if (pgCd == null)
+    {
+        pgCd = string.Empty;
+    }
+}
+<li class="nav-item no-submenu start ">
+    <a href="#/" class="nav-link nav-toggle">
+        <i class="material-icons">assessment</i>
+        <span class="title">Member Report</span>
+    </a>
+</li>
+@*<li class="nav-item ">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="material-icons">business</i>
+        <span class="title">Merchant Profile</span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+        <li class="nav-item">
+            <a target="_top" href="#" class="nav-link ">
+                <span class="title">Merchant Account / Business Info</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a target="_top" href="/Merchants#/{{$root.obj.merchAcctNoHash}}/Contact" class="nav-link ">
+                <span class="title">@AcctLeftMenu.CusContact</span>
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a target="_top" href="/Merchants#/{{$root.obj.merchAcctNoHash}}/Address" class="nav-link ">
+                <span class="title">@AcctLeftMenu.CusAddress</span>
+            </a>
+        </li>
+    </ul>
+</li>*@

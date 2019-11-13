@@ -1,0 +1,109 @@
+﻿<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Cards#/">All Cards</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Cards#/738278">Card Summary</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Contact</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    @*<h1 class="page-title">
+            All Customers
+        </h1>*@
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+    <div class="portlet box blue">
+        <div class="portlet-title">
+            <div class="caption">
+                <span class="caption-subject">Contact</span>
+            </div>
+            <div class="tools">
+                <a ng-click="gotoContactNew();" href="javascript:;" class="tooltips" title="" data-original-title="Add Contact"><i class="material-icons">add</i></a>
+            </div>
+            @*<div class="actions">
+                <div class="btn-group">
+                    <button ng-click="gotoContactNew();" type="button" class="btn blue btn-circle btn-outline"><i class="fa fa-plus" aria-hidden="true"></i>Add</button>
+                </div>
+            </div>*@
+        </div>
+        <div class="portlet-body">
+            <div class="portlet-body ">
+                <!-- BEGIN BASIC INFORMATION -->
+                <div class="page-bar quick-info">
+                    <ul class="page-breadcrumb">
+                        <li>
+                            <span class="tooltips" data-original-title="Name on Card">Alex Tan</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="tooltips" data-original-title="Card No.">738278</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="tooltips" data-original-title="Card Type">Standalone</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="tooltips" data-original-title="Customer Account No.">9894934943</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="tooltips" data-original-title="Company / Individual Name">HSBC Sentul</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="tooltips" data-original-title="Program Type">Postpaid</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="tooltips" data-original-title="Created On">22/12/2017</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END BASIC INFORMATION -->
+                <div>
+                    <table dtable options="dtOptions" class="table table-bordered table-striped table-condensed  hover">
+                        <thead class="">
+                            <tr>
+                                <th>#</th>
+                                <th>Main Contact</th>
+                                <th>Contact Person</th>
+                                <th>Position</th>
+                                <th>Home Phone No.</th>
+                                <th>Work Phone No.</th>
+                                <th>Mobile Phone No.</th>
+                                <th>Fax No.</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tb-pointer"></tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- END FORM-->
+            <!-- END MAIN CONTENT-->
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('body').removeClass('layout1menu');
+    });
+</script>

@@ -1,0 +1,206 @@
+﻿<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Card Search</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    @*<h1 class="page-title">
+            All Customers
+        </h1>*@
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+    <div class="row">
+        <div class="col-md-3 search-box">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <span class="caption-subject">Search Options</span>
+                    </div>
+                    <div class="actions">
+                        <div class="btn-group">
+                            <button type="button" class="btn blue btn-circle btn-outline">Clear</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="panel-group accordion" id="accordion-card">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion-card" data-target="#card-detail" aria-expanded="false"> CARD </a>
+                                </h4>
+                            </div>
+                            <div id="card-detail" class="panel-collapse collapse" aria-expanded="false">
+                                <div class="">
+                                    <div class="form-group">
+                                        <label>Card No.</label>
+                                        <input class="form-control" placeholder="Input a card number">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Temporary Card No.</label>
+                                        <input class="form-control" placeholder="Input a temporary card number">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Name on Card</label>
+                                        <input class="form-control" placeholder="Input a name on card">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Driver Name</label>
+                                        <input class="form-control" placeholder="Input a driver name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Account No.</label>
+                                        <input class="form-control" placeholder="Input an account number">
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" data-placeholder="Card Type: All" noneselecttext="Card Type: All">
+                                            <option>Prepaid</option>
+                                            <option>Postpaid</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" data-placeholder="Card Media Type: All" noneselecttext="Card Media Type: All">
+                                            <option></option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" data-placeholder="Card Status: All" noneselecttext="Card Status: All">
+                                            <option>Active</option>
+                                            <option>Closed</option>
+                                            <option>Suspended</option>
+                                            <option>Blocked</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-group accordion" id="accordion3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" data-target="#collapse_3_2" aria-expanded="false"> CONTACT </a>
+                                </h4>
+                            </div>
+                            <div id="collapse_3_2" class="panel-collapse collapse" aria-expanded="false">
+                                <div class="">
+                                    <div class="form-group">
+                                        <label>Contact Person</label>
+                                        <input class="form-control" placeholder="Input a contact person's name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Mobile Phone No.</label>
+                                        <input class="form-control" placeholder="Input a mobile phone number">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input class="form-control" placeholder="Input an email address">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-group accordion" id="accordion-address">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion-address" data-target="#address-detail" aria-expanded="false"> ADDRESS </a>
+                                </h4>
+                            </div>
+                            <div id="address-detail" class="panel-collapse collapse" aria-expanded="false">
+                                <div class="">
+                                    <div class="form-group">
+                                        <label>City</label>
+                                        <input class="form-control" placeholder="Input a city name">
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" data-placeholder="State: All" noneselecttext="State: All">
+                                            <option>Melaka</option>
+                                            <option>Negeri Sembilan</option>
+                                            <option>Pahang</option>
+                                            <option>Perak</option>
+                                            <option>Perlis</option>
+                                            <option>Penang</option>
+                                            <option>Sabah</option>
+                                            <option>Sarawak</option>
+                                            <option>Selangor</option>
+                                            <option>Terengganu</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet-footer">
+                    <button ng-click="OnSearch();" type="button" class="btn blue"><i class="material-icons">search</i> Search</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <span class="caption-subject">Results</span>
+                    </div>
+                </div>
+                <div class="portlet-body  result-search">
+                    <div class="search-data">
+                        <table dtable options="customerLst" class="table table-bordered table-striped table-condensed  hover">
+                            <thead class="">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Card No.</th>
+                                    <th>Name on Card</th>
+                                    <th>Card Status</th>
+                                    <th>Card Expiry Date</th>
+                                    <th>Created On</th>
+                                    <th>Created By</th>
+                                </tr>
+                            </thead>
+                            <tbody class="tb-pointer"></tbody>
+                        </table>
+                    </div>
+                    <div class="not-search">
+                        <a class="dashboard-stat dashboard-search">
+                            <i class="material-icons">search</i>
+                        </a>
+                        <h3>Nothing to display here.</h3>
+                        <span>Cards you search for will appear here.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- END FORM-->
+    <!-- END MAIN CONTENT-->
+    @*<script src="~/assets/global/plugins/bootstrap-multiselect/js/bootstrap-multiselect.js"></script>*@
+    <script src="~/assets/pages/scripts/components-bootstrap-multiselect.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            console.log('>>>>>>>>>>>>>> 2')
+        // Remove left menu
+        $('body').addClass('layout1menu');
+
+        //$(".mt-multiselect").each(function (index) {
+        //    $(this).multiselect({
+        //        nonSelectedText: $(this).attr('noneSelectText'),
+        //        maxHeight: 250
+        //    });
+        //});
+    });
+    </script>
+</div>

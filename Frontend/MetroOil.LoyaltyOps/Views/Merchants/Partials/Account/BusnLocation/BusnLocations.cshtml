@@ -1,0 +1,94 @@
+﻿@using MetroOil.LoyaltyOps.Helpers;
+@{
+    var urlPrefix = System.Configuration.ConfigurationManager.AppSettings["urlPrefix"];
+}
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="@urlPrefix/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                @*<a href="#/Accounts/{{$root.obj.merchAcctNoHash}}">Account Summary</a>*@
+                <span>Account Summary</span>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>List of Business Locations</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    @*<h1 class="page-title">
+            All Customers
+        </h1>*@
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+    <div class="portlet box blue">
+        <div class="portlet-title">
+            <div class="caption">
+                <span class="caption-subject">List of Business Locations</span>
+            </div>
+            <div class="tools">
+                @if (Html.SectionIsEnabled("BusnLotNew"))
+                {
+                    <a ng-click="gotoNew();" href="javascript:;" class="tooltips" title="Add Business Location"><i class="material-icons">add</i></a>
+                }
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div class="portlet-body ">
+                <!-- BEGIN BASIC INFORMATION -->
+                <div class="page-bar quick-info">
+                    <ul class="page-breadcrumb">
+                        <li>
+                            <span class="tooltips" data-original-title="Business Name">{{_GeneralInfo.BusnName}}</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="tooltips" data-original-title="Merchant Account No.">{{_GeneralInfo.AcctNo}}</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="tooltips" data-original-title="Account Status">{{_GeneralInfo.StatusName}}</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="tooltips" data-original-title="Created On">{{_GeneralInfo.CreatedDateStr}}</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END BASIC INFORMATION -->
+                <div>
+                    <table dtable options="dtOptions" class="table table-bordered table-striped table-condensed  hover">
+                        <thead class="">
+                            <tr>
+                                <th>#</th>
+                                <th>Business Location No.</th>
+                                <th>Business Location Name</th>
+                                <th>DBA State/Region</th>
+                                <th>Business Location Status</th>
+                                <th>Created On</th>
+                                <th>Created By</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tb-pointer"></tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- END FORM-->
+            <!-- END MAIN CONTENT-->
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('body').removeClass('layout1menu');
+        });
+    </script>
+</div>

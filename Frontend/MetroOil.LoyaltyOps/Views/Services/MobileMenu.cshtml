@@ -1,0 +1,92 @@
+﻿@using TopMenu = Resources.TopMenu;
+<ul class="page-sidebar-menu visible-sm visible-xs  page-header-fixed" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+    <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+    <!-- DOC: This is mobile version of the horizontal menu. The desktop version is defined(duplicated) in the header above -->
+    <li class="nav-item start">
+        <a data-link="Customers" class="nav-link nav-toggle">
+            @TopMenu.CusCustomers
+            <span class="arrow"> </span>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a target="_top" href="#">@TopMenu.CusApplSearch</a>
+            </li>
+            <li>
+                <a target="_top" href="#">@TopMenu.CusCorpSearch</a>
+            </li>
+            <li>
+                <a target="_top" href="/Customers#/">@TopMenu.CusCustomerSearch</a>
+            </li>
+            <li>
+                <a href="/Cards#/">@TopMenu.CrdSearch</a>
+            </li>
+            <li>
+                <a href="javascript:;">@TopMenu.CusCollection</a>
+            </li>
+            <li>
+                <a href="javascript:;">@TopMenu.CusFraud</a>
+            </li>
+            <li>
+                <a href="javascript:;">@TopMenu.CusPinMailer</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item">
+        <a data-link="Merchants" class="nav-link nav-toggle">
+            @TopMenu.MerMerchant
+            <span class="arrow"> </span>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a target="_top" href="/Merchants#/">All Merchants</a>
+            </li>
+            <panel class="leftMenu">
+                @Html.Partial("Sidebar")
+            </panel>
+            <li>
+                <a target="_top" href="/Locations#/">All Locations</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item">
+        <a href="javascript:;" data-link="Transactions" class="nav-link nav-toggle">
+            @TopMenu.Transactions
+            <span class="arrow"> </span>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a href="javascript:;">@TopMenu.CusPayment</a>
+            </li>
+            <li>
+                <a href="javascript:;">@TopMenu.CusAdjustment</a>
+            </li>
+            <li>
+                <a target="_top" href="/Merchants#/">Merchant Adjustment</a>
+            </li>
+            <li>
+                <a target="_top" href="/Merchants#/">Merchant Reimbursement</a>
+            </li>
+            <li>
+                <a target="_top" href="/Merchants#/">Manual Transactions</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item">
+        <a href="javascript:;" class="nav-link nav-toggle">
+            @TopMenu.RptReports
+            @*<span class="arrow"></span>*@
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="javascript:;" class="nav-link nav-toggle">
+            @TopMenu.SptSupport
+            @*<span class="arrow"></span>*@
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="javascript:;" class="nav-link nav-toggle">
+            @TopMenu.AdAdmin
+            @*<span class="arrow"></span>*@
+        </a>
+    </li>
+</ul>

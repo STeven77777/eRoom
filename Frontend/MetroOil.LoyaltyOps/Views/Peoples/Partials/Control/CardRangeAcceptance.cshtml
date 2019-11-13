@@ -1,0 +1,129 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@{
+    var urlPrefix = System.Configuration.ConfigurationManager.AppSettings["urlPrefix"];
+}
+<div class="page-content">
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="@urlPrefix/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                @*<a href="#/{{$root.obj.acctNoHash}}">Account Summary</a>*@
+                <span>Business Location Summary</span>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Card Range Acceptance</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <div class="portlet box blue ">
+        <div class="portlet-title">
+            <div class="caption">Card Range Acceptance</div>
+            <div class="tools">
+                <a ng-click="gotoNew();" href="javascript:;" class="tooltips" title="" data-original-title="Add Card Range Acceptance"><i class="material-icons">add</i></a>
+            </div>
+        </div>
+        <div class="portlet-body form">
+            <form class="horizontal-form form">
+                <div class="form-body">
+                    <!-- BEGIN BASIC INFORMATION -->
+                    <div class="page-bar quick-info">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <span class="tooltips" data-original-title="Business Name">{{_GeneralInfo.BusnName}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Business Location No.">{{_GeneralInfo.BusnLocation}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Business Location Status">{{_GeneralInfo.StatusName}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Merchant Account No.">{{_GeneralInfo.AcctNo}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Last Update Date">{{_GeneralInfo.ModifiedDateStr}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END BASIC INFORMATION -->
+                    <div>
+                        <table class="dataTable table table-bordered table-striped table-condensed ">
+                            <thead class="">
+                                <tr>
+                                    <th>Card Range</th>
+                                    <th>Created On</th>
+                                    <th>Created By</th>
+                                    <th style="width: 150px;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-show="_Object.CardRangeAcceptanceLst.length==0&&IsNewForm==false">
+                                    <td valign="top" colspan="4" class="dataTables_empty">No card range acceptance yet. Click + Add Card Range Acceptance above to add a card range acceptance.</td>
+                                </tr>
+                                <tr ng-show="IsNewForm">
+                                    <td>
+                                        <select class="form-control ng-pristine ng-valid ng-not-empty ng-touched" ng-model="NewCardRangeSelect" ng-options="item.Value as item.Text for item in _Selects.CardRangeSelects" style="">
+                                            <option value="" class=""></option>
+                                        </select>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="dataTables_empty">
+                                        <div class="btn-group">
+                                            <a style="min-width:50px" href="javascript:;" ng-click="IsNewForm=false;" class="btn btn-sm btn-small grey-cascade"><i class="fa fa-times"></i></a>
+                                            <a style="min-width:50px" href="javascript:;" ng-click="AddCardRange();" class="btn btn-sm btn-small green"><i class="fa fa-check"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr ng-repeat="_val in _Object.CardRangeAcceptanceLst">
+                                    <td>{{_val.CardRangeId}}</td>
+                                    <td>{{_val.CreatedDateStr}}</td>
+                                    <td>{{_val.CreatedByName}}</td>
+                                    <td class="dataTables_empty">
+                                        <div class="btn-group">
+                                            <a style="min-width:50px" href="javascript:;" ng-click="ConfirmDeleteCardRange(_val.Ids);" class="btn btn-sm btn-small red"><i class="fa fa-trash-o"></i></a>
+                                            @*<a href="javascript:;" id="btnEditRow" ng-click="valueSettingEdit(item);" class="btn btn-sm btn-small btn-success"><i class="fa fa-pencil"></i></a>*@
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- END FORM-->
+    <!-- END MAIN CONTENT-->
+</div>
+<script type="text/ng-template" id="ConfirmDelete">
+    <div class="ngdialog-message">
+        <div class="modal-header">
+            <h4 class="modal-title">Confirmation</h4>
+        </div>
+        <div class="modal-body">
+            <span>Delete this Card Range Acceptance?</span>
+        </div>
+        <div class="modal-form-action">
+            <button ng-click="closeThisDialog(0)" type="button" class="btn white">No</button>
+            <button ng-click="DeleteCardRange()" type="button" class="btn blue">Delete</button>
+        </div>
+    </div>
+</script>
+<script src="~/ng/services/httpInterceptors.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('body').removeClass('layout1menu');
+    });
+</script>

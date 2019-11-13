@@ -1,0 +1,135 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@model MetroOil.LoyaltyOps.Models.Members.CardModel
+@{
+    var urlPrefix = System.Configuration.ConfigurationManager.AppSettings["urlPrefix"];
+}
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="@urlPrefix/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                @*<a href="#/{{_GeneralInfo.AcctNoHash}}">Account Summary</a>*@
+                <span>Account Summary</span>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Card</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    @*<h1 class="page-title">
+            All Customers
+        </h1>*@
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+    <div class="portlet box blue ">
+        <div class="portlet-title">
+            <div class="caption">Card Info</div>
+        </div>
+        <div class="portlet-body form">
+            <form id="fullApplicationForm" class="horizontal-form form">
+                <div class="form-body">
+                    <!-- BEGIN BASIC INFORMATION -->
+                    <div class="page-bar quick-info">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <span class="tooltips" data-original-title="Member Account No.">{{_GeneralInfo.AcctNo}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Full Name">{{_GeneralInfo.FullName}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Status">{{_GeneralInfo.StsName}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Joining Date">{{_GeneralInfo.JoinDateStr}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END BASIC INFORMATION -->
+                    <div class="main-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.CardNo, null, new { @disabled = "disabled" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.CardLogoName, null, new { @disabled = "disabled" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.PlasticTypeName, null, new { @disabled = "disabled" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.EmbName, null, new { @disabled = "disabled" })
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgDateRangeFor(model => model.StartDate, model => model.ExpiryDate, "Card Validity Period", null, new { @date_time = "", @view = "date", @min_view = "date", @auto_close = "true", @format = "YYYY/MM/DD", @disabled = "disabled" }, new { @date_time = "", @view = "date", @min_view = "date", @auto_close = "true", @format = "YYYY/MM/DD", @disabled = "disabled" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.CardStsName, null, new { @disabled = "disabled" })
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgSelectListFor(model => model.CardType, Model.CardTypes, null, new { @LstName = "CardTypes" }, null)
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgTextAreaFor(model => model.Remark, null, null)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions right">
+                    <div class="main-content">
+                        <button ng-click="CancelInfo();" type="button" class="btn white">Cancel</button>
+                        @if (Html.SectionIsEnabled("MemCrdInfoSave"))
+                        {
+                        <button type="button" ng-click="OpenConfirmation();" class="btn blue">Save</button>
+                        }
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal md-modal fade" role="dialog" app-modal trigger="modelConfirmation" data-keyboard="false" data-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header" data-toggle="modal">
+                <h4 class="modal-title">CONFIRMATION</h4>
+                <button ng-click="modelConfirmation=false;" aria-label="Close" class="ngdialog-close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="portlet-body ">
+                    Change the card type will generate a new Card Number and the current card will be expired. Do you want to proceed?
+                </div>
+            </div>
+            <div class="modal-form-action">
+                <button ng-click="modelConfirmation=false;" class="btn btn-default btn-cons">Cancel</button>
+                <button type="button" ng-click="SaveInfo()" class="btn blue">Proceed</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('body').removeClass('layout1menu');
+    });
+</script>

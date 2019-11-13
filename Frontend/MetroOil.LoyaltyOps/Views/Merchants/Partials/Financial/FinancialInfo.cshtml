@@ -1,0 +1,159 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@model MetroOil.LoyaltyOps.Models.FinancialInfoModel
+
+<div class="page-content">
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Merchants#/">All Merchants</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Merchants#/59854578">Merchant Profile</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Financial Details</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <div class="portlet box blue ">
+        <div class="portlet-title">
+            <div class="caption">Finance / Bank Info</div>
+        </div>
+        <div class="portlet-body form">
+            <form id="fullApplicationForm" class="horizontal-form form">
+                <div class="form-body">
+                    <!-- BEGIN BASIC INFORMATION -->
+                    <div class="page-bar quick-info">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <span class="tooltips" data-original-title="Business Name">Lim Oil & Gas</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Merchant Account No.">59854578</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Merchant Account Status">Active</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Created On">01/05/2016</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END BASIC INFORMATION -->
+                    <div class="main-content">
+                        <h4 class="form-section">Finance Info</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @*@Html.CustomNgTextBoxFor(model => model.TaxRefNo, null, new { @section = "gen" })*@
+                                <div class="form-group">
+                                    <label>Tax Reference No.</label>
+                                    <input class="form-control" value="09329438" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>ERP No.</label>
+                                    <input class="form-control" value="172" />
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Merchant Discount Rate (MDR) (%)</label>
+                                    <input class="form-control" value="" />
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <h4 class="form-section">Bank Info</h4>
+                        <div class="row">
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label>Bank Name</label>
+                                    <select class="form-control">
+                                        <option>HSBC</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label>Bank Branch Code</label>
+                                    <input class="form-control" value="A343348"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label>Bank Account Type</label>
+                                    <select class="form-control">
+                                        <option>Savings Account</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label>Bank Account No.</label>
+                                    <input class="form-control" value="123343"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label>Payee Name</label>
+                                    <input class="form-control" value="Siti Norhara"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions right">
+                    <button type="button" class="btn white">Cancel</button>
+                    <button type="button" data-validation-form data-customsubmit="" class="btn blue">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- END FORM-->
+    <!-- END MAIN CONTENT-->
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('body').removeClass('layout1menu');
+        $('.date-picker').datepicker();
+
+        //$('.sample-card-table').DataTable({
+        //    "scrollY": "200px",
+        //    "scrollCollapse": true,
+        //    "paging": false
+        //});
+        //App.alert({
+        //    place: 'append', // append or prepent in container
+        //    type: 'success', // alert's type
+        //    message: 'You have created an application successfully. Application ID: <b>748389391</b>', // alert's message
+        //    close: true, // make alert closable
+        //    reset: false, // close all previouse alerts first
+        //    focus: false, // auto scroll to the alert after shown
+        //    //closeInSeconds: 5 // auto close after defined seconds
+        //    //icon: 'fa fa-check-circle' // put icon class before the message
+        //});
+    });
+</script>

@@ -1,0 +1,135 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@model MetroOil.LoyaltyOps.Models.ContactModel
+@{
+    var urlPrefix = System.Configuration.ConfigurationManager.AppSettings["urlPrefix"];
+}
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="@urlPrefix/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                @*<a href="#/Accounts/{{$root.obj.merchAcctNoHash}}">Account Summary</a>*@
+                <span>Account Summary</span>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Merchant Profile</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN FORM-->
+
+    <div class="portlet box blue ">
+        <div class="portlet-title">
+            <div class="caption">Contact</div>
+        </div>
+        <div class="portlet-body form">
+            <form id="fullApplicationForm" class="horizontal-form form">
+                <div class="form-body">
+                    <!-- BEGIN BASIC INFORMATION -->
+                    <div class="page-bar quick-info">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <span class="tooltips" data-original-title="Business Name">{{_GeneralInfo.BusnName}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Merchant Account No.">{{_GeneralInfo.AcctNo}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Account Status">{{_GeneralInfo.StatusName}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Created On">{{_GeneralInfo.CreatedDateStr}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END BASIC INFORMATION -->
+                    <div class="main-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgCheckBoxFor(model => model.MainInd, null, new { })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.FullName, null, new { })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgSelectListFor(model => model.Occupation, Model.Occupations, null, new { @LstName = "Occupations" })
+                            </div>
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Home Phone No.</label>
+                                    <div class="input-group">
+                                        @Html.CustomNgSelectListFor(model => model.HomeTelCtryCode, Model.HomeTelCtryCodes, null, new { @emptyWrapper = "", @LstName = "HomeTelCtryCodes", @class = "input-small" })
+                                        @Html.CustomNgTextBoxFor(model => model.HomeTelNo, null, new { @emptyWrapper = "", @class = "input-small-left" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Work Phone No.</label>
+                                    <div class="input-group">
+                                        @Html.CustomNgSelectListFor(model => model.WorkTelCtryCode, Model.WorkTelCtryCodes, null, new { @emptyWrapper = "", @LstName = "WorkTelCtryCodes", @class = "input-small" })
+                                        @Html.CustomNgTextBoxFor(model => model.WorkTelNo, null, new { @emptyWrapper = "", @class = "input-small-left" })
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Mobile Phone No.</label>
+                                    <div class="input-group">
+                                        @Html.CustomNgSelectListFor(model => model.HpCtryCode, Model.HpCtryCodes, null, new { @emptyWrapper = "", @LstName = "HpCtryCodes", @class = "input-small" })
+                                        @Html.CustomNgTextBoxFor(model => model.HpNo, null, new { @emptyWrapper = "", @class = "input-small-left" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Fax No.</label>
+                                    <div class="input-group">
+                                        @Html.CustomNgSelectListFor(model => model.FaxCtryCode, Model.FaxCtryCodes, null, new { @emptyWrapper = "", @LstName = "FaxCtryCodes", @section = "cont", @class = "input-small" })
+                                        @Html.CustomNgTextBoxFor(model => model.FaxNo, null, new { @emptyWrapper = "", @section = "cont", @class = "input-small-left" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.EmailAddress, null, new { })
+                            </div>
+                        </div>
+                        <!--/row-->
+                    </div>
+                </div>
+                <div class="form-actions right">
+                    <a ng-click="backToList();" class="link quick-link">< Back to list</a>
+                    <div class="main-content">
+                        <button ng-click="backToList();" type="button" class="btn white">Cancel</button>
+                        <button type="button" data-validation-form data-customsubmit="SaveInfo()" class="btn blue">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('body').removeClass('layout1menu');
+        });
+    </script>
+</div>

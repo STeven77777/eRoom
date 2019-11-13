@@ -1,0 +1,133 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@model MetroOil.LoyaltyOps.Models.Merchants.MerchantModel
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a>Create Merchant</a>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+
+    <div class="portlet box blue">
+        <div class="portlet-title">
+            <div class="caption">Create Merchant</div>
+        </div>
+        <div class="portlet-body form">
+            <form class="horizontal-form form">
+                <div class="form-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.CustomNgTextBoxFor(model => model.BusnName, null, new { @section = "new" })
+                        </div>
+                        <div class="col-md-6">
+                            @Html.CustomNgTextBoxFor(model => model.CoRegNo, null, new { @section = "new" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.CustomNgTextBoxFor(model => model.CoRegName, null, new { @section = "new" })
+                        </div>
+                        <div class="col-md-6">
+                            @Html.CustomNgTextBoxFor(model => model.TaxId, null, new { @section = "new" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.CustomNgTextBoxFor(model => model.PersonInChargeFirstName, null, new { @section = "new" })
+                        </div>
+                        <div class="col-md-6">
+                            @Html.CustomNgTextBoxFor(model => model.PersonInChargeLastName, null, new { @section = "new" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.CustomNgTextBoxFor(model => model.AgreementNo, null, new { @section = "new" })
+                        </div>
+                        <div class="col-md-6">
+                            @Html.CustomNgTextBoxFor(model => model.AgreementDate, null, new { @date_time = "", @view = "date", @min_view = "date", @auto_close = "true", @format = "YYYY/MM/DD", @section = "new" })
+                        </div>
+                    </div>
+                    <!--/row-->
+                </div>
+                <div class="form-actions right">
+                    <button type="button" ng-click="backToList();" class="btn white">Cancel</button>
+                    <button type="button" data-validation-form data-customsubmit="SaveInfo()" class="btn blue">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <a id="SubmitFormTarget" class="help-dialog" data-toggle="modal" data-target="#SubmitForm" style="display:none"></a>
+    <div id="SubmitForm" class="modal" tabindex="-1" data-width="40%">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h4 class="modal-title">Submit Card</h4>
+        </div>
+        <div class="modal-body">
+            <div class="portlet-body  form">
+                <form action="#" class="horizontal-form form">
+                    <div class="form-body">
+                        <div class="row">
+                            <!--/span-->
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label>Task<span>(required)</span></label>
+                                    <select class="form-control"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!--/span-->
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label>Assign Task To<span>(required)</span></label>
+                                    <select class="form-control"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!--/span-->
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label>Priority<span>(required)</span></label>
+                                    <select class="form-control"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!--/span-->
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Comment</label>
+                                    <textarea class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions right">
+                        <button type="button" class="btn white">Cancel</button>
+                        <button type="button" ng-click="submitApp();" class="btn blue">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('.date-picker').datepicker();
+        $('body').addClass('layout1menu');
+    });
+</script>

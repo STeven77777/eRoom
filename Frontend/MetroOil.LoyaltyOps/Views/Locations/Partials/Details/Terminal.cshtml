@@ -1,0 +1,91 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@using myResources = Resources.CardtrendApplication;
+
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Locations#/">All Locations</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Locations#/56484950"> Location Profile</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Location Details</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+
+    <div class="portlet box blue">
+        <div class="portlet-title">
+            <div class="caption">Terminal</div>
+            <div class="actions">
+                <div class="btn-group">
+                    <button ng-click="gotoNew();" type="button" class="btn blue btn-circle btn-outline"><i class="fa fa-plus" aria-hidden="true"></i>Add</button>
+                </div>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <!-- BEGIN BASIC INFORMATION -->
+            <div class="page-bar quick-info">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <span class="tooltips" data-original-title="Location Name">Station 123 KLCC</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span class="tooltips" data-original-title="Location No.">56484950</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span class="tooltips" data-original-title="Location Status">Active</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span class="tooltips" data-original-title="Merchant Account No.">893273388</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span class="tooltips" data-original-title="Created On">01/05/2017</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- END BASIC INFORMATION -->
+            <table dtable options="tablelst" class="table table-bordered table-striped table-condensed  hover">
+                <thead class="">
+                    <tr>
+                        <th>#</th>
+                        <th>Terminal No.</th>
+                        <th>Terminal Type</th>
+                        <th>Deployed On</th>
+                        <th>Terminal Status</th>
+                        <th>Created On</th>
+                        <th>Created By</th>
+                    </tr>
+                </thead>
+                <tbody class="tb-pointer"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('.date-picker').datepicker();
+        $('body').removeClass('layout1menu');
+    });
+</script>

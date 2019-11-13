@@ -1,0 +1,196 @@
+﻿@{
+    ViewBag.Title = "Corporate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page-container">
+    <!-- BEGIN SIDEBAR -->
+    <div class="page-sidebar-wrapper">
+        <div class="hidden-sm hidden-xs">
+            <!-- BEGIN SIDEBAR MENU -->
+            <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+            <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+            <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+            <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+            <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+            <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+            <div routing-menu class="leftMenu">
+                <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding: 10px 0">
+                    <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+                    <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                    <li class="sidebar-toggler-wrapper hide">
+                        <div class="sidebar-toggler">
+                            <span></span>
+                        </div>
+                    </li>
+                    <!-- END SIDEBAR TOGGLER BUTTON -->
+                    <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+                    @Html.Partial("Partials/Sidebar")
+                </ul>
+            </div>
+            <!-- END SIDEBAR MENU -->
+        </div>
+        <div>
+            <!-- BEGIN RESPONSIVE MENU FOR HORIZONTAL & SIDEBAR MENU -->
+            @Html.Partial("Partials/MobileMenu")
+            <!-- END RESPONSIVE MENU FOR HORIZONTAL & SIDEBAR MENU -->
+        </div>
+
+        <!-- END SIDEBAR -->
+    </div>
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <!-- BEGIN CONTENT BODY -->
+        <ui-view>
+        </ui-view>
+        <!-- END CONTENT BODY -->
+    </div>
+    <!-- END CONTENT -->
+</div>
+
+@*<script type="text/ng-template" id="index.html">
+        <div class="page-content">
+            <!-- BEGIN PAGE HEADER-->
+            <!-- BEGIN PAGE BAR -->
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <a href="~/">Home</a>
+                        <i class="fa fa-caret-right"></i>
+                    </li>
+                    <li>
+                        <a href="#">New Cards</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- END PAGE BAR -->
+            <!-- BEGIN PAGE TITLE-->
+            <!-- END PAGE TITLE-->
+            <!-- END PAGE HEADER-->
+            <!-- BEGIN MAIN CONTENT-->
+            <!-- BEGIN FORM-->
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <span class="caption-subject">All Customers</span>
+                    </div>
+                </div>
+                <div class="portlet-body ">
+                    <ul class="criteria-list">
+                        <li>
+                            <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" noneselecttext="Account Status: All">
+                                <option></option>
+                            </select>
+                        </li>
+                        <li>
+                            <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" noneselecttext="Plastic Type: All">
+                                <option></option>
+                            </select>
+                        </li>
+                        <li>
+                            <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" noneselecttext="Account Type: All">
+                                <option></option>
+                            </select>
+                        </li>
+                        <li>
+                            <span class="multiselect-native-select">
+                                <div class="btn-group">
+                                    <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="Approved On: All" aria-expanded="true">
+                                        <span class="multiselect-selected-text">Approved On: All</span>
+                                        <b class="caret"></b>
+                                    </button>
+                                    <ul class="multiselect-container dropdown-menu" style="max-height: 250px; overflow-y: auto; overflow-x: hidden;">
+                                        <li>
+                                            <div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+                                                <input type="text" class="form-control" name="from">
+                                                <span class="input-group-addon"> to </span>
+                                                <input type="text" class="form-control" name="to">
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </span>
+                        </li>
+                        <li id="mt-more">
+                            <select class="mt-more btn btn-default" multiple="multiple" data-width="100%" noneselecttext="More">
+                                <option></option>
+                            </select>
+                        </li>
+                    </ul>
+                    <ul class="criteria-list extra">
+                        <li id="CompanyTypeExtra" style="display:none">
+                            <select class="mt-multiselect-extra btn btn-default" multiple="multiple" data-width="100%" noneselecttext="Company Type: All">
+                                <option></option>
+                            </select>
+                        </li>
+                    </ul>
+                    <table dtable options="customerLst" class="table table-bordered table-striped table-condensed  hover">
+                        <thead class="">
+                            <tr>
+                                <th>Account No.</th>
+                                <th>Company/ Individual Name</th>
+                                <th>Account Status</th>
+                                <th>Plastic Type</th>
+                                <th>Account Type</th>
+                                <th>Approved On</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tb-pointer"></tbody>
+                    </table>
+                </div>
+            </div>
+            <script type="text/javascript">
+                jQuery(document).ready(function () {
+                    // Remove left menu
+                    $('body').addClass('layout1menu');
+
+                    $(".mt-multiselect").each(function (index) {
+                        $(this).multiselect({
+                            nonSelectedText: $(this).attr('noneSelectText'),
+                            maxHeight: 250
+                        });
+                    });
+
+                    $('.mt-more').multiselect({
+                        buttonText: function (options, select) {
+                            return 'More';
+                        },
+                        onChange: function (option, checked, select) {
+                            if (checked) {
+                                $('#' + $(option).val()).show();
+                            } else {
+                                $('#' + $(option).val()).hide();
+                            }
+                        },
+                        maxHeight: 250
+                    });
+
+                    $(".mt-multiselect-extra").each(function (index) {
+                        $(this).multiselect({
+                            nonSelectedText: $(this).attr('noneSelectText'),
+                            maxHeight: 250,
+                            buttonContainer: '<div class="btn-group"></div>',
+                            buttonClass: 'btn-group',
+                            templates: {
+                                button: '<button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title=' + $(this).attr('noneSelectText') + '"><span class="multiselect-selected-text">' + $(this).attr('noneSelectText') + '</span> <b class="caret"></b><i class="material-icons" onclick="RemoveCriterion(this);" title="Remove criterion">cancel</i></button>'
+                            }
+                        });
+                    });
+                });
+
+                function RemoveCriterion(e) {
+                    var li = $(e).parent().closest('li');
+                    $(li).hide();
+                    var liIdValue = $(li).attr('id');
+                    $('.mt-more').multiselect('deselect', [liIdValue]);
+                }
+            </script>
+            <!-- END FORM-->
+            <!-- END MAIN CONTENT-->
+
+        </div>
+    </script>*@
+@section CustomPageScript
+{
+    @Scripts.Render("~/Content/Scripts/corporate")
+}

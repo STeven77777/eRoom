@@ -1,0 +1,275 @@
+﻿@{
+    ViewBag.Title = "Locations";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page-container">
+    <div class="action-btn-fix">
+        <div class="btn-group">
+            <a class="btn red dropdown-toggle" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                Actions
+                <i class="fa fa-angle-down"></i>
+            </a>
+            <ul class="dropdown-menu pull-right">
+                <li>
+                    <a ng-click="ChangeSts('Suspended', 'Active');"><i class="material-icons">play_circle_outline</i> Activate Location</a>
+                </li>
+                <li>
+                    <a ng-click="ChangeSts('Active', 'Suspended');"><i class="material-icons">pause_circle_outline</i> Suspend Location</a>
+                </li>
+                <li>
+                    <a ng-click="ChangeSts('Active', 'Terminated');"><i class="material-icons">highlight_off</i> Terminate Location</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- BEGIN SIDEBAR -->
+    <div class="page-sidebar-wrapper">
+        <!-- BEGIN SIDEBAR -->
+        <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+        <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+        <div class="page-sidebar navbar-collapse collapse">
+            <div class="hidden-sm hidden-xs">
+                <!-- BEGIN SIDEBAR MENU -->
+                <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+                <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+                <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+                <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+                <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                <div routing-menu class="leftMenu">
+                    <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding: 10px 0">
+                        <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+                        <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                        <li class="sidebar-toggler-wrapper hide">
+                            <div class="sidebar-toggler">
+                                <span></span>
+                            </div>
+                        </li>
+                        <!-- END SIDEBAR TOGGLER BUTTON -->
+                        <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+                        @Html.Partial("Partials/Sidebar")
+                    </ul>
+                </div>
+                <!-- END SIDEBAR MENU -->
+            </div>
+            <div>
+                <!-- BEGIN RESPONSIVE MENU FOR HORIZONTAL & SIDEBAR MENU -->
+                @Html.Partial("Partials/MobileMenu")
+                <!-- END RESPONSIVE MENU FOR HORIZONTAL & SIDEBAR MENU -->
+            </div>
+        </div>
+
+        <!-- END SIDEBAR -->
+    </div>
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <!-- BEGIN CONTENT BODY -->
+        <ui-view>
+        </ui-view>
+        <!-- END CONTENT BODY -->
+    </div>
+    <!-- END CONTENT -->
+</div>
+
+<script type="text/ng-template" id="index.html">
+        <div class="page-content">
+            <!-- BEGIN PAGE HEADER-->
+            <!-- BEGIN PAGE BAR -->
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <a href="~/">Home</a>
+                        <i class="fa fa-caret-right"></i>
+                    </li>
+                    <li>
+                        <a>All Locations</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- END PAGE BAR -->
+            <!-- BEGIN PAGE TITLE-->
+            <!-- END PAGE TITLE-->
+            <!-- END PAGE HEADER-->
+            <!-- BEGIN MAIN CONTENT-->
+            <!-- BEGIN FORM-->
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <span class="caption-subject">All Locations</span>
+                    </div>
+                </div>
+                <div class="portlet-body ">
+                    <ul class="criteria-list">
+                        <li>
+                            <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" noneselecttext="Location Status: All">
+                                <option></option>
+                            </select>
+                        </li>
+                        <li>
+                            <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" noneselecttext="State / Region: All">
+                                <option></option>
+                            </select>
+                        </li>
+                        <li>
+                            <span class="multiselect-native-select">
+                                <div class="btn-group">
+                                    <button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="Created On: All" aria-expanded="true">
+                                        <span class="multiselect-selected-text">Created On: All</span>
+                                        <b class="caret"></b>
+                                    </button>
+                                    <ul class="multiselect-container dropdown-menu" style="max-height: 250px; overflow-y: auto; overflow-x: hidden;">
+                                        <li>
+                                            <div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+                                                <input type="text" class="form-control" name="from">
+                                                <span class="input-group-addon"> to </span>
+                                                <input type="text" class="form-control" name="to">
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </span>
+                        </li>
+                        <li>
+                            <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" noneselecttext="Created By: All">
+                                <option></option>
+                            </select>
+                        </li>
+                    </ul>
+                    <ul class="criteria-list extra"></ul>
+                    <table dtable options="locationLst" class="table table-bordered table-striped table-condensed  hover">
+                        <thead class="">
+                            <tr>
+                                <th>#</th>
+                                <th>Location No.</th>
+                                <th>Location Name</th>
+                                <th>State / Region</th>
+                                <th>Location Status</th>
+                                <th>Merchant Account No.</th>
+                                <th>Created On</th>
+                                <th>Created By</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tb-pointer"></tbody>
+                    </table>
+                </div>
+            </div>
+            <script type="text/javascript">
+                jQuery(document).ready(function () {
+                    // Remove left menu
+                    $('body').addClass('layout1menu');
+
+                    $(".mt-multiselect").each(function (index) {
+                        $(this).multiselect({
+                            nonSelectedText: $(this).attr('noneSelectText'),
+                            maxHeight: 250
+                        });
+                    });
+
+                    $('.mt-more').multiselect({
+                        buttonText: function (options, select) {
+                            return 'More';
+                        },
+                        onChange: function (option, checked, select) {
+                            if (checked) {
+                                $('#' + $(option).val()).show();
+                            } else {
+                                $('#' + $(option).val()).hide();
+                            }
+                        },
+                        maxHeight: 250
+                    });
+
+                    $(".mt-multiselect-extra").each(function (index) {
+                        $(this).multiselect({
+                            nonSelectedText: $(this).attr('noneSelectText'),
+                            maxHeight: 250,
+                            buttonContainer: '<div class="btn-group"></div>',
+                            buttonClass: 'btn-group',
+                            templates: {
+                                button: '<button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title=' + $(this).attr('noneSelectText') + '"><span class="multiselect-selected-text">' + $(this).attr('noneSelectText') + '</span> <b class="caret"></b><i class="material-icons" onclick="RemoveCriterion(this);" title="Remove criterion">cancel</i></button>'
+                            }
+                        });
+                    });
+                });
+
+                function RemoveCriterion(e) {
+                    var li = $(e).parent().closest('li');
+                    $(li).hide();
+                    var liIdValue = $(li).attr('id');
+                    $('.mt-more').multiselect('deselect', [liIdValue]);
+                }
+            </script>
+            <!-- END FORM-->
+            <!-- END MAIN CONTENT-->
+
+        </div>
+    </script>
+
+<script type="text/ng-template" id="ChangeSts">
+    <div class="ngdialog-message">
+        <div class="modal-header">
+            <h4 class="modal-title">{{ngDialogData.title}}</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row warning" ng-show="ngDialogData.newSts=='Terminated'">
+                <div class="col-md-12">
+                    <span><i class="material-icons">error_outline</i> Once this location is terminated, you cannot reactivate it.</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Current Location Status</label>
+                        <input class="form-control" readonly value="{{ngDialogData.oldSts}}" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>New Location Status</label>
+                        <input class="form-control" readonly value="{{ngDialogData.newSts}}" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Status Change Reason</label>
+                        <select ng-model="changeReason" class="form-control">
+                            <option>Activation</option>
+                            <option>Replacement</option>
+                            <option>Suspected Fraud</option>
+                            <option>Fraud Detected</option>
+                            <option>Lost</option>
+                            <option>Damaged</option>
+                            <option value="-1">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group" ng-show="changeReason==-1">
+                        <label>Other Status Change Reason</label>
+                        <textarea placeholder="Specify your reason here" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Remarks</label>
+                        <textarea class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-form-action">
+            <button ng-click="closeThisDialog(0)" type="button" class="btn white">Cancel</button>
+            <button type="button" class="btn blue">Save</button>
+        </div>
+    </div>
+</script>
+
+@section CustomPageScript
+{
+    @Scripts.Render("~/Content/Scripts/locations")
+}

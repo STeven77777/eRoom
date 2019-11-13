@@ -1,0 +1,164 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@model MetroOil.LoyaltyOps.Models.CreditAssessmentModel
+
+<div class="page-content">
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Customers#/">All Customers</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Customers#/9894934943">Account Summary</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Financial Details</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <div class="portlet box blue ">
+        <div class="portlet-title">
+            <div class="caption">Creditability</div>
+            <div class="tools">
+                <a ng-click="openCreditHis();" href="javascript:;" class="tooltips" title="View History"><i class="material-icons">history</i></a>
+            </div>
+        </div>
+        <div class="portlet-body form">
+            <form id="fullApplicationForm" class="horizontal-form form">
+                <div class="form-body">
+                    <!-- BEGIN BASIC INFORMATION -->
+                    <div class="page-bar quick-info">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <span class="tooltips" data-original-title="Company Name on Card">HSBC Sentul</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Customer Account No.">9894934943</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Program Type">Postpaid</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Customer Class">VIP</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Approved On">15/04/2016</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END BASIC INFORMATION -->
+                    <div class="main-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.CrdLmt, null, new { @section = "gen", pattern = "(d{3})([.])(d{2})" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.ExpDate, new { required = true }, new { @date_picker = "", @section = "gen" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.NxtAssessmentDate, new { required = true }, new { @date_picker = "", @section = "gen" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgSelectListFor(model => model.CrdRskCat, Model.CrdRskCatLst, null, new { @Name = "CrdRskCatLst", @section = "gen" }, null)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.TmpCrdLmt, null, new { @section = "gen" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgDateRangeFor(model => model.TmpCrdLmtFrom, model => model.TmpCrdLmtTo, "Validity Period for Temporary Credit Limit", new { @section = "gen" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextAreaFor(model => model.Remarks, null, new { @section = "gen" })
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                    </div>
+                </div>
+                <div class="form-actions right">
+                    <div class="main-content">
+                        <button type="button" class="btn white">Cancel</button>
+                        <button type="button" data-validation-form data-customsubmit="" class="btn blue">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script type="text/ng-template" id="creditLimitHis">
+        <div class="ngdialog-message">
+            <div class="modal-header">
+                <h4 class="modal-title">Credit Limit History</h4>
+            </div>
+            <div class="modal-body">
+                <!-- BEGIN BASIC INFORMATION -->
+                <div class="page-bar quick-info">
+                    <ul class="page-breadcrumb">
+                        <li>
+                            <i class="bg-green status-block"></i>
+                            <span>HSBC Sentul</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span>9894934943</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span>Postpaid</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span>VIP</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span>02/12/2016</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END BASIC INFORMATION -->
+                <div class="portlet-body ">
+                    <table dtable options="crdAssHis" class="table table-bordered table-striped table-condensed ">
+                        <thead class="">
+                            <tr>
+                                <th>#</th>
+                                <th>Field</th>
+                                <th>Changed From</th>
+                                <th>Changed To</th>
+                                <th>Changed On</th>
+                                <th>Changed By</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </script>
+        
+    <!-- END FORM-->
+    <!-- END MAIN CONTENT-->
+</div>
+<script type="text/javascript">
+    $(function () {
+        App.init(); // init metronic core componets
+        $('body').removeClass('layout1menu');
+    });
+</script>

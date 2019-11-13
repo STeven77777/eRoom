@@ -1,0 +1,121 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@model MetroOil.LoyaltyOps.Models.AddressModel
+@{
+    var urlPrefix = System.Configuration.ConfigurationManager.AppSettings["urlPrefix"];
+}
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="@urlPrefix/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                @*<a href="/Customers#/{{$root.obj.acctNo}}">Account Summary</a>*@
+                <span>Account Summary</span>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Member Details</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    @*<h1 class="page-title">
+            All Customers
+        </h1>*@
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+
+    <div class="portlet box blue ">
+        <div class="portlet-title">
+            <div class="caption">Address</div>
+        </div>
+        <div class="portlet-body form">
+            <form id="fullApplicationForm" class="horizontal-form form">
+                <div class="form-body">
+                    <!-- BEGIN BASIC INFORMATION -->
+                    <div class="page-bar quick-info">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <span class="tooltips" data-original-title="Member Account No.">{{_GeneralInfo.AcctNo}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Member Full Name">{{_GeneralInfo.FullName}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Account Status">{{_GeneralInfo.StsName}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Member Joining Date">{{_GeneralInfo.JoinDateStr}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END BASIC INFORMATION -->
+                    <div class="main-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgCheckBoxFor(model => model.MailingInd, null, new { @section = "addrnew" })
+                            </div>
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgSelectListFor(model => model.AddressTypeCd, Model.AddressTypes, null, new { @LstName = "AddressTypes", @section = "addrnew" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.Street1, null, new { @section = "addrnew" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.Street2, null, new { @section = "addrnew" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.Street3, null, new { @section = "addrnew" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.City, null, new { @section = "addrnew" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgSelectListFor(model => model.CtryCd, Model.Countries, null, new { @LstName = "Countries", @section = "addrnew", ng_change = "CountryChanged();" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.ZipCd, null, new { @section = "addrnew", @class = "input-medium" })
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                @Html.CustomNgSelectListFor(model => model.StateCd, Model.States, null, new { @LstName = "States", @section = "addrnew" })
+                            </div>
+                        </div>
+                        <!--/row-->
+                    </div>
+                </div>
+                <div class="form-actions right">
+                    <a ng-click="backToList();" class="link quick-link">< Back to list</a>
+                    <div class="main-content">
+                        <button ng-click="backToList();" type="button" class="btn white">Cancel</button>
+                        <button type="button" data-validation-form data-customsubmit="SaveInfo()" class="btn blue">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('body').removeClass('layout1menu');
+        });
+    </script>
+</div>

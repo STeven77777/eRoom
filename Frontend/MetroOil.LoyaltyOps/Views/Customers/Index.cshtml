@@ -1,0 +1,340 @@
+﻿@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page-container">
+    <div class="action-btn-fix">
+        <div class="btn-group">
+            <a class="btn red dropdown-toggle" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                Actions
+                <i class="fa fa-angle-down"></i>
+            </a>
+            <ul class="dropdown-menu pull-right">
+                <li>
+                    <a ng-click="ChangeSts('Suspended', 'Active');"><i class="material-icons">play_circle_outline</i> Activate Account</a>
+                </li>
+                <li>
+                    <a ng-click="ChangeSts('Active', 'Suspended');"><i class="material-icons">pause_circle_outline</i> Suspend Account</a>
+                </li>
+                <li>
+                    <a ng-click="ChangeSts('Active', 'Terminated');"><i class="material-icons">highlight_off</i> Terminate Account</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- BEGIN SIDEBAR -->
+    <div class="page-sidebar-wrapper">
+        <!-- BEGIN SIDEBAR -->
+        <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+        <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+        <div class="page-sidebar navbar-collapse collapse">
+            <div class="hidden-sm hidden-xs">
+                <!-- BEGIN SIDEBAR MENU -->
+                <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+                <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+                <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+                <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+                <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                <div routing-menu class="leftMenu">
+                    <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding: 10px 0">
+                        <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+                        <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                        <li class="sidebar-toggler-wrapper hide">
+                            <div class="sidebar-toggler">
+                                <span></span>
+                            </div>
+                        </li>
+                        <!-- END SIDEBAR TOGGLER BUTTON -->
+                        <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+                        @Html.Partial("Partials/Sidebar")
+                    </ul>
+                </div>
+                <!-- END SIDEBAR MENU -->
+            </div>
+            <div>
+                <!-- BEGIN RESPONSIVE MENU FOR HORIZONTAL & SIDEBAR MENU -->
+                @Html.Partial("Partials/MobileMenu")
+                <!-- END RESPONSIVE MENU FOR HORIZONTAL & SIDEBAR MENU -->
+            </div>
+        </div>
+
+        <!-- END SIDEBAR -->
+    </div>
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <!-- BEGIN CONTENT BODY -->
+        <ui-view>
+        </ui-view>
+        <!-- END CONTENT BODY -->
+    </div>
+    <!-- END CONTENT -->
+</div>
+
+<script type="text/ng-template" id="index.html">
+    <div class="page-content">
+        <!-- BEGIN PAGE HEADER-->
+        <!-- BEGIN PAGE BAR -->
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li>
+                    <a href="/">Home</a>
+                    <i class="fa fa-caret-right"></i>
+                </li>
+                <li>
+                    <span>Customer Search</span>
+                </li>
+            </ul>
+        </div>
+        <!-- END PAGE BAR -->
+        <!-- BEGIN PAGE TITLE-->
+        <!-- END PAGE TITLE-->
+        <!-- END PAGE HEADER-->
+        <!-- BEGIN MAIN CONTENT-->
+        <!-- BEGIN FORM-->
+        <div class="row">
+            <div class="col-md-3 search-box">
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <span class="caption-subject">Search Options</span>
+                        </div>
+                        <div class="actions">
+                            <div class="btn-group">
+                                <button type="button" class="btn blue btn-circle btn-outline">Clear</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="panel-group accordion" id="accordion-account">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion-account" data-target="#account-detail" aria-expanded="false"> ACCOUNT </a>
+                                    </h4>
+                                </div>
+                                <div id="account-detail" class="panel-collapse collapse" aria-expanded="false">
+                                    <div class="">
+                                        <div class="form-group">
+                                            <label>Customer Account No.</label>
+                                            <input class="form-control" placeholder="Input a customer account number">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Company / Individual Name</label>
+                                            <input class="form-control" placeholder="Input a company or individual name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Company Name on Card</label>
+                                            <input class="form-control" placeholder="Input a company name on card">
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" data-placeholder="Customer Class: All" noneselecttext="Customer Class: All">
+                                                <option>VIP</option>
+                                                <option>Normal</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" data-placeholder="Program Type: All" noneselecttext="Program Type: All">
+                                                <option>Prepaid</option>
+                                                <option>Postpaid</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" data-placeholder="Account Status: All" noneselecttext="Account Status: All">
+                                                <option>Active</option>
+                                                <option>Closed</option>
+                                                <option>Suspended</option>
+                                                <option>Blocked</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" data-placeholder="Customer Category: All" noneselecttext="Customer Category: All">
+                                                <option>Corporate</option>
+                                                <option>Government</option>
+                                                <option>Individual</option>
+                                                <option>Station</option>
+                                                <option>Staff</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-group accordion" id="accordion3">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" data-target="#collapse_3_2" aria-expanded="false"> CONTACT </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse_3_2" class="panel-collapse collapse" aria-expanded="false">
+                                    <div class="">
+                                        <div class="form-group">
+                                            <label>Contact Person</label>
+                                            <input class="form-control" placeholder="Input a contact person's name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Mobile Phone No.</label>
+                                            <input class="form-control" placeholder="Input a mobile phone number">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input class="form-control" placeholder="Input an email address">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-group accordion" id="accordion-address">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion-address" data-target="#address-detail" aria-expanded="false"> ADDRESS </a>
+                                    </h4>
+                                </div>
+                                <div id="address-detail" class="panel-collapse collapse" aria-expanded="false">
+                                    <div class="">
+                                        <div class="form-group">
+                                            <label>City</label>
+                                            <input class="form-control" placeholder="Input a city name">
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" data-placeholder="State: All" noneselecttext="State: All">
+                                                <option>Melaka</option>
+                                                <option>Negeri Sembilan</option>
+                                                <option>Pahang</option>
+                                                <option>Perak</option>
+                                                <option>Perlis</option>
+                                                <option>Penang</option>
+                                                <option>Sabah</option>
+                                                <option>Sarawak</option>
+                                                <option>Selangor</option>
+                                                <option>Terengganu</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet-footer">
+                        <button ng-click="OnSearch();" type="button" class="btn blue"><i class="material-icons">search</i> Search</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <span class="caption-subject">Results</span>
+                        </div>
+                    </div>
+                    <div class="portlet-body result-search">
+                        <div class="search-data">
+                            <table dtable options="customerLst" class="table table-bordered hover">
+                                <thead class="">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Customer Account No.</th>
+                                        <th>Company/ Individual Name</th>
+                                        <th>Account Status</th>
+                                        <th>Program Type</th>
+                                        <th>Customer Class</th>
+                                        <th>Approved On</th>
+                                        <th>Created On</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tb-pointer"></tbody>
+                            </table>
+                        </div>
+                        <div class="not-search">
+                            <a class="dashboard-stat dashboard-search">
+                                <i class="material-icons">search</i>
+                            </a>
+                            <h3>Nothing to display here.</h3>
+                            <span>Customers you search for will appear here.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            jQuery(document).ready(function () {
+                // Remove left menu
+                $('body').addClass('layout1menu');
+
+                $(".mt-multiselect").each(function (index) {
+                    $(this).multiselect({
+                        nonSelectedText: $(this).attr('noneSelectText'),
+                        maxHeight: 250
+                    });
+                });
+            });
+        </script>
+        <!-- END FORM-->
+        <!-- END MAIN CONTENT-->
+
+    </div>
+</script>
+
+<script type="text/ng-template" id="AccountChangeSts">
+    <div class="ngdialog-message">
+        <div class="modal-header">
+            <h4 class="modal-title">{{ngDialogData.title}}</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Current Account Status</label>
+                        <input class="form-control" readonly value="{{ngDialogData.oldSts}}" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>New Account Status</label>
+                        <input class="form-control" readonly value="{{ngDialogData.newSts}}" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Status Change Reason</label>
+                        <select ng-model="changeReason" class="form-control">
+                            <option value="1">Override Account Status</option>
+                            <option value="-1">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group" ng-show="changeReason==-1">
+                        <label>Other Status Change Reason</label>
+                        <textarea placeholder="Specify your reason here" class="form-control" />
+                    </div>
+                    <div class="form-group" ng-show="changeReason==1">
+                        <label>Account Status Validity Period<span>(required)</span></label>
+                        <div class="input-daterange input-group ng-isolate-scope" date-picker=""><input class="form-control ng-valid ng-dirty ng-not-empty ng-touched" type="text" value="" style=""> <span class="input-group-addon">to</span><input class="form-control ng-untouched ng-valid ng-dirty ng-not-empty"type="text" value="" style=""></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Remarks</label>
+                        <textarea class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-form-action">
+            <button ng-click="closeThisDialog(0)" type="button" class="btn white">Cancel</button>
+            <button type="button" class="btn blue">Save</button>
+        </div>
+    </div>
+</script>
+@section CustomPageScript
+{
+    @Scripts.Render("~/Content/Scripts/customers")
+}

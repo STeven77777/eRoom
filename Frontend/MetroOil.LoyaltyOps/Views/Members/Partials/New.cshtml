@@ -1,0 +1,99 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@model MetroOil.LoyaltyOps.Models.Members.MemberModel
+@{
+    var urlPrefix = System.Configuration.ConfigurationManager.AppSettings["urlPrefix"];
+}
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="@urlPrefix/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Create Members</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+
+    <div class="portlet box blue">
+        <div class="portlet-title">
+            <div class="caption">Create Members</div>
+        </div>
+        <div class="portlet-body form">
+            <form class="horizontal-form form">
+                <div class="form-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.CustomNgTextBoxFor(model => model.FullName)
+                        </div>
+                        <div class="col-md-6">
+                            @Html.CustomNgSelectListFor(model => model.TitleCd, Model.Titles, null, new { @LstName = "Titles", @section = "gen", @class = "input-medium" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.CustomNgTextBoxFor(model => model.Dob, null, new { @date_time = "", @view = "date", @min_view = "date", @auto_close = "true", @format = "YYYY/MM/DD" })
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Gender<span>(required)</span></label>
+                                <div class="mt-radio-inline">
+                                    <label class="mt-radio" ng-repeat="item in _Selects.Genders">
+                                        <input type="radio" ng-model="_Object.Gender" value="{{item.Value}}"> {{item.Text}}
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Mobile Phone No.<span>(required)</span></label>
+                                <div class="input-group">
+                                    @Html.CustomNgSelectListFor(model => model.HpCtryCode, Model.HpCtryCodes, null, new { @emptyWrapper = "", @LstName = "HpCtryCodes", @section = "new", @class = "input-small" })
+                                    @Html.CustomNgTextBoxFor(model => model.HpNo, null, new { @emptyWrapper = "", @section = "new", @class = "input-small-left" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.CustomNgTextBoxFor(model => model.EmailAddr, null, new { @section = "gen", @placeholder = "e.g. john.smith@gmail.com" })
+                        </div>
+                    </div>
+                    <div class="row tc-top">
+                        <div class="col-md-6">
+                            @*@Html.CustomNgCheckBoxFor(model => model.TnC, null, new { @section = "new" })*@
+                            <div class="form-group">
+                                <div class="mt-checkbox-list">
+                                    <label class="mt-checkbox mt-checkbox-outline">
+                                        <input disabled="disabled" ng-model="_Object.TnC" section="new" type="checkbox" class="ng-pristine ng-untouched ng-valid ng-empty">This member has agreed to the <a class="u-lnk">Terms and Conditions</a>.<span></span>
+                                    </label>
+                                </div><span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/row-->
+                </div>
+                <div class="form-actions right">
+                    <button type="button" ng-click="backToList();" class="btn white">Cancel</button>
+                    <button type="button" data-validation-form data-customsubmit="Save()" class="btn blue">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('.date-picker').datepicker();
+        $('body').addClass('layout1menu');
+    });
+</script>

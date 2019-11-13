@@ -1,0 +1,335 @@
+﻿<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Customers#/">All Customers</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Customers#/9894934943">Account Summary</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Financial Details</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <span class="page-title">
+        Financial Position
+    </span>
+    <!-- BEGIN BASIC INFORMATION -->
+    <div class="page-bar quick-info">
+        <ul class="page-breadcrumb">
+            <li>
+                <span class="tooltips" data-original-title="Company Name on Card">HSBC Sentul</span>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <span class="tooltips" data-original-title="Customer Account No.">9894934943</span>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <span class="tooltips" data-original-title="Program Type">Postpaid</span>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <span class="tooltips" data-original-title="Customer Class">VIP</span>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <span class="tooltips" data-original-title="Approved On">15/04/2016</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END BASIC INFORMATION -->
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <div class="row widget-row">
+        <div class=" col-lg-12">
+            <div class="portlet box blue no-margin-bottom">
+                <div class="portlet-body ">
+                    <div class="tabbable-line tabs2">
+                        <ul class="nav nav-tabs2 btn-group">
+                            <li class="active">
+                                <a data-target="#tab_list" class="btn green-seagreen btn-circle btn-outline" data-toggle="tab" aria-expanded="true"> List </a>
+                            </li>
+                            <li class="">
+                                <a data-target="#tab_graphic" class="btn green-seagreen btn-circle btn-outline" data-toggle="tab" aria-expanded="false"> Graphic </a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_list">
+                                <ul class="lst-rpt">
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <div class="title">TOTAL CREDIT LIMIT<i class="help material-icons tooltips" data-original-title="Total credit limit is the sum of approved credit limit and temporary credit limit.">help_outline</i></div>
+                                                <div class="sub-content">Credit Limit: RM 7,000.00 + Temporary Credit Limit: RM 1,000.00</div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="amt">RM 8,000.00</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <div class="title">CURRENT BALANCE<i class="help material-icons tooltips" data-original-title="Current balance is the total spent amount as of current cycle. It is the sum of opening balance, instant amount and online amount.">help_outline</i></div>
+                                                <div class="sub-content">Opening Balance: RM 2,000.00 + Instant Amount: RM 500.00 + Online Amount: RM 500.00</div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="amt">RM 3,000.00</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <div class="title">AVAILABLE CREDIT<i class="help material-icons tooltips" data-original-title="Available credit is the remaining credit from total credit limit after deduct current balance.">help_outline</i></div>
+                                                <div class="sub-content">Total Credit Limit: RM 8,000.00 - Current Balance: RM 3,000.00</div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="amt">RM 5,000.00</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab-pane" id="tab_graphic">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="chart-block">
+                                            <div class="title">Total Credit Limit</div>
+                                            <div class="sub-total">RM 8,000.00</div>
+                                            <div id="total-credit-limit" class="chart" style="height: 191px;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="chart-block">
+                                            <div class="title">Current Balance</div>
+                                            <div class="sub-total">RM 3,000.00</div>
+                                            <div id="current-balance" class="chart" style="height: 191px;"> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row txn_finance">
+        <div class=" col-lg-12">
+            <div class="portlet box blue ">
+                <div class="portlet-body ">
+                    <div class="tabbable-line">
+                        <ul class="nav nav-tabs ">
+                            <li class="active">
+                                <a data-target="#tab_instanttxn" data-toggle="tab" aria-expanded="true"> Instant Transaction </a>
+                            </li>
+                            <li class="">
+                                <a data-target="#tab_onlinetxn" data-toggle="tab" aria-expanded="false"> Online Transaction </a>
+                            </li>
+                            <li class="">
+                                <a data-target="#tab_batchtxn" data-toggle="tab" aria-expanded="false"> Batch Transaction </a>
+                            </li>
+                            <li class="">
+                                <a data-target="#tab_offlinetxn" data-toggle="tab" aria-expanded="false"> Offline Transaction </a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_instanttxn">
+                                <div class="txnInfo">
+                                    <span>Total Instant Amount</span>
+                                    <p>RM 300.00</p>
+                                </div>
+                                <table id="instantTxn" dtable options="instantTxn" class="table table-bordered table-striped table-condensed  hover dataTable no-footer dtr-column">
+                                    <thead class="">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Txn. No.</th>
+                                            <th>Card No.</th>
+                                            <th>Txn. Amt. (RM)</th>
+                                            <th>Txn. Date</th>
+                                            <th>Booking Date</th>
+                                            <th>Due Date</th>
+                                            <th>Name on Card</th>
+                                            <th>Driver Card No.</th>
+                                            <th>Txn. Category</th>
+                                            <th>Txn. Desc.</th>
+                                            <th>Receipt No.</th>
+                                            <th>Created On</th>
+                                            <th>Created By</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+
+                            <div class="tab-pane" id="tab_onlinetxn">
+                                <div class="txnInfo">
+                                    <span>Total Online Amount</span>
+                                    <p>RM 150.00</p>
+                                </div>
+                                <table id="onlineTxn" dtable options="onlineTxn" class="table table-bordered table-striped table-condensed  hover dataTable no-footer dtr-column">
+                                    <thead class="">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Txn. No.</th>
+                                            <th>Card No.</th>
+                                            <th>Txn. Amt. (RM)</th>
+                                            <th>Txn. Date</th>
+                                            <th>Invoice No.</th>
+                                            <th>Status</th>
+                                            <th>Name on Card</th>
+                                            <th>Txn. Category</th>
+                                            <th>Txn. Desc.</th>
+                                            <th>Merchant No.</th>
+                                            <th>Site ID</th>
+                                            <th>Terminal ID</th>
+                                            <th>MTI</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="tab_batchtxn">
+                                <div class="txnInfo">
+                                    <span>Total Batch Amount</span>
+                                    <p>RM 30.00</p>
+                                </div>
+                                <table id="batchTxn" dtable options="batchTxn" class="table table-bordered table-striped table-condensed  hover dataTable no-footer dtr-column">
+                                    <thead class="">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Txn. No.</th>
+                                            <th>Card No.</th>
+                                            <th>Txn. Amt. (RM)</th>
+                                            <th>Txn. Date</th>
+                                            <th>Booking Date</th>
+                                            <th>Due Date</th>
+                                            <th>Name on Card</th>
+                                            <th>Txn. Category</th>
+                                            <th>Txn. Desc.</th>
+                                            <th>Created On</th>
+                                            <th>Created By</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="tab_offlinetxn">
+                                <div class="txnInfo">
+                                    <span>Total Offline Amount</span>
+                                    <p>RM 60.00</p>
+                                </div>
+                                <table id="offlineTxn" dtable options="offlineTxn" class="table table-bordered table-striped table-condensed  hover dataTable no-footer dtr-column">
+                                    <thead class="">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Txn. No.</th>
+                                            <th>Card No.</th>
+                                            <th>Txn. Amt. (RM)</th>
+                                            <th>Txn. Date</th>
+                                            <th>Due Date</th>
+                                            <th>Receipt No.</th>
+                                            <th>Name on Card</th>
+                                            <th>Txn. Category</th>
+                                            <th>Txn. Desc.</th>
+                                            <th>Created On</th>
+                                            <th>Created By</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT-->
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('body').removeClass('layout1menu');
+
+        var chart = AmCharts.makeChart("total-credit-limit", {
+            "type": "pie",
+            "theme": "light",
+
+            "color": '#333',
+            "dataProvider": [{
+                "title": "Temporary\n Credit Limit",
+                "value": 1000,
+                "color": "#E7505A"
+            }, {
+                "title": "Credit\nLimit",
+                "value": 7000,
+                "color": "#578EBE"
+            }],
+            "valueField": "value",
+            "titleField": "title",
+            "colorField": "color",
+            "numberFormatter": { precision: 2, decimalSeparator: '.', thousandsSeparator: ',' },
+            "balloonText" : "RM [[value]]",
+            "exportConfig": {
+                menuItems: [{
+                    icon: App.getGlobalPluginsPath() + "amcharts/amcharts/images/export.png",
+                    format: 'png'
+                }]
+            },
+            //"balloon": {
+            //    "fixedPosition": false
+            //}
+        });
+
+        var chart2 = AmCharts.makeChart("current-balance", {
+            "type": "pie",
+            "theme": "light",
+            "color": '#333',
+            "font-size":"14px",
+            "dataProvider": [{
+                "title": "Instant Amount",
+                "value": 500,
+                "color": "#1BBC9B"
+            }, {
+                "title": "Online Amount",
+                "value": 500,
+                "color": "#F3C200"
+            }, {
+                "title": "Opening Balance",
+                "value": 2000,
+                "color": "#525E64"
+            }],
+            "valueField": "value",
+            "titleField": "title",
+            "colorField": "color",
+            "numberFormatter": { precision: 2, decimalSeparator: '.', thousandsSeparator: ',' },
+            "balloonText": "RM [[value]]",
+            "exportConfig": {
+                menuItems: [{
+                    icon: App.getGlobalPluginsPath() + "amcharts/amcharts/images/export.png",
+                    format: 'png'
+                }]
+            }
+        });
+
+        //$('#total-credit-limit').closest('.portlet').find('.fullscreen').click(function () {
+        //    chart.invalidateSize();
+        //});
+    });
+</script>

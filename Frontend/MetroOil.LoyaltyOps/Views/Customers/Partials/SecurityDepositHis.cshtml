@@ -1,0 +1,89 @@
+﻿<div class="page-content">
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="#">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="#">All Customers</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="#">Customer Profile</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Financial Details</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <h1 class="page-title"></h1>
+
+    <div class="portlet light bordered">
+        <div class="portlet-title">
+            <div class="caption">
+                <span class="caption-subject">Security Deposit History</span>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <!-- BEGIN BASIC INFORMATION -->
+            <div class="page-bar quick-info">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="bg-green status-block"></i>
+                        <span>HSBC Sentul</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>9894934943</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>Postpaid</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>VIP</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>02/12/2016</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- END BASIC INFORMATION -->
+            <div class="portlet-body flip-scroll">
+                <table dtable options="securityDepositHis" class="table table-bordered table-striped table-condensed flip-content">
+                    <thead class="flip-content">
+                        <tr>
+                            <th>#</th>
+                            <th>Security Deposit Type</th>
+                            <th>Changed From</th>
+                            <th>Changed To</th>
+                            <th>Changed On</th>
+                            <th>Changed By</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="screen-actions right">
+                <div class="stt-history">
+                    <button ng-click="backMainScreen();" type="button" class="btn blue"><i class="material-icons">arrow_back</i>Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END FORM-->
+    <!-- END MAIN CONTENT-->
+</div>
+<script type="text/javascript">
+    $(function () {
+        App.init(); // init metronic core componets
+        $('body').removeClass('layout1menu');
+    });
+</script>

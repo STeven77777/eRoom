@@ -1,0 +1,166 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@using myResources = Resources.CardtrendApplication;
+
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="#">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="#">Create Cards</a>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+
+    <div class="portlet box blue">
+        <div class="portlet-title">
+            <div class="caption">Create Cards</div>
+        </div>
+        <div class="portlet-body form">
+            <form action="#" class="horizontal-form form">
+                <div class="form-body">
+                    @*<h3 class="form-section">Account Info</h3>*@
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="mt-radio-inline">
+                                    <label class="mt-radio">
+                                        <input type="radio" ng-value="true" ng-model="cartTypeVal" name="cartTypeRadios" id="cartTypeOpt1" value="true" checked="" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" style=""> Application
+                                        <span></span>
+                                    </label>
+                                    <label class="mt-radio">
+                                        <input type="radio" ng-value="false" ng-model="cartTypeVal" name="cartTypeRadios" id="cartTypeOpt2" value="false" checked="" class="ng-valid ng-not-empty ng-dirty ng-touched" style=""> Account
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Application No. / Account No.<span>(required)</span></label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Card Type<span>(required)</span><i class="help material-icons">help_outline</i></label>
+                                <select class="form-control"></select>
+                            </div>
+                        </div>
+                        <!--/span-->
+                    </div>
+                    <!--/row-->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Card Media Type<span>(required)</span></label>
+                                <select class="form-control"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Name on Card<span>(required)</span></label>
+                                <input type="text" class="form-control">
+                                <span class="help-info">Maximum 26 characters including space.</span>
+                            </div>
+                        </div>
+                        <!--/span-->
+                    </div>
+                    <!--/row-->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Driver Name<span>(required)</span></label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Vehicle Registration No.<span>(required)</span></label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <!--/row-->
+                </div>
+                <div class="form-actions right">
+                    <button type="button" ng-click="backToList();" class="btn white">Cancel</button>
+                    <button type="button" data-validation-form data-customsubmit="SaveGeneralInfo()" @*onclick="window.location.href = '/Application/FullApplication?created=true'"*@ class="btn blue">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <a id="SubmitFormTarget" class="help-dialog" data-toggle="modal" data-target="#SubmitForm" style="display:none"></a>
+    <div id="SubmitForm" class="modal" tabindex="-1" data-width="40%">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h4 class="modal-title">Submit Card</h4>
+        </div>
+        <div class="modal-body">
+            <div class="portlet-body  form">
+                <form action="#" class="horizontal-form form">
+                    <div class="form-body">
+                        <div class="row">
+                            <!--/span-->
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label>Task<span>(required)</span></label>
+                                    <select class="form-control"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!--/span-->
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label>Assign Task To<span>(required)</span></label>
+                                    <select class="form-control"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!--/span-->
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label>Priority<span>(required)</span></label>
+                                    <select class="form-control"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!--/span-->
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Comment</label>
+                                    <textarea class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions right">
+                        <button type="button"  class="btn white">Cancel</button>
+                        <button type="button" ng-click="submitApp();" class="btn blue">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('.date-picker').datepicker();
+        $('body').addClass('layout1menu');
+    });
+</script>

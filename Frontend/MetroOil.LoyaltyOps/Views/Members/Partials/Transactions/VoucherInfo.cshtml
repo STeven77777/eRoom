@@ -1,0 +1,241 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@model MetroOil.LoyaltyOps.Models.Members.TxnVoucherModel
+@{
+    var urlPrefix = System.Configuration.ConfigurationManager.AppSettings["urlPrefix"];
+}
+<div class="page-content">
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="@urlPrefix/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                @*<a href="#/{{$root.obj.acctNoHash}}">Account Summary</a>*@
+                <span>Account Summary</span>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Transactions</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <div class="portlet box blue ">
+        <div class="portlet-title">
+            <div class="caption">VOUCHER DETAILS</div>
+        </div>
+        <div class="portlet-body form">
+            <form class="horizontal-form form">
+                <div class="form-body">
+                    <!-- BEGIN BASIC INFORMATION -->
+                    <div class="page-bar quick-info">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <span class="tooltips" data-original-title="Member Account No.">{{_GeneralInfo.AcctNo}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Full Name">{{_GeneralInfo.FullName}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Status">{{_GeneralInfo.StsName}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Joining Date">{{_GeneralInfo.JoinDateStr}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END BASIC INFORMATION -->
+                    <div>
+                        <div class="form-section section-custom">
+                            <h4>Voucher Info</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <div class="input-group">
+                                        <input class="form-control" ng-model="_Object.StatusName" type="text" readonly>
+                                        @if (Html.SectionIsEnabled("MemTxnVoucherDetailChangeSts"))
+                                        {
+                                        <span class="input-group-btn">
+                                            <button ng-click="modelChangeSts=true;" class="btn btn-success" type="button">
+                                                Change Status
+                                            </button>
+                                        </span>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.VoucherNo, null, new { @readonly = "readonly" })
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.ItemName, null, new { @readonly = "readonly" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgTextAreaFor(model => model.ItemDescp, null, new { @readonly = "readonly" })
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.StartDateStr, null, new { @readonly = "readonly" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.EndDateStr, null, new { @readonly = "readonly" })
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.VoucherSourceName, null, new { @readonly = "readonly" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.IssuedDateStr, null, new { @readonly = "readonly" })
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.IssuedByName, null, new { @readonly = "readonly" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgTextAreaFor(model => model.Remark2, null, new { @readonly = "readonly" })
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                Status History:
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table dtable options="stsHisLst" class="table table-bordered table-striped table-condensed ">
+                                    <thead class="">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Status</th>
+                                            <th>Remarks</th>
+                                            <th>Updated On</th>
+                                            <th>Updated By</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <h4 class="form-section">Purchase Info</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.RefNo, null, new { @readonly = "readonly" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.Pts, null, new { @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.PurchaseDateStr, null, new { @readonly = "readonly" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.PurchaseByName, null, new { @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <h4 class="form-section">Redemption Info</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.RedeemedDateStr, null, new { @readonly = "readonly" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.RedeemedBusnLocationName, null, new { @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.RedeemedByName, null, new { @readonly = "readonly" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions right">
+                    <a ng-click="backToList();" class="link quick-link">< Back to list</a>
+                    @*<button ng-click="GoBack();" type="button" class="btn white">Cancel</button>
+        <button type="button" data-validation-form data-customsubmit="SaveInfo();" class="btn blue">Save</button>*@
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- END FORM-->
+    <!-- END MAIN CONTENT-->
+</div>
+
+<div class="modal md-modal fade" role="dialog" app-modal trigger="modelChangeSts" data-keyboard="false" data-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" data-toggle="modal">
+                <h4 class="modal-title">Change of Voucher Status</h4>
+                <button ng-click="modelChangeSts=false;" aria-label="Close" class="ngdialog-close"></button>
+            </div>
+            <div class="modal-body">
+                <span id="ErrorResultChangeSts"></span>
+                <div class="row">
+                    <div class="col-md-6">
+                        @*@Html.CustomNgSelectListFor(model => model.StsNew, Model.AccountStatuses, null, new { @LstName = "AccountStatuses" })*@
+                        <div class="form-group">
+                            <label>New Voucher Status</label>
+                            <select class="form-control" ng-model="_Object.StsNew">
+                                <option ng-repeat="item in _Selects.Stses" ng-if="item.Value!=_Object.Sts" value="{{item.Value}}">{{item.Text}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Current Voucher Status</label>
+                            @Html.CustomNgSelectListFor(model => model.Sts, Model.Stses, null, new { @emptyWrapper = "", @LstName = "Stses", @disabled = "disabled" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        @Html.CustomNgTextAreaFor(model => model.StsNewRemarks)
+                    </div>
+                    <div class="col-md-6" ng-show="_Object.StsNew=='R'">
+                        <div class="form-group">
+                            @Html.CustomNgSelectListFor(model => model.RedeemedBusnLocation, Model.RedeemedBusnLocations, null, new { @LstName = "RedeemedBusnLocations", @PlaceholderTxt = "Select business location" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6" ng-show="_Object.StsNew=='R'">
+                        <div class="form-group">
+                            @Html.CustomNgSelectListFor(model => model.RedeemedUserId, Model.RedeemedBys, null, new { @LstName = "RedeemedBys", @PlaceholderTxt = "Select merchant user" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-form-action">
+                <button ng-click="modelChangeSts=false;" class="btn btn-default btn-cons">Cancel</button>
+                <button type="button" ng-click="SaveSts()" class="btn blue">Save</button>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/ng/services/httpInterceptors.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('body').addClass('layout1menu');
+    });
+</script>

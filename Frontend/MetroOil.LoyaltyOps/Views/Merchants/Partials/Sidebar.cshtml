@@ -1,0 +1,106 @@
+﻿@using MetroOil.LoyaltyOps.Helpers;
+@{
+                /**/
+
+                string pgCd = ViewBag.PgCd;
+                if (pgCd == null)
+                {
+                    pgCd = string.Empty;
+                }
+}
+@*<li class="nav-item  no-submenu start ">
+    <a href="#/Accounts/{{$root.obj.merchAcctNoHash}}" class="nav-link nav-toggle">
+        <i class="material-icons">assessment</i>
+        <span class="title">Account Summary</span>
+    </a>
+</li>*@
+<li class="nav-item ">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="material-icons">business</i>
+        <span class="title">Merchant Profile</span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+        @if (Html.SectionIsEnabled("MerchAcctInfo"))
+        {
+            <li class="nav-item pagekey_MerchAcctInfo">
+                <a target="_top" href="#/Accounts/{{$root.obj.merchAcctNoHash}}/Info" class="nav-link ">
+                    <span class="title">Merchant Account / Business Info</span>
+                </a>
+            </li>
+        }
+        @if (Html.SectionIsEnabled("MerchAcctConts"))
+        {
+            <li class="nav-item pagekey_MerchAcctConts pagekey_MerchAcctContNew pagekey_MerchAcctContD">
+                <a target="_top" href="#/Accounts/{{$root.obj.merchAcctNoHash}}/Contact" class="nav-link ">
+                    <span class="title">Contact</span>
+                </a>
+            </li>
+        }
+        @if (Html.SectionIsEnabled("MerchAcctAddrs"))
+        {
+            <li class="nav-item pagekey_MerchAcctAddrs pagekey_MerchAcctAddrNew pagekey_MerchAcctAddrD">
+                <a target="_top" href="#/Accounts/{{$root.obj.merchAcctNoHash}}/Address" class="nav-link ">
+                    <span class="title">Address</span>
+                </a>
+            </li>
+        }
+
+    </ul>
+</li>
+@if (Html.SectionIsEnabled("MerchAcctBusnLocations"))
+{
+    <li class="nav-item no-submenu pagekey_MerchAcctBusnLocations">
+        <a href="#/Accounts/{{$root.obj.merchAcctNoHash}}/BusinessLocations" class="nav-link nav-toggle">
+            <i class="material-icons">assessment</i>
+            <span class="title">List of Business Locations</span>
+        </a>
+    </li>
+}
+@*MerchAcctBusnLocations*@
+@*<li class="nav-item  ">
+        <a href="javascript:;" class="nav-link nav-toggle">
+            <i class="fa fa-calculator"></i>
+            <span class="title">Financial Details</span>
+            <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li class="nav-item ">
+                <a target="_top" href="/Merchants#/{{$root.obj.merchAcctNoHash}}/FinancialInfo" class="nav-link ">
+                    <span class="title">Finance / Bank Info</span>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a target="_top" href="/Merchants#/{{$root.obj.merchAcctNoHash}}/FeeCharge" class="nav-link ">
+                    <span class="title">Fees &amp; Charges</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="heading">
+        <h3 class="uppercase">CONTROLS</h3>
+    </li>
+    <li class="nav-item  no-submenu">
+        <a href="" class="nav-link nav-toggle">
+            <i class="material-icons">flag</i>
+            <span class="title">Change of Ownership</span>
+        </a>
+    </li>
+    <li class="heading">
+        <h3 class="uppercase">UNITS</h3>
+    </li>
+    <li class="nav-item  no-submenu">
+        <a href="/Merchants#/{{$root.obj.merchAcctNoHash}}/ListLocations" class="nav-link nav-toggle">
+            <i class="material-icons">location_on</i>
+            <span class="title">List of Locations</span>
+        </a>
+    </li>
+    <li class="heading">
+        <h3 class="uppercase">TRANSACTIONS</h3>
+    </li>
+    <li class="nav-item  no-submenu">
+        <a href="/Merchants#/{{$root.obj.merchAcctNoHash}}/Transactions" class="nav-link nav-toggle">
+            <i class="material-icons">receipt</i>
+            <span class="title">Transactions</span>
+        </a>
+    </li>*@

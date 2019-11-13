@@ -1,0 +1,121 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@model MetroOil.LoyaltyOps.Models.Merchants.MerchantUserSearchModel
+@{
+    var urlPrefix = System.Configuration.ConfigurationManager.AppSettings["urlPrefix"];
+}
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="@urlPrefix/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Merchant User Search</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+    <div class="row">
+        <div class="col-md-3 search-box">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <span class="caption-subject">Search Options</span>
+                    </div>
+                    <div class="actions">
+                        <div class="btn-group">
+                            <button ng-click="ClearSearch();" type="button" class="btn blue btn-circle btn-outline">Clear</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    @*<div class="form-group">
+            <label>Full Name</label>
+            <input ng-model="_Object.FullName" class="form-control" placeholder="Input a Full Name">
+        </div>*@
+                    @Html.CustomNgTextBoxFor(model => model.FullName, null, new { @placeholder = "Input a full name" })
+                    @Html.CustomNgTextBoxFor(model => model.LoginID, null, new { @placeholder = "Input a username" })
+                    @Html.CustomNgTextBoxFor(model => model.HpNo, null, new { @placeholder = "Input a mobile phone number" })
+                    @Html.CustomNgTextBoxFor(model => model.EmailAddress, null, new { @placeholder = "Input an email address" })
+                    <div class="form-group">
+                        <label>Business Location No.</label>
+                        <select class="multiselect" multiselect-dropdown="" ng-model="_Object.SelectedBusnLocation" ng-options="item.Value as item.Text for item in _Selects.BusnLocationNos" multiple="multiple" button-width="auto" data-width="100%" data-placeholder="Business Location No.: All" noneselecttext="Business Location No.: All"></select>
+                    </div>
+                    <div class="form-group">
+                        <label>User Role</label>
+                        <select class="multiselect" multiselect-dropdown="" ng-model="_Object.SelectedBusnLocationUserRoleCd" ng-options="item.Value as item.Text for item in _Selects.BusnLocationUserRoles" multiple="multiple" button-width="auto" data-width="100%" data-placeholder="User Role: All" noneselecttext="User Role: All"></select>
+                    </div>
+                    <div class="form-group">
+                        <label>User Status</label>
+                        <select class="multiselect" multiselect-dropdown="" ng-model="_Object.SelectedSts" ng-options="item.Value as item.Text for item in _Selects.Stses" multiple="multiple" button-width="auto" data-width="100%" data-placeholder="User Status: All" noneselecttext="User Status: All"></select>
+                    </div>
+                </div>
+                <div class="portlet-footer">
+                    <button ng-click="OnSearch();" type="button" class="btn blue"><i class="material-icons">search</i> Search</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <span class="caption-subject">Results</span>
+                    </div>
+                </div>
+                <div class="portlet-body result-search">
+                    <div ng-hide="firstInitData">
+                        <table dtable options="dtOptions" class="table table-bordered hover">
+                            <thead class="">
+                                <tr>
+                                    <th>#</th>
+                                    <th>User ID</th>
+                                    <th>Full Name</th>
+                                    <th>Title</th>
+                                    <th>User Status</th>
+                                    <th>User Role</th>
+                                    <th>Business Location No.</th>
+                                    <th>Mobile Phone No.</th>
+                                    <th>Email</th>
+                                    <th>Created On</th>
+                                    <th>Created By</th>
+                                </tr>
+                            </thead>
+                            <tbody class="tb-pointer"></tbody>
+                        </table>
+                    </div>
+                    <div ng-show="firstInitData" class="not-search">
+                        <a class="dashboard-stat dashboard-search">
+                            <i class="material-icons">search</i>
+                        </a>
+                        <h3>Nothing to display here.</h3>
+                        <span>Merchant user you search for will appear here.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            // Remove left menu
+            $('body').addClass('layout1menu');
+
+            $(".mt-multiselect").each(function (index) {
+                $(this).multiselect({
+                    nonSelectedText: $(this).attr('noneSelectText'),
+                    maxHeight: 250
+                });
+            });
+        });
+    </script>
+    <!-- END FORM-->
+    <!-- END MAIN CONTENT-->
+
+</div>

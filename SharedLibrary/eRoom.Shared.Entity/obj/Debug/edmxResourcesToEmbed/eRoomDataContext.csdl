@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="eRoomModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ElectricUsing">
+    <Key>
+      <PropertyRef Name="ElectricUsingID" />
+    </Key>
+    <Property Name="ElectricUsingID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ServiceID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RoomID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ElectricMonth" Type="Int32" />
+    <Property Name="ElectricFrom" Type="Int32" />
+    <Property Name="ElectricTo" Type="Int32" />
+    <Property Name="ElectricUse" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsDelete" Type="Boolean" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Invoice">
+    <Key>
+      <PropertyRef Name="InvoiceID" />
+    </Key>
+    <Property Name="InvoiceID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="InvoiceMonth" Type="Int32" />
+    <Property Name="RoomID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="InvoiceTotal" Type="Single" />
+    <Property Name="InvoicePaid" Type="Single" />
+    <Property Name="InvoiceRemain" Type="Single" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsDelete" Type="Boolean" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="InvoiceDetail">
+    <Key>
+      <PropertyRef Name="InvoiceDetailID" />
+    </Key>
+    <Property Name="InvoiceDetailID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="InvoiceID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ServiceID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ServicePrice" Type="Single" />
+    <Property Name="ServiceCount" Type="Single" />
+    <Property Name="ServiceTotal" Type="Single" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsDelete" Type="Boolean" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Motorbike">
+    <Key>
+      <PropertyRef Name="MotorbikeID" />
+    </Key>
+    <Property Name="MotorbikeID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MotorbikeName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MotorTypeID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PeopleID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Color" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsDelete" Type="Boolean" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MotorType">
+    <Key>
+      <PropertyRef Name="MotorTypeID" />
+    </Key>
+    <Property Name="MotorTypeID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MotorTypeName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsDelete" Type="Boolean" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="PeopleID" />
+    </Key>
+    <Property Name="PeopleID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Birthday" Type="DateTime" Precision="0" />
+    <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="JobName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="HomeTown" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FatherFullName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FatherID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FatherPhone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FatherJob" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MotherFullName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MotherID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MotherPhone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MotherJob" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsDelete" Type="Boolean" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Receipt">
+    <Key>
+      <PropertyRef Name="ReceiptID" />
+    </Key>
+    <Property Name="ReceiptID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BillID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PeopleID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ReceiptAmount" Type="Single" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsDelete" Type="Boolean" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ReferenceLibrary">
+    <Key>
+      <PropertyRef Name="IssNo" />
+      <PropertyRef Name="RefType" />
+      <PropertyRef Name="RefCd" />
+    </Key>
+    <Property Name="IssNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RefType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RefCd" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RefNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RefInd" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RefId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MapInd" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Descp" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="RefLib">
+    <Key>
+      <PropertyRef Name="IssNo" />
+      <PropertyRef Name="RefType" />
+      <PropertyRef Name="RefCd" />
+    </Key>
+    <Property Name="IssNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RefType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RefCd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RefNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RefInd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RefId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MapInd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Descp" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="RoomID" />
+    </Key>
+    <Property Name="RoomID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoomTypeID" Type="Int32" />
+    <Property Name="RoomName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="StatusID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsDelete" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="RoomDetail">
+    <Key>
+      <PropertyRef Name="RoomDetailID" />
+    </Key>
+    <Property Name="RoomDetailID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoomID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DateIn" Type="DateTime" Precision="3" />
+    <Property Name="DateOut" Type="DateTime" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsDelete" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="RoomPeople">
+    <Key>
+      <PropertyRef Name="RoomPeopleID" />
+    </Key>
+    <Property Name="RoomPeopleID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PeopleID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RoomDetailID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DateIn" Type="DateTime" Precision="3" />
+    <Property Name="DateOut" Type="DateTime" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsDelete" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="RoomStatu">
+    <Key>
+      <PropertyRef Name="RoomStatusID" />
+    </Key>
+    <Property Name="RoomStatusID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StatusName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsDelete" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="RoomType">
+    <Key>
+      <PropertyRef Name="RoomTypeID" />
+    </Key>
+    <Property Name="RoomTypeID" Type="Int32" Nullable="false" />
+    <Property Name="RoomTypeName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsDelete" Type="Boolean" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="ServiceID" />
+    </Key>
+    <Property Name="ServiceID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoomTypeID" Type="Int32" />
+    <Property Name="ServiceName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ServicePrice" Type="Single" />
+    <Property Name="IsDefault" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsDelete" Type="Boolean" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ServiceType">
+    <Key>
+      <PropertyRef Name="ServiceTypeID" />
+    </Key>
+    <Property Name="ServiceTypeID" Type="Int32" Nullable="false" />
+    <Property Name="ServiceTypeName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsDelete" Type="Boolean" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="WaterUsing">
+    <Key>
+      <PropertyRef Name="WaterUsingID" />
+    </Key>
+    <Property Name="WaterUsingID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ServiceID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoomID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WaterFrom" Type="Int32" Nullable="false" />
+    <Property Name="WaterTo" Type="Int32" Nullable="false" />
+    <Property Name="WaterUse" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsDelete" Type="Boolean" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteUser" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="eRoomConnectionString" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ElectricUsings" EntityType="Self.ElectricUsing" />
+    <EntitySet Name="Invoices" EntityType="Self.Invoice" />
+    <EntitySet Name="InvoiceDetails" EntityType="Self.InvoiceDetail" />
+    <EntitySet Name="Motorbikes" EntityType="Self.Motorbike" />
+    <EntitySet Name="MotorTypes" EntityType="Self.MotorType" />
+    <EntitySet Name="People" EntityType="Self.Person" />
+    <EntitySet Name="Receipts" EntityType="Self.Receipt" />
+    <EntitySet Name="ReferenceLibraries" EntityType="Self.ReferenceLibrary" />
+    <EntitySet Name="RefLibs" EntityType="Self.RefLib" />
+    <EntitySet Name="Rooms" EntityType="Self.Room" />
+    <EntitySet Name="RoomDetails" EntityType="Self.RoomDetail" />
+    <EntitySet Name="RoomPeoples" EntityType="Self.RoomPeople" />
+    <EntitySet Name="RoomStatus" EntityType="Self.RoomStatu" />
+    <EntitySet Name="RoomTypes" EntityType="Self.RoomType" />
+    <EntitySet Name="Services" EntityType="Self.Service" />
+    <EntitySet Name="ServiceTypes" EntityType="Self.ServiceType" />
+    <EntitySet Name="WaterUsings" EntityType="Self.WaterUsing" />
+  </EntityContainer>
+</Schema>

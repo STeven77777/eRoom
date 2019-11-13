@@ -1,0 +1,154 @@
+﻿<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Customers#/">All Customers</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Customers#/9894934943">Account Summary</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Card List</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    @*<h1 class="page-title">
+            All Customers
+        </h1>*@
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+    <div class="portlet box blue">
+        <div class="portlet-title">
+            <div class="caption">
+                <span class="caption-subject">Card List</span>
+            </div>
+            <div class="tools">
+                <a ng-click="gotoNew();" href="javascript:;" class="tooltips" title="Add Card"><i class="material-icons">add</i></a>
+            </div>
+            @*<div class="actions">
+                <div class="btn-group">
+                    <button ng-click="gotoNew();" type="button" class="btn blue btn-circle btn-outline"><i class="fa fa-plus" aria-hidden="true"></i>Add</button>
+                </div>
+            </div>*@
+        </div>
+        <div class="portlet-body">
+            <div class="portlet-body">
+                <div class="tabbable-line">
+                    <ul class="nav nav-tabs ">
+                        <li class="active">
+                            <a data-target="#tab_1" data-toggle="tab" aria-expanded="true"> Pending </a>
+                        </li>
+                        <li class="">
+                            <a data-target="#tab_2" data-toggle="tab" aria-expanded="false"> Created </a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab_1">
+                            <!-- BEGIN BASIC INFORMATION -->
+                            <div class="page-bar quick-info">
+                                <ul class="page-breadcrumb">
+                                    <li>
+                                        <span class="tooltips" data-original-title="Company Name on Card">HSBC Sentul</span>
+                                        <i class="fa fa-circle"></i>
+                                    </li>
+                                    <li>
+                                        <span class="tooltips" data-original-title="Customer Account No.">9894934943</span>
+                                        <i class="fa fa-circle"></i>
+                                    </li>
+                                    <li>
+                                        <span class="tooltips" data-original-title="Program Type">Postpaid</span>
+                                        <i class="fa fa-circle"></i>
+                                    </li>
+                                    <li>
+                                        <span class="tooltips" data-original-title="Customer Class">VIP</span>
+                                        <i class="fa fa-circle"></i>
+                                    </li>
+                                    <li>
+                                        <span class="tooltips" data-original-title="Approved On">15/04/2016</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- END BASIC INFORMATION -->
+                            <table dtable options="pendingCards" class="table table-bordered hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Card Creation Ref. No.</th>
+                                        <th>Account No.</th>
+                                        <th>Card Type</th>
+                                        <th>Card Media Type</th>
+                                        <th>Name on Card</th>
+                                        <th>Card Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tb-pointer"></tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="tab_2">
+                            <!-- BEGIN BASIC INFORMATION -->
+                            <div class="page-bar quick-info">
+                                <ul class="page-breadcrumb">
+                                    <li>
+                                        <span class="tooltips" data-original-title="Company Name on Card">HSBC Sentul</span>
+                                        <i class="fa fa-circle"></i>
+                                    </li>
+                                    <li>
+                                        <span class="tooltips" data-original-title="Customer Account No.">9894934943</span>
+                                        <i class="fa fa-circle"></i>
+                                    </li>
+                                    <li>
+                                        <span class="tooltips" data-original-title="Program Type">Postpaid</span>
+                                        <i class="fa fa-circle"></i>
+                                    </li>
+                                    <li>
+                                        <span class="tooltips" data-original-title="Customer Class">VIP</span>
+                                        <i class="fa fa-circle"></i>
+                                    </li>
+                                    <li>
+                                        <span class="tooltips" data-original-title="Approved On">15/04/2016</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- END BASIC INFORMATION -->
+                            <table dtable options="createdCards" class="table table-bordered">
+                                <thead class="">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Card Creation Ref. No.</th>
+                                        <th>Card No.</th>
+                                        <th>Account No.</th>
+                                        <th>Card Type</th>
+                                        <th>Card Media Type</th>
+                                        <th>Name on Card</th>
+                                        <th>Card Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tb-pointer"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END FORM-->
+            <!-- END MAIN CONTENT-->
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('body').removeClass('layout1menu');
+    });
+</script>

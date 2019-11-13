@@ -1,0 +1,645 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@using myResources = Resources.CardtrendApplication;
+
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="#">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="#">My Tasks</a>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+
+    <div class="portlet box blue">
+        <div class="portlet-title">
+            <div class="caption">
+                <span class="caption-subject">My Tasks</span>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div class="portlet-body ">
+                <div class="tabbable-line">
+                    <ul class="nav nav-tabs ">
+                        <li class="active">
+                            <a data-target="#tab_pending" data-toggle="tab" aria-expanded="true"> Pending </a>
+                        </li>
+                        <li class="">
+                            <a data-target="#tab_complete" data-toggle="tab" aria-expanded="false"> Complete </a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab_pending">
+                            <ul class="criteria-list">
+                                <li>
+                                    <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" noneselecttext="Category: All">
+                                        <option value="Application">Application</option>
+                                        <option value="Payment">Payment</option>
+                                        <option value="Transaction Adjustment">Transaction Adjustment</option>
+                                        <option value="Merchant Adjustment">Merchant Adjustment</option>
+                                        <option value="Collection">Collection</option>
+                                    </select>
+                                </li>
+                                <li>
+                                    <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" noneselecttext="Priority: All">
+                                        <option>High</option>
+                                        <option>Medium</option>
+                                        <option>Low</option>
+                                    </select>
+                                </li>
+                            </ul>
+                            <div class="my-tasks">
+                                <div class="row medium">
+                                    <div class="col-md-5">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="blk-stt bg">
+                                                    MEDIUM
+                                                </div>
+                                            </div>
+                                            <div class="col-md-9 main-content">
+                                                <div class="title txt">APPLICATION REVIEW</div>
+                                                <div class="row">
+                                                    <div class="col-md-4">Category</div>
+                                                    <div class="col-md-8 txt-bold">Application</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">Task Level</div>
+                                                    <div class="col-md-8 txt-bold">1</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">Assigned On</div>
+                                                    <div class="col-md-8 txt-bold">11/2/2017, 16:06:01</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">Assigned By</div>
+                                                    <div class="col-md-8 txt-bold">user03</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 extra-content">
+                                        <div class="row">
+                                            <div class="col-md-6">Application No.</div>
+                                            <div class="col-md-6 txt-bold">12345678</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">Company / Individual Name</div>
+                                            <div class="col-md-6 txt-bold">ABC Company</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">Created On</div>
+                                            <div class="col-md-6 txt-bold">11/2/2017, 16:06:01</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">Current Task Level</div>
+                                            <div class="col-md-6 txt-bold">0</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">Current Task Name</div>
+                                            <div class="col-md-6 txt-bold">Application Creation</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="button" ng-click="ApproveApplication(12345678)" class="btn green btn-outline">Approve</button>
+                                        <button type="button" ng-click="ReturnApplication(12345678)" class="btn purple btn-outline">Return</button>
+                                        <button type="button" ng-click="RejectApplication(12345678)" class="btn red btn-outline">Reject</button>
+                                    </div>
+                                    <div class="more-detail"><a href="/Applications#/897847388">More Details ></a></div>
+                                    <div class="col-md-12">
+                                        <div class="devider"></div>
+                                    </div>
+                                </div>
+                                <div class="row high">
+                                    <div class="col-md-5">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="blk-stt bg">
+                                                    HIGH
+                                                </div>
+                                            </div>
+                                            <div class="col-md-9 main-content">
+                                                <div class="title txt">APPLICATION REVIEW</div>
+                                                <div class="row">
+                                                    <div class="col-md-4">Category</div>
+                                                    <div class="col-md-8 txt-bold">Application</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">Task Level</div>
+                                                    <div class="col-md-8 txt-bold">1</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">Assigned On</div>
+                                                    <div class="col-md-8 txt-bold">11/02/2017, 16:09:01</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">Assigned By</div>
+                                                    <div class="col-md-8 txt-bold">user03</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 extra-content">
+                                        <div class="row">
+                                            <div class="col-md-6">Application No.</div>
+                                            <div class="col-md-6 txt-bold">127566652</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">Company / Individual Name</div>
+                                            <div class="col-md-6 txt-bold">XYZ Company</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">Created On</div>
+                                            <div class="col-md-6 txt-bold">09/02/2017, 16:06:01</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">Current Task Level</div>
+                                            <div class="col-md-6 txt-bold">0</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">Current Task Name</div>
+                                            <div class="col-md-6 txt-bold">Application Creation</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="button" ng-click="ApproveApplication(127566652)" class="btn green btn-outline">Approve</button>
+                                        <button type="button" ng-click="ReturnApplication(127566652)" class="btn purple btn-outline">Return</button>
+                                        <button type="button" ng-click="RejectApplication(127566652)" class="btn red btn-outline">Reject</button>
+                                    </div>
+                                    <div class="more-detail"><a href="/Applications#/897847388">More Details ></a></div>
+                                    <div class="col-md-12">
+                                        <div class="devider"></div>
+                                    </div>
+                                </div>
+                                <div class="row low">
+                                    <div class="col-md-5">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="blk-stt bg">
+                                                    LOW
+                                                </div>
+                                            </div>
+                                            <div class="col-md-9 main-content">
+                                                <div class="title txt">ADJUSTMENT APPROVAL</div>
+                                                <div class="row">
+                                                    <div class="col-md-4">Category</div>
+                                                    <div class="col-md-8 txt-bold">Transaction Adjustment</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">Task Level</div>
+                                                    <div class="col-md-8 txt-bold">2</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">Assigned On</div>
+                                                    <div class="col-md-8 txt-bold">11/02/2017, 09:09:01</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">Assigned By</div>
+                                                    <div class="col-md-8 txt-bold">user05</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 extra-content">
+                                        <div class="row">
+                                            <div class="col-md-5">Transaction No.</div>
+                                            <div class="col-md-6 txt-bold">2267</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">Batch No.</div>
+                                            <div class="col-md-6 txt-bold"><a  ng-click="MultipleAdjApr(120)">120</a></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">Adjustment Amount</div>
+                                            <div class="col-md-6 txt-bold">RM 500.00</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">Created On</div>
+                                            <div class="col-md-6 txt-bold">08/02/2017, 16:06:01</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">Current Task Level</div>
+                                            <div class="col-md-6 txt-bold">1</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="button" ng-click="ApproveTransaction(2267)" class="btn green btn-outline">Approve</button>
+                                        <button type="button" ng-click="ReturnTransaction(2267)" class="btn purple btn-outline">Return</button>
+                                        <button type="button" ng-click="RejectTransaction(2267)" class="btn red btn-outline">Reject</button>
+                                    </div>
+                                    <div class="more-detail"><a href="#">More Details ></a></div>
+                                    <div class="col-md-12">
+                                        <div class="devider"></div>
+                                    </div>
+                                </div>
+                                <div class="row low">
+                                    <div class="col-md-5">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="blk-stt bg">
+                                                    LOW
+                                                </div>
+                                            </div>
+                                            <div class="col-md-9 main-content">
+                                                <div class="title txt">PAYMENT APPROVAL</div>
+                                                <div class="row">
+                                                    <div class="col-md-4">Category</div>
+                                                    <div class="col-md-8 txt-bold">Payment</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">Task Level</div>
+                                                    <div class="col-md-8 txt-bold">1</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">Assigned On</div>
+                                                    <div class="col-md-8 txt-bold">08/02/2017, 09:09:01</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">Assigned By</div>
+                                                    <div class="col-md-8 txt-bold">user03</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 extra-content">
+                                        <div class="row">
+                                            <div class="col-md-5">Transaction No.</div>
+                                            <div class="col-md-6 txt-bold">3901</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">Batch No.</div>
+                                            <div class="col-md-6 txt-bold"><a  ng-click="MultipleAdjApr(221)">221</a></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">Adjustment Amount</div>
+                                            <div class="col-md-6 txt-bold">RM 320.00</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">Created On</div>
+                                            <div class="col-md-6 txt-bold">07/02/2017, 16:06:01</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">Current Task Level</div>
+                                            <div class="col-md-6 txt-bold">0</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="button" ng-click="ApproveTransaction(3901)" class="btn green btn-outline">Approve</button>
+                                        <button type="button" ng-click="ReturnTransaction(3901)" class="btn purple btn-outline">Return</button>
+                                        <button type="button" ng-click="RejectTransaction(3901)" class="btn red btn-outline">Reject</button>
+                                    </div>
+                                    <div class="more-detail"><a href="#">More Details ></a></div>
+                                    <div class="col-md-12">
+                                        <div class="devider"></div>
+                                    </div>
+                                </div>
+                                <div class="row high">
+                                    <div class="col-md-5">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="blk-stt bg">
+                                                    HIGH
+                                                </div>
+                                            </div>
+                                            <div class="col-md-9 main-content">
+                                                <div class="title txt">ADJUSTMENT APPROVAL</div>
+                                                <div class="row">
+                                                    <div class="col-md-4">Category</div>
+                                                    <div class="col-md-8 txt-bold">Merchant Adjustment</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">Task Level</div>
+                                                    <div class="col-md-8 txt-bold">1</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">Assigned On</div>
+                                                    <div class="col-md-8 txt-bold">08/02/2017, 09:09:01</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">Assigned By</div>
+                                                    <div class="col-md-8 txt-bold">user03</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 extra-content">
+                                        <div class="row">
+                                            <div class="col-md-5">Transaction No.</div>
+                                            <div class="col-md-6 txt-bold">6556</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">Batch No.</div>
+                                            <div class="col-md-6 txt-bold"><a ng-click="MultipleAdjApr(212)">212</a></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">Adjustment Amount</div>
+                                            <div class="col-md-6 txt-bold">RM 700.00</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">Created On</div>
+                                            <div class="col-md-6 txt-bold">06/02/2017, 16:06:01</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">Current Task Level</div>
+                                            <div class="col-md-6 txt-bold">0</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="button" ng-click="ApproveTransaction(6556)" class="btn green btn-outline">Approve</button>
+                                        <button type="button" ng-click="ReturnTransaction(6556)" class="btn purple btn-outline">Return</button>
+                                        <button type="button" ng-click="RejectTransaction(6556)" class="btn red btn-outline">Reject</button>
+                                    </div>
+                                    <div class="more-detail"><a href="#">More Details ></a></div>
+                                    <div class="col-md-12">
+                                        <div class="devider"></div>
+                                    </div>
+                                </div>
+                                <div class="row medium">
+                                    <div class="col-md-5">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="blk-stt bg">
+                                                    MEDIUM
+                                                </div>
+                                            </div>
+                                            <div class="col-md-9 main-content">
+                                                <div class="title txt">COLLECTION FOLLOW UP</div>
+                                                <div class="row">
+                                                    <div class="col-md-4">Category</div>
+                                                    <div class="col-md-8 txt-bold">Collection</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">Task Level</div>
+                                                    <div class="col-md-8 txt-bold">1</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">Assigned On</div>
+                                                    <div class="col-md-8 txt-bold">07/02/2017, 09:09:01</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">Assigned By</div>
+                                                    <div class="col-md-8 txt-bold">user03</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 extra-content">
+                                        <div class="row">
+                                            <div class="col-md-5">Collection No.</div>
+                                            <div class="col-md-6 txt-bold">7880</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">Collection Amount</div>
+                                            <div class="col-md-6 txt-bold">RM 700.00</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">Created On</div>
+                                            <div class="col-md-6 txt-bold">01/02/2017, 16:06:01</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="button" ng-click="CollectionFollowUp(7880)" class="btn blue btn-outline">Follow Up</button>
+                                        <button type="button" ng-click="CloseCollection(7880)" class="btn dark btn-outline">Close</button>
+                                    </div>
+                                    <div class="more-detail"><a href="#">More Details ></a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab_complete">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<a id="MultipleAdjAprTarget" class="help-dialog" data-toggle="modal" data-target="#MultipleAdjApr" style="display:none"></a>*@
+    <script type="text/ng-template" id="MultipleAdjApr">
+        <div class="ngdialog-message">
+            <div class="modal-header">
+                <h4 class="modal-title">Multiple Adjustment Approval</h4>
+            </div>
+            <div class="modal-body">
+                <div class=" my-task-model">
+                    <div class="row">
+                        <div class="col-md-2">Batch No.</div>
+                        <div class="col-md-3 txt-bold">284</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">Total Adj. Amt.</div>
+                        <div class="col-md-3 txt-bold">300.00</div>
+                    </div>
+                </div>
+                <div class="txn-item">
+                    <p class="txt-bold">Transaction List</p>
+                    <div class="portlet-body ">
+                        <table dtable options="batchLst" class="table table-bordered table-striped table-condensed ">
+                            <thead class="">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Txn. No.</th>
+                                    <th>Txn. Date</th>
+                                    <th>Txn. Amt.</th>
+                                    <th>Priority</th>
+                                    <th>Created On</th>
+                                    <th>Current Task Level</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-form-action">
+                <button type="button" class="btn red btn-outline">Reject All</button>
+                <button type="button" class="btn purple btn-outline">Return All</button>
+                <button type="button" class="btn green btn-outline">Approve All</button>
+            </div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="ApproveApplication">
+        <div class="ngdialog-message">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ngDialogData.title}}</h4>
+            </div>
+            <div class="modal-body">
+                <span>Are you sure you want to approve Application No. <a href="javascript:;">{{ngDialogData.appId}}</a>?</span>
+            </div>
+            <div class="modal-form-action">
+                <div class="mt-checkbox-list link quick-link">
+                    <label class="mt-checkbox mt-checkbox-outline">
+                        <input type="checkbox"> Don't show this message again
+                        <span></span>
+                    </label>
+                </div>
+                <button ng-click="closeThisDialog(0)" type="button" class="btn white">No</button>
+                <button type="button" class="btn blue">Yes</button>
+            </div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="RejectApplication">
+        <div class="ngdialog-message">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ngDialogData.title}}</h4>
+            </div>
+            <div class="modal-body">
+                <span>Are you sure you want to reject Application No. <a href="javascript:;">{{ngDialogData.appId}}</a>?</span>
+            </div>
+            <div class="modal-form-action">
+                <div class="mt-checkbox-list link quick-link">
+                    <label class="mt-checkbox mt-checkbox-outline">
+                        <input type="checkbox"> Don't show this message again
+                        <span></span>
+                    </label>
+                </div>
+                <button ng-click="closeThisDialog(0)" type="button" class="btn white">No</button>
+                <button type="button" class="btn blue">Yes</button>
+            </div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="ReturnApplication">
+        <div class="ngdialog-message">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ngDialogData.title}}</h4>
+            </div>
+            <div class="modal-body">
+                <span>You are about to return Application No. <a href="javascript:;">{{ngDialogData.appId}}</a>. Leave your comments below.</span>
+                <div class="form-group">
+                    <label>Comment</label>
+                    <textarea class="form-control" placeholder="Input your comments here"></textarea>
+                </div>
+            </div>
+            <div class="modal-form-action">
+                <button ng-click="closeThisDialog(0)" type="button" class="btn white">No</button>
+                <button type="button" class="btn blue">Yes</button>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="ApproveTransaction">
+        <div class="ngdialog-message">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ngDialogData.title}}</h4>
+            </div>
+            <div class="modal-body">
+                <span>Are you sure you want to approve Transaction No. <a href="javascript:;">{{ngDialogData.appId}}</a>?</span>
+            </div>
+            <div class="modal-form-action">
+                <div class="mt-checkbox-list link quick-link">
+                    <label class="mt-checkbox mt-checkbox-outline">
+                        <input type="checkbox"> Don't show this message again
+                        <span></span>
+                    </label>
+                </div>
+                <button ng-click="closeThisDialog(0)" type="button" class="btn white">No</button>
+                <button type="button" class="btn blue">Yes</button>
+            </div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="RejectTransaction">
+        <div class="ngdialog-message">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ngDialogData.title}}</h4>
+            </div>
+            <div class="modal-body">
+                <span>Are you sure you want to reject Transaction No. <a href="javascript:;">{{ngDialogData.appId}}</a>?</span>
+            </div>
+            <div class="modal-form-action">
+                <div class="mt-checkbox-list link quick-link">
+                    <label class="mt-checkbox mt-checkbox-outline">
+                        <input type="checkbox"> Don't show this message again
+                        <span></span>
+                    </label>
+                </div>
+                <button ng-click="closeThisDialog(0)" type="button" class="btn white">No</button>
+                <button type="button" class="btn blue">Yes</button>
+            </div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="ReturnTransaction">
+        <div class="ngdialog-message">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ngDialogData.title}}</h4>
+            </div>
+            <div class="modal-body">
+                <span>You are about to return Transaction No. <a href="javascript:;">{{ngDialogData.appId}}</a>. Leave your comments below.</span>
+                <div class="form-group">
+                    <label>Comment</label>
+                    <textarea class="form-control" placeholder="This application is lack of bank guarantee letter."></textarea>
+                </div>
+            </div>
+            <div class="modal-form-action">
+                <button ng-click="closeThisDialog(0)" type="button" class="btn white">No</button>
+                <button type="button" class="btn blue">Yes</button>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="CloseCollection">
+        <div class="ngdialog-message">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ngDialogData.title}}</h4>
+            </div>
+            <div class="modal-body">
+                <span>Are you sure you want to close Collection No. <a href="javascript:;">{{ngDialogData.appId}}</a>?</span>
+            </div>
+            <div class="modal-form-action">
+                <div class="mt-checkbox-list link quick-link">
+                    <label class="mt-checkbox mt-checkbox-outline">
+                        <input type="checkbox"> Don't show this message again
+                        <span></span>
+                    </label>
+                </div>
+                <button ng-click="closeThisDialog(0)" type="button" class="btn white">No</button>
+                <button type="button" class="btn blue">Yes</button>
+            </div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="CollectionFollowUp">
+        <div class="ngdialog-message">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ngDialogData.title}}</h4>
+            </div>
+            <div class="modal-body">
+                <span>Set a date and task to follow up on Collection No. <a href="javascript:;">{{ngDialogData.appId}}</a>.</span>
+                <div class="form-group">
+                    <label>Follow Up Date</label>
+                    <div class="input-icon right input-medium"><i class="material-icons">today</i><input autocomplete="on" class="form-control ng-valid ng-isolate-scope ng-empty ng-dirty ng-valid-parse ng-touched" date_picker="" section="gen" type="text" value="" style=""></div>
+                </div>
+                <div class="form-group">
+                    <label>Follow Up Task</label>
+                    <textarea class="form-control" placeholder="Input your task here"></textarea>
+                </div>
+            </div>
+            <div class="modal-form-action">
+                <button ng-click="closeThisDialog(0)" type="button" class="btn white">Cancel</button>
+                <button type="button" class="btn blue">Save</button>
+            </div>
+        </div>
+    </script>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('.date-picker').datepicker();
+        $('body').addClass('layout1menu');
+
+        $(".mt-multiselect").each(function (index) {
+            $(this).multiselect({
+                nonSelectedText: $(this).attr('noneSelectText'),
+                maxHeight: 250
+            });
+        });
+    });
+</script>

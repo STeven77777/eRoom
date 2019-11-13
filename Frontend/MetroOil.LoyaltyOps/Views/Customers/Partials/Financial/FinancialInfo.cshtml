@@ -1,0 +1,253 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@model MetroOil.LoyaltyOps.Models.FinancialInfoModel
+
+<div class="page-content">
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Customers#/">All Customers</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Customers#/9894934943">Account Summary</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Financial Details</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <div class="portlet box blue ">
+        <div class="portlet-title">
+            <div class="caption">Billing &amp; Payment Info</div>
+        </div>
+        <div class="portlet-body form">
+            <form id="fullApplicationForm" class="horizontal-form form">
+                <div class="form-body">
+                    <!-- BEGIN BASIC INFORMATION -->
+                    <div class="page-bar quick-info">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <span class="tooltips" data-original-title="Company Name on Card">HSBC Sentul</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Customer Account No.">9894934943</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Program Type">Postpaid</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Customer Class">VIP</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Approved On">15/04/2016</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END BASIC INFORMATION -->
+                    <div class="main-content">
+                        <h4 class="form-section">Billing Info</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @*@Html.CustomNgTextBoxFor(model => model.TaxRefNo, null, new { @section = "gen" })*@
+                                <div class="form-group">
+                                    <label>Tax Reference No.</label>
+                                    <input class="form-control" value="09329438" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                @*@Html.CustomNgTextBoxFor(model => model.DunningCode, null, new { @section = "gen" })*@
+                                <div class="form-group">
+                                    <label>Dunning Code</label>
+                                    <select class="form-control">
+                                        <option>Dunning Letter &amp; Auto-blocking </option>
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.WriteOffDate, null, new { @date_picker = "", @section = "gen" })
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                @*@Html.CustomNgSelectListFor(model => model.CycNo, Model.CycNoList, new { required = true }, new { @Name = "CycNoList", @section = "gen" }, null)*@
+                                <div class="form-group">
+                                    <label>Cycle No.<span>(required)</span></label>
+                                    <select class="form-control">
+                                        <option>7th day of the month</option>
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Statement / Invoice Preference</label>
+                                    <select class="form-control">
+                                        <option>e-statement only</option>
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Statement Type</label>
+                                    <div class="mt-radio-inline">
+                                        <label class="mt-radio">
+                                            <input type="radio" name="optionsRadios" id="optionsRadios25" value="option1" checked="" disabled>Statement
+                                            <span></span>
+                                        </label>
+                                        <label class="mt-radio">
+                                            <input type="radio" name="optionsRadios" id="optionsRadios26" value="option2" checked="" disabled>Invoice
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        @*<div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="mt-checkbox-list">
+                                        <label class="mt-checkbox mt-checkbox-outline">
+                                            <input type="checkbox"> Late Payment Charges
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>*@
+                        <!--/row-->
+                        <h4 class="form-section">Payment Info</h4>
+                        <div class="row">
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label>Payment Mode</label>
+                                    <select class="form-control">
+                                        <option>Bank Transfer</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label>Payment Terms<span>(required)</span></label>
+                                    <select class="form-control">
+                                        <option>3 Months</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Grace Period (days)</label>
+                                    <input class="form-control input-small" value="0" />
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Credit Allowance Factor (%)</label>
+                                    <input class="form-control input-small" value="32" />
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label>Bank Name</label>
+                                    <select class="form-control">
+                                        <option>HSBC</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label>Bank Branch Code</label>
+                                    <input class="form-control" value="A343348"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label>Bank Account Type</label>
+                                    <select class="form-control">
+                                        <option>Savings Account</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label>Bank Account No.</label>
+                                    <input class="form-control" value="123343"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label>Payee Name</label>
+                                    <input class="form-control" value="Siti Norhara"/>
+                                </div>
+                            </div>
+                        </div>                        
+                        <!--/row-->
+                    </div>
+                </div>
+                <div class="form-actions right">
+                    <button type="button" class="btn white">Cancel</button>
+                    <button type="button" data-validation-form data-customsubmit="" class="btn blue">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- END FORM-->
+    <!-- END MAIN CONTENT-->
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('body').removeClass('layout1menu');
+        $('.date-picker').datepicker();
+
+        //$('.sample-card-table').DataTable({
+        //    "scrollY": "200px",
+        //    "scrollCollapse": true,
+        //    "paging": false
+        //});
+        //App.alert({
+        //    place: 'append', // append or prepent in container
+        //    type: 'success', // alert's type
+        //    message: 'You have created an application successfully. Application ID: <b>748389391</b>', // alert's message
+        //    close: true, // make alert closable
+        //    reset: false, // close all previouse alerts first
+        //    focus: false, // auto scroll to the alert after shown
+        //    //closeInSeconds: 5 // auto close after defined seconds
+        //    //icon: 'fa fa-check-circle' // put icon class before the message
+        //});
+    });
+</script>

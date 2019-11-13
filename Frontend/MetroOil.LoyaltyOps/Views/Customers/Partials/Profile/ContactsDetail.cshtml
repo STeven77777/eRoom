@@ -1,0 +1,146 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@model MetroOil.LoyaltyOps.Models.ContactModel
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Customers#/">All Customers</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Customers#/9894934943">Account Summary</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Customer Details</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    @*<h1 class="page-title">
+            All Customers
+        </h1>*@
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+    <div class="portlet box blue ">
+        <div class="portlet-title">
+            <div class="caption">Contact</div>
+            <div class="tools">
+                <a ng-click="deleteContact();" href="javascript:;" class="tooltips" title="Delete Contact"><i class="icon-trash"></i></a>
+            </div>
+        </div>
+        <div class="portlet-body form">
+            <form id="ContactDetailForm" class="horizontal-form form">
+                <div class="form-body">
+                    <!-- BEGIN BASIC INFORMATION -->
+                    <div class="page-bar quick-info">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <span class="tooltips" data-original-title="Company Name on Card">HSBC Sentul</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Customer Account No.">9894934943</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Program Type">Postpaid</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Customer Class">VIP</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Approved On">15/04/2016</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END BASIC INFORMATION -->
+                    <div class="main-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgCheckBoxFor(model => model.MainContact, null, new { @section = "gen" })
+                            </div>
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.ContactPerson, new { required = true }, new { @section = "gen" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgSelectListFor(model => model.Position, Model.PositionLst, null, new { @Name = "PositionLst", @section = "gen" }, null)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.HomePhoneNo, null, new { @section = "gen" })
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.WorkPhoneNo, null, new { @section = "gen" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.MobilePhoneNo, null, new { @section = "gen" })
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.FaxNo, null, new { @section = "gen" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.Email, null, new { @section = "gen" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.CreatedOn, new { }, new { @date_picker = "", @section = "gen", @disabled = "disabled" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.CreatedBy, new { }, new { @section = "gen", @readonly = "readonly" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions right">
+                    <a ng-click="backToList();" class="link quick-link">< Back to list</a>
+                    <div class="main-content">
+                        <button ng-click="backToList();" type="button" class="btn white">Cancel</button>
+                        <button type="button" data-validation-form data-customsubmit="SaveContactDetail();" class="btn blue">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/ng-template" id="ConfirmDelete">
+    <div class="ngdialog-message">
+        <div class="modal-header">
+            <h4 class="modal-title">Confirmation</h4>
+        </div>
+        <div class="modal-body">
+            <span>Delete this contact?</span>
+        </div>
+        <div class="modal-form-action">
+            <button ng-click="closeThisDialog(0)" type="button" class="btn white">No</button>
+            <button type="button" class="btn blue">Delete</button>
+        </div>
+    </div>
+</script>
+<script type="text/javascript">
+    $(function () {
+        $('body').removeClass('layout1menu');
+    });
+</script>

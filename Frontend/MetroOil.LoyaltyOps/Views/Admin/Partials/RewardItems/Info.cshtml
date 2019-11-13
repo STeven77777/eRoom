@@ -1,0 +1,141 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@model MetroOil.LoyaltyOps.Models.Admin.RewardItemModel
+@{
+    var urlPrefix = System.Configuration.ConfigurationManager.AppSettings["urlPrefix"];
+}
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="@urlPrefix/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="#/AdRwdItms">Reward Items</a>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+
+    <div class="portlet box blue">
+        <div class="portlet-title">
+            <div class="caption">Reward Items</div>
+        </div>
+        <div class="portlet-body form">
+            <form class="horizontal-form form">
+                <div class="form-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.CustomNgSelectListFor(model => model.ProdClassCd, Model.ProdClassCds, null, new { @LstName = "ProdClassCds", ng_change = "ProductClassChanged();" })
+                        </div>
+                        <div class="col-md-6">
+                            @Html.CustomNgSelectListFor(model => model.ProdType, Model.ProdTypes, null, new { @LstName = "ProdTypes" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.CustomNgTextBoxFor(model => model.ProdCd, null, new { @disabled = "disabled" })
+                        </div>
+                        <div class="col-md-6">
+                            @Html.CustomNgTextBoxFor(model => model.ItemName, null, new { })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.CustomNgTextAreaFor(model => model.ItemDescp, null, new { })
+                        </div>
+                        <div class="col-md-6">
+                            @Html.CustomNgDateRangeFor(model => model.StartDate, m => m.EndDate, "Available Period", null, new { @date_time = "", @view = "date", @min_view = "minutes", @auto_close = "true", @format = "YYYY/MM/DD, HH:mm:ss", @period_to= "EndDate", @is_required="true" }, new { @date_time = "", @view = "date", @min_view = "minutes", @auto_close = "true", @format = "YYYY/MM/DD, HH:mm:ss" })
+                        </div>
+                    </div>
+                    <!--/row-->
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.CustomNgTextBoxFor(model => model.Pts, null, new { })
+                        </div>
+                        <div class="col-md-6">
+                            @Html.CustomNgSelectListFor(model => model.Sts, Model.Stses, null, new { @LstName = "Stses" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @*<label></label>*@
+                            @Html.CustomNgCheckBoxFor(model => model.VoucherInd, null, null)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.CustomNgTextBoxFor(model => model.CreatedDate, null, new { @date_time = "", @view = "date", @min_view = "date", @auto_close = "true", @format = "YYYY/MM/DD", @disabled = "disabled" })
+                        </div>
+                        <div class="col-md-6">
+                            @Html.CustomNgTextBoxFor(model => model.CreatedByName, null, new { @readonly = "readonly", @class = "input-medium" })
+                        </div>
+                    </div>
+                    <div ng-show="_Object.VoucherInd==true">
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgSelectListFor(model => model.VoucherSourceCd, Model.VoucherSourceCds, null, new { @LstName = "VoucherSourceCds" })
+                            </div>
+                            <div class="col-md-6" ng-show="_Object.VoucherSourceCd=='@Enums.VOUCHER_INTERNAL'">
+                                @Html.CustomNgSelectListFor(model => model.VoucherAllocateTypeCd, Model.VoucherAllocateTypeCds, null, new { @LstName = "VoucherAllocateTypeCds" })
+                            </div>
+                            <div class="col-md-6" ng-show="_Object.VoucherSourceCd=='@Enums.VOUCHER_EXTERNAL'">
+                                @Html.CustomNgSelectListFor(model => model.ExtPartnerCd, Model.ExtPartnerCds, null, new { @LstName = "ExtPartnerCds" })
+                            </div>
+                        </div>
+                        <div class="row" ng-show="_Object.VoucherSourceCd=='@Enums.VOUCHER_INTERNAL'">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Type of Validity Period<span>(required)</span></label>
+                                    <div class="mt-radio-inline">
+                                        <label class="mt-radio" ng-repeat="item in _Selects.VoucherValidPeriodTypeCds">
+                                            <input type="radio" ng-model="_Object.VoucherValidPeriodTypeCd" value="{{item.Value}}"> {{item.Text}}
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="_Object.VoucherSourceCd=='@Enums.VOUCHER_INTERNAL'">
+                            <div class="col-md-6" ng-show="_Object.VoucherValidPeriodTypeCd=='@Enums.VOUCHER_PERIOD_TYPE_NO_OF_DAYS'">
+                                @Html.CustomNgTextBoxFor(model => model.VoucherValidDays, null, new { })
+                            </div>
+                            <div class="col-md-6" ng-show="_Object.VoucherValidPeriodTypeCd=='DR'">
+                                @Html.CustomNgDateRangeFor(model => model.VoucherValidStartDate, m => m.VoucherValidEndDate, "Validity Period", null, new { @date_time = "", @view = "date", @min_view = "minutes", @auto_close = "true", @format = "YYYY/MM/DD, HH:mm:ss", @period_to = "VoucherValidEndDate", @is_required = "true" }, new { @date_time = "", @view = "date", @min_view = "minutes", @auto_close = "true", @format = "YYYY/MM/DD, HH:mm:ss" })
+                            </div>
+                        </div>
+                        <div class="row" ng-show="_Object.VoucherSourceCd=='@Enums.VOUCHER_INTERNAL'">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Terms and Conditions</label>
+                                    <textarea ui-tinymce="RemarkTinymceOptions" ng-model="_Object.Remark1"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions right">
+                    <a ng-click="BackToList();" class="link quick-link">< Back to list</a>
+                    <button type="button" ng-click="BackToList();" class="btn white">Cancel</button>
+                    @if (Html.SectionIsEnabled("AdRwdItmInfoSave"))
+                    {
+                        <button type="button" data-validation-form data-customsubmit="SaveInfo()" class="btn blue">Save</button>
+                    }
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('.date-picker').datepicker();
+        $('body').addClass('layout1menu');
+    });
+</script>

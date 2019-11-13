@@ -1,0 +1,270 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@model MetroOil.LoyaltyOps.Models.Merchants.MerchantModel
+
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Merchants#/{{$root.obj.acctNoHash}}">Merchant Summary</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Merchant Profile</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+
+    <div class="portlet box blue">
+        <div class="portlet-title">
+            <div class="caption">MERCHANT ACCOUNT / BUSINESS INFO</div>
+        </div>
+        <div class="portlet-body form">
+            <form action="#" class="horizontal-form form">
+                <div class="form-body">
+                    <!-- BEGIN BASIC INFORMATION -->
+                    <div class="page-bar quick-info">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <span class="tooltips" data-original-title="Merchant Account No.">{{_GeneralInfo.AcctNo}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Business Name">{{_GeneralInfo.BusnName}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Company Register No.">{{_GeneralInfo.CoRegNo}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Company Register Name">{{_GeneralInfo.CoRegName}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Merchant Account Status">{{_GeneralInfo.StsName}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END BASIC INFORMATION -->
+                    @*<h3 class="form-section">Account Info</h3>*@
+                    <div class="main-content">
+                        <h4 class="form-section">Merchant Account Info</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.MerchAcctNo, null, new { @section = "gen", @readonly = "readonly" })
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Merchant Account Status</label>
+                                    <div class="input-group">
+                                        <input class="form-control" ng-model="_Object.StsName" type="text" readonly>
+                                        <span class="input-group-btn">
+                                            <button ng-click="LoadChangeStatus()" class="btn btn-success" type="button">
+                                                Change Status
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.PersonInChargeFirstName, null, new { @section = "gen" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.PersonInChargeLastName, null, new { @section = "gen" })
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.CreatedBy, null, new { @section = "gen", @readonly = "readonly", @class="input-medium"})
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.CreatedDate, null, new { @date_time = "", @view = "date", @min_view = "date", @auto_close = "true", @format = "YYYY/MM/DD", @section = "gen", @disabled = "disabled" })
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <h4 class="form-section">Merchant Business / Company Info</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.BusnName, null, new { @section = "gen" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.CoRegName, null, new { @section = "gen" })
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Company Type</label>
+                                    <select class="form-control">
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.CoRegNo, null, new { @section = "gen" })
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.CoRegNo, null, new { @date_time = "", @view = "date", @min_view = "date", @auto_close = "true", @format = "YYYY/MM/DD", @section = "gen", @disabled = "disabled" })
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Operating Model</label>
+                                    <select class="form-control">
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Business Size</label>
+                                    <select class="form-control"></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions right">
+                    <button type="button" ng-click="backToList();" class="btn white">Cancel</button>
+                    
+                    <button type="button" class="btn blue">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <a id="SubmitFormTarget" class="help-dialog" data-toggle="modal" data-target="#SubmitForm" style="display:none"></a>
+    <div id="SubmitForm" class="modal" tabindex="-1" data-width="40%">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h4 class="modal-title">Submit Card</h4>
+        </div>
+        <div class="modal-body">
+            <div class="portlet-body  form">
+                <form action="#" class="horizontal-form form">
+                    <div class="form-body">
+                        <div class="row">
+                            <!--/span-->
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label>Task<span>(required)</span></label>
+                                    <select class="form-control"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!--/span-->
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label>Assign Task To<span>(required)</span></label>
+                                    <select class="form-control"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!--/span-->
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label>Priority<span>(required)</span></label>
+                                    <select class="form-control"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!--/span-->
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Comment</label>
+                                    <textarea class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions right">
+                        <button type="button"  class="btn white">Cancel</button>
+                        <button type="button" ng-click="submitApp();" class="btn blue">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/ng-template" id="CrdStsHis">
+    <div class="ngdialog-message">
+        <div class="modal-header">
+            <h4 class="modal-title">Card Status History</h4>
+        </div>
+        <div class="modal-body">
+            <!-- BEGIN BASIC INFORMATION -->
+            <div class="page-bar quick-info">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="bg-green status-block"></i>
+                        <span>HSBC Sentul</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>9894934943</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>Postpaid</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>VIP</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>02/12/2016</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- END BASIC INFORMATION -->
+            <div class="portlet-body ">
+                <table dtable options="crdStsHisLst" class="table table-bordered table-striped table-condensed ">
+                    <thead class="">
+                        <tr>
+                            <th>Changed From</th>
+                            <th>Changed To</th>
+                            <th>Status Change Reason</th>
+                            <th>Other Status Change Reason</th>
+                            <th>Remarks</th>
+                            <th>Changed On</th>
+                            <th>Changed By</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/javascript">
+    $(function () {
+        $('.date-picker').datepicker();
+        $('body').removeClass('layout1menu');
+    });
+</script>

@@ -1,0 +1,328 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@model MetroOil.LoyaltyOps.Models.AcctSignUpModel
+@using AcctLeftMenu = Resources.AccountLeftMenu
+<div class="page-content">
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Customers#/">All Customers</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Customers#/9894934943">Account Summary</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Customer Details</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <div class="portlet box blue ">
+        <div class="portlet-title">
+            <div class="caption">@AcctLeftMenu.CusAccCusInfo</div>
+        </div>
+        <div class="portlet-body form">
+            <form id="fullApplicationForm" class="horizontal-form form">
+                <div class="form-body">
+                    <!-- BEGIN BASIC INFORMATION -->
+                    <div class="page-bar quick-info">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <span class="tooltips" data-original-title="Company Name on Card">HSBC Sentul</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Customer Account No.">9894934943</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Program Type">Postpaid</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Customer Class">VIP</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Approved On">15/04/2016</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END BASIC INFORMATION -->
+                    <div>
+                        <h4 class="form-section">Account Info</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Customer Account No.</label>
+                                    <input readonly="readonly" class="form-control" value="9894934943" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Application No.</label>
+                                    <input readonly="readonly" class="form-control" value="156732898" />
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Program Type<span>(required)</span></label>
+                                    <select class="form-control">
+                                        <option>Postpaid</option>
+                                        <option>Prepaid</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Company Name on Card<span>(required)</span></label>
+                                    <input class="form-control" value="HSBC Sentul" />
+                                    <span class="help-info">Maximum 26 characters including space.</span>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Customer Class</label>
+                                    <select class="form-control">
+                                        <option>VIP</option>
+                                        <option>Normal</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Customer Category</label>
+                                    <select class="form-control">
+                                        <option>Corporate</option>
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Corporate Account</label>
+                                    <select class="form-control">
+                                        <option>3001 HSBC Group</option>
+                                        <option>3015 Maybank Group</option>
+                                    </select>
+                                </div>
+                                <button ng-click="openCorporateAccount();" type="button" class="btn full-btn txt-white bg-blue-light1 btn-form-control">Go to corporate account</button>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Sales Territory<span>(required)</span></label>
+                                    <select class="form-control">
+                                        <option>Central 1</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Authorized Signatory<i class="help material-icons">help_outline</i></label>
+                                    <input class="form-control" value="Alex Tan" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Approved On</label>
+                                    <div class="input-icon right input-medium"><i class="material-icons">today</i><input autocomplete="on" class="form-control ng-valid ng-isolate-scope ng-empty ng-dirty ng-valid-parse ng-touched" date_picker="" disabled section="gen" type="text" value="15/04/2016" style=""></div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Approved By</label>
+                                    <input class="form-control" readonly="readonly" value="user01" />
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Account Status</label>
+                                    <input class="form-control" value="Active" readonly="readonly" />
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-cus">
+                                <div class="more-info">
+                                    <a href="javascript:;" ng-click="showStatusHistory();">View history</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Account Status Validity Period</label>
+                                    <div class="input-daterange input-group ng-isolate-scope" date-picker=""><input class="form-control ng-valid ng-dirty ng-not-empty ng-touched" type="text" value="01/01/2018" disabled style=""> <span class="input-group-addon">to</span><input class="form-control ng-untouched ng-valid ng-dirty ng-not-empty" type="text" value="01/02/2018" disabled style=""></div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <h4 class="form-section">Company / Personal Info</h4>
+                        <div class="row">
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label>Company / Individual Name<span>(required)</span></label>
+                                    <input class="form-control" value="HSBC Sentul" />
+                                </div>
+                            </div>
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label>Company Type</label>
+                                    <select class="form-control">
+                                        <option>Sendirian Berhad</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Business Type<i class="help material-icons">help_outline</i></label>
+                                    <select class="form-control">
+                                        <option>Banking</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Company Registration No. / Identity Card No.</label>
+                                    <input class="form-control" value="0440040414" />
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Company Registration Date</label>
+                                    <div class="input-icon right input-medium"><i class="material-icons">today</i><input autocomplete="on" class="form-control ng-valid ng-isolate-scope ng-empty ng-dirty ng-valid-parse ng-touched" date_picker="" readonly="readonly" section="gen" type="text" value="" style=""></div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Website</label>
+                                    <input class="form-control" value="www.hsbc.com.my" />
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Preferred Language<span>(required)</span></label>
+                                    <select class="form-control">
+                                        <option>English</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                    </div>
+                </div>
+                <div class="form-actions right">
+                    <button type="button" class="btn white">Cancel</button>
+                    <button type="button" data-validation-form data-customsubmit="SaveGeneralInfo();" class="btn blue">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- END FORM-->
+    <!-- END MAIN CONTENT-->
+</div>
+<script type="text/ng-template" id="AcctStsHis">
+    <div class="ngdialog-message">
+        <div class="modal-header">
+            <h4 class="modal-title">Account Status History</h4>
+        </div>
+        <div class="modal-body">
+            <!-- BEGIN BASIC INFORMATION -->
+            <div class="page-bar quick-info">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="bg-green status-block"></i>
+                        <span>HSBC Sentul</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>9894934943</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>Postpaid</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>VIP</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>02/12/2016</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- END BASIC INFORMATION -->
+            <div class="portlet-body ">
+                <table dtable options="acctStsHisLst" class="table table-bordered table-striped table-condensed ">
+                    <thead class="">
+                        <tr>
+                            <th>Changed From</th>
+                            <th>Changed To</th>
+                            <th>Status Change Reason</th>
+                            <th>Changed On</th>
+                            <th>Changed By</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</script>
+<script src="~/ng/services/httpInterceptors.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('body').removeClass('layout1menu');
+        $('.date-picker').datepicker();
+    });
+    //function showStatusHistory() {
+    //    $('.main-content').hide();
+    //    $('.stt-history').show();
+    //};
+
+    //function backToMainContent() {
+    //    $('.main-content').show();
+    //    $('.stt-history').hide();
+    //}
+</script>

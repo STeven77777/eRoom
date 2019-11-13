@@ -1,0 +1,102 @@
+﻿@using MetroOil.LoyaltyOps.Helpers;
+@{
+    /**/
+
+    /**/
+
+    string pgCd = ViewBag.PgCd;
+    if (pgCd == null)
+    {
+        pgCd = string.Empty;
+    }
+}
+@*<li class="nav-item  no-submenu start ">
+        <a href="#/Accounts/{{$root.obj.merchAcctNoHash}}" class="nav-link nav-toggle">
+            <i class="material-icons">assessment</i>
+            <span class="title">Account Summary</span>
+        </a>
+    </li>*@
+<li class="nav-item ">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="material-icons">pin_drop</i>
+        <span class="title">Business Location Profile</span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+        @if (Html.SectionIsEnabled("BusnLotInfo"))
+        {
+            <li class="nav-item pagekey_BusnLotInfo">
+                <a target="_top" href="#/{{$root.obj.busnLocationNoHash}}/Info" class="nav-link ">
+                    <span class="title">Business Location Info</span>
+                </a>
+            </li>
+        }
+        @if (Html.SectionIsEnabled("BusnLotConts"))
+        {
+            <li class="nav-item pagekey_BusnLotConts pagekey_BusnLotContNew pagekey_BusnLotContD">
+                <a target="_top" href="#/{{$root.obj.busnLocationNoHash}}/Contact" class="nav-link ">
+                    <span class="title">Contact</span>
+                </a>
+            </li>
+        }
+        @if (Html.SectionIsEnabled("BusnLotAddrs"))
+        {
+            <li class="nav-item pagekey_BusnLotAddrs pagekey_BusnLotAddrNew pagekey_BusnLotAddrD">
+                <a target="_top" href="#/{{$root.obj.busnLocationNoHash}}/Address" class="nav-link ">
+                    <span class="title">Address</span>
+                </a>
+            </li>
+        }
+
+    </ul>
+</li>
+@if (Html.SectionIsEnabled("BusnLotFinanceInfo"))
+{
+    <li class="nav-item no-submenu pagekey_BusnLotFinanceInfo">
+        <a href="#/{{$root.obj.busnLocationNoHash}}/FinanceInfo" class="nav-link nav-toggle">
+            <i class="material-icons">monetization_on</i>
+            <span class="title">Finance Info</span>
+        </a>
+    </li>
+}
+@*<li class="nav-item pagekey_BusnLotControl">
+    <a href="#/{{$root.obj.busnLocationNoHash}}/Control" class="nav-link nav-toggle">
+        <i class="material-icons">security</i>
+        <span class="title">Control</span>
+    </a>
+</li>*@
+<li class="nav-item">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="material-icons">security</i>
+        <span class="title">Control</span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+        @if (Html.SectionIsEnabled("BusnLotCrdRangeAccpt"))
+        {
+            <li class="nav-item pagekey_BusnLotCrdRangeAccpt">
+                <a target="_top" href="#/{{$root.obj.busnLocationNoHash}}/CardRangeAcceptance" class="nav-link ">
+                    <span class="title">Card Range Acceptance</span>
+                </a>
+            </li>
+        }
+    </ul>
+</li>
+@if (Html.SectionIsEnabled("BusnLotTerminals"))
+{
+    <li class="nav-item no-submenu pagekey_BusnLotTerminals pagekey_BusnLotTerminalNew pagekey_BusnLotTerminalInfo">
+        <a href="#/{{$root.obj.busnLocationNoHash}}/Terminals" class="nav-link nav-toggle">
+            <i class="material-icons">devices</i>
+            <span class="title">Terminals</span>
+        </a>
+    </li>
+}
+@if (Html.SectionIsEnabled("BusnLotTxnPoints"))
+{
+    <li class="nav-item no-submenu pagekey_BusnLotTxnPoints">
+        <a href="#/{{$root.obj.busnLocationNoHash}}/Transactions" class="nav-link nav-toggle">
+            <i class="material-icons">receipt</i>
+            <span class="title">Transactions</span>
+        </a>
+    </li>
+}

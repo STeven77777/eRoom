@@ -1,0 +1,260 @@
+﻿@using MetroOil.LoyaltyOps.Helpers;
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var urlPrefix = System.Configuration.ConfigurationManager.AppSettings["urlPrefix"];
+}
+<style>
+    @@media (min-width: 1200px) {
+        .col-lg-15 {
+            float: left;
+            width: 20%;
+        }
+    }
+</style>
+
+<div class="page-container">
+    <!-- BEGIN SIDEBAR -->
+    <div class="page-sidebar-wrapper">
+        <!-- BEGIN SIDEBAR -->
+        <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+        <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+        <div class="page-sidebar navbar-collapse collapse">
+            @*@Html.Partial("Partials/Sidebar")*@
+            <div class="page-sidebar-wrapper">
+                <!-- BEGIN RESPONSIVE MENU FOR HORIZONTAL & SIDEBAR MENU -->
+                @Html.Partial("Partials/MobileMenu")
+                <!-- END RESPONSIVE MENU FOR HORIZONTAL & SIDEBAR MENU -->
+            </div>
+        </div>
+
+        <!-- END SIDEBAR -->
+    </div>
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <!-- BEGIN CONTENT BODY -->
+        <ui-view>
+        </ui-view>
+        <!-- END CONTENT BODY -->
+    </div>
+    <!-- END CONTENT -->
+</div>
+<script type="text/ng-template" id="index.html">
+    <!-- BEGIN CONTENT BODY -->
+    <div class="page-content">
+        @*<div class=" notify-message"><i class="material-icons">notifications</i>You have <a class="link">8 pending tasks</a>.</div>*@
+        <!-- BEGIN DASHBOARD STATS 1-->
+        <div class="row main-function">
+            @if (Html.SectionIsEnabled("MemNew"))
+            {
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <a target="_top" class="dashboard-stat dashboard-seagreen dashboard-stat-v2" href="@(urlPrefix + "/Members#/New")">
+                        <p>
+                            <i class="material-icons">supervisor_account</i>
+                        </p>
+                        <div class="desc"> Create Members</div>
+                    </a>
+                </div>
+            }
+            @if (Html.SectionIsEnabled("MerchUserNew"))
+            {
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <a target="_top" class="dashboard-stat dashboard-yellowmint dashboard-stat-v2" href="@(urlPrefix + "/Merchants#/Users/New")">
+                        <p><i class="material-icons">assignment_ind</i></p>
+                        <div class="desc"> Create Merchant Users </div>
+                    </a>
+                </div>
+            }
+            @if (Html.SectionIsEnabled("MerchAcctNew"))
+            {
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <a class="dashboard-stat dashboard-greysharp dashboard-stat-v2" href="@(urlPrefix + "/Merchants#/Accounts/New")">
+                        <p><i class="material-icons">store</i></p>
+                        <div class="desc"> Create Merchant Account</div>
+                    </a>
+                </div>
+            }
+            @if (Html.SectionIsEnabled("BusnLotNew"))
+            {
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <a class="dashboard-stat dashboard-purple dashboard-stat-v2" href="@(urlPrefix + "/BusnLocations#/New")">
+                        <p><i class="material-icons">place</i></p>
+                        <div class="desc"> Create Business Locations</div>
+                    </a>
+                </div>
+            }
+            @if (Html.SectionIsEnabled("MemSearch"))
+            {
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <a class="dashboard-stat dashboard-redpint dashboard-stat-v2" href="@(urlPrefix + "/Members#/")">
+                        <p><i class="material-icons">search</i></p>
+                        <div class="desc"> Member Search </div>
+                    </a>
+                </div>
+            }
+            @if (Html.SectionIsEnabled("MerchUsers"))
+            {
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <a class="dashboard-stat dashboard-bluesharp dashboard-stat-v2" href="@(urlPrefix +"/Merchants#/Users")">
+                        <p><i class="material-icons">find_in_page</i></p>
+                        <div class="desc"> Merchant User Search </div>
+                    </a>
+                </div>
+            }
+        </div>
+        @*<div class="row search-section">
+            <div class="col-lg-12">
+                <div class="portlet-search">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="icon-cursor font-dark hide"></i>
+                            <span class="caption-subject bold uppercase">SEARCH</span>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="row">
+                            @if (Html.SectionIsEnabled("MemSearch"))
+                            {
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <a class="dashboard-stat dashboard-search" href="@(urlPrefix + "/Members#/")">
+                                        <i class="material-icons">person_outline</i>
+                                        <div class="desc"> Member </div>
+                                    </a>
+                                </div>
+                            }
+                            @if (Html.SectionIsEnabled("MerchUsers"))
+                            {
+                                <div class="col-md-3 col-sm-4 col-xs-12">
+                                    <a class="dashboard-stat dashboard-search" href="@(urlPrefix + "/Merchants#/Users")">
+                                        <i class="material-icons">card_giftcard</i>
+                                        <div class="desc"> Merchant User </div>
+                                    </a>
+                                </div>
+                            }
+                            <div class="col-md-3 col-sm-4 col-xs-12">
+                                <a class="dashboard-stat dashboard-search" href="@(urlPrefix + "/#/MerchantSearch")">
+                                    <i class="material-icons">local_gas_station</i>
+                                    <div class="desc"> Merchant </div>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-12">
+                                <a class="dashboard-stat dashboard-search" href="#">
+                                    <i class="material-icons">reorder</i>
+                                    <div class="desc"> Transaction </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="portlet light bordered">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="icon-cursor font-dark hide"></i>
+                            <span class="caption-subject font-dark bold uppercase">SUMMARY</span>
+                        </div>
+                        <div class="actions">
+                            <a href="@(urlPrefix +"/Reports#/ReportViewer")" class="btn btn-sm btn-circle orange easy-pie-chart-reload">Report Viewer</a>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="easy-pie-chart">
+                                    <div class="number transactions" data-percent="90">
+                                        <span>90</span>%
+                                    </div>
+                                    <a class="title">
+                                        Active Members
+                                        @*<i class="icon-arrow-right"></i>*@
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="margin-bottom-10 visible-sm"> </div>
+                            <div class="col-md-4">
+                                <div class="easy-pie-chart">
+                                    <div class="number visits" data-percent="50">
+                                        <span>50</span>%
+                                    </div>
+                                    <a class="title">
+                                        Used Vouchers
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="margin-bottom-10 visible-sm"> </div>
+                            <div class="col-md-4">
+                                <div class="easy-pie-chart">
+                                    <div class="number bounce" data-percent="10">
+                                        <span>10</span>%
+                                    </div>
+                                    <a class="title">
+                                        Pending Member Verification
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <!-- END DASHBOARD STATS 1-->
+        <!-- BEGIN FORM-->
+        <!-- END FORM-->
+        <!-- END MAIN CONTENT-->
+        <!-- BEGIN PAGE HEADER-->
+        <!-- BEGIN PAGE TITLE-->
+        <!-- END PAGE TITLE-->
+        <!-- END PAGE HEADER-->
+        <!-- BEGIN MAIN CONTENT-->
+    </div>
+    <!-- END CONTENT BODY -->
+</script>
+
+@section CustomPageScript
+{
+    @*@Scripts.Render("~/Content/Scripts/application")*@
+    @Scripts.Render("~/Content/Scripts/homepage")
+    <script src="~/assets/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            // Remove left menu
+            $('body').addClass('layout1menu');
+
+            $('.easy-pie-chart .number.transactions').easyPieChart({
+                animate: 1000,
+                size: 150,
+                lineWidth: 12,
+                lineCap: 'square',
+                scaleColor: false,
+                barColor: '#f29200',
+                trackColor: '#cfd1d2'
+            });
+
+            $('.easy-pie-chart .number.visits').easyPieChart({
+                animate: 1000,
+                size: 150,
+                lineWidth: 12,
+                lineCap: 'square',
+                scaleColor: false,
+                barColor: '#b1c800',
+                trackColor: '#cfd1d2'
+            });
+
+            $('.easy-pie-chart .number.bounce').easyPieChart({
+                animate: 1000,
+                size: 150,
+                lineWidth: 12,
+                lineCap: 'square',
+                scaleColor: false,
+                barColor: '#e2001a',
+                trackColor: '#cfd1d2'
+            });
+        });
+    </script>
+}

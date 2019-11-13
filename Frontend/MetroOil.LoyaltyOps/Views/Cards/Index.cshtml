@@ -1,0 +1,478 @@
+﻿@{
+    ViewBag.Title = "Cards";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page-container">
+    <div class="action-btn-fix">
+        <div class="btn-group">
+            <a class="btn red dropdown-toggle" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                Actions
+                <i class="fa fa-angle-down"></i>
+            </a>
+            <ul class="dropdown-menu pull-right">
+                <li>
+                    <a ng-click="ChangeSts('Suspended', 'Active');"><i class="material-icons">play_circle_outline</i> Activate Card</a>
+                </li>
+                <li>
+                    <a ng-click="ChangeSts('Active', 'Suspended');"><i class="material-icons">pause_circle_outline</i> Suspend Card</a>
+                </li>
+                <li>
+                    <a ng-click="ChangeSts('Active', 'Terminated');"><i class="material-icons">highlight_off</i> Terminate Card</a>
+                </li>
+                <li>
+                    <a ng-click="ReplaceCard();"><i class="material-icons">find_replace</i> Replace Card</a>
+                </li>
+                <li>
+                    <a ng-click="GeneratePin();"><i class="material-icons">fiber_pin</i> Regenerate PIN</a>
+                </li>
+                <li class="divider"> </li>
+                <li>
+                    <a ng-click="ApproveApplication(9894934943);"><i class="material-icons">done</i>  Approve</a>
+                </li>
+                <li>
+                    <a ng-click="ReturnApplication(9894934943);"><i class="material-icons">keyboard_return</i>  Return</a>
+                </li>
+                <li>
+                    <a ng-click="RejectApplication(9894934943);"><i class="material-icons">clear</i>  Reject</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- BEGIN SIDEBAR -->
+    <div class="page-sidebar-wrapper">
+        <!-- BEGIN SIDEBAR -->
+        <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+        <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+        <div class="page-sidebar navbar-collapse collapse">
+            <div class="hidden-sm hidden-xs">
+                <!-- BEGIN SIDEBAR MENU -->
+                <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+                <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+                <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+                <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+                <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                <div routing-menu class="leftMenu">
+                    <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding: 10px 0">
+                        <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+                        <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                        <li class="sidebar-toggler-wrapper hide">
+                            <div class="sidebar-toggler">
+                                <span></span>
+                            </div>
+                        </li>
+                        <!-- END SIDEBAR TOGGLER BUTTON -->
+                        <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+                        @Html.Partial("Partials/Sidebar")
+                    </ul>
+                </div>
+                <!-- END SIDEBAR MENU -->
+            </div>
+            <div>
+                <!-- BEGIN RESPONSIVE MENU FOR HORIZONTAL & SIDEBAR MENU -->
+                @Html.Partial("Partials/MobileMenu")
+                <!-- END RESPONSIVE MENU FOR HORIZONTAL & SIDEBAR MENU -->
+            </div>
+        </div>
+
+        <!-- END SIDEBAR -->
+    </div>
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <!-- BEGIN CONTENT BODY -->
+        <ui-view>
+        </ui-view>
+        <!-- END CONTENT BODY -->
+    </div>
+    <!-- END CONTENT -->
+</div>
+
+<script type="text/ng-template" id="index.html">
+    <div class="page-content">
+        <!-- BEGIN PAGE HEADER-->
+        <!-- BEGIN PAGE BAR -->
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li>
+                    <a href="/">Home</a>
+                    <i class="fa fa-caret-right"></i>
+                </li>
+                <li>
+                    <span>Card Search</span>
+                </li>
+            </ul>
+        </div>
+        <!-- END PAGE BAR -->
+        <!-- BEGIN PAGE TITLE-->
+        @*<h1 class="page-title">
+                All Customers
+            </h1>*@
+        <!-- END PAGE TITLE-->
+        <!-- END PAGE HEADER-->
+        <!-- BEGIN MAIN CONTENT-->
+        <!-- BEGIN FORM-->
+        <div class="row">
+            <div class="col-md-3 search-box">
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <span class="caption-subject">Search Options</span>
+                        </div>
+                        <div class="actions">
+                            <div class="btn-group">
+                                <button type="button" class="btn blue btn-circle btn-outline">Clear</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="panel-group accordion" id="accordion-card">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion-card" data-target="#card-detail" aria-expanded="false"> CARD </a>
+                                    </h4>
+                                </div>
+                                <div id="card-detail" class="panel-collapse collapse" aria-expanded="false">
+                                    <div class="">
+                                        <div class="form-group">
+                                            <label>Card No.</label>
+                                            <input class="form-control" placeholder="Input a card number">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Temporary Card No.</label>
+                                            <input class="form-control" placeholder="Input a temporary card number">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Name on Card</label>
+                                            <input class="form-control" placeholder="Input a name on card">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Driver Name</label>
+                                            <input class="form-control" placeholder="Input a driver name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Account No.</label>
+                                            <input class="form-control" placeholder="Input an account number">
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" data-placeholder="Card Type: All" noneselecttext="Card Type: All">
+                                                <option>Prepaid</option>
+                                                <option>Postpaid</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" data-placeholder="Card Media Type: All" noneselecttext="Card Media Type: All">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" data-placeholder="Card Status: All" noneselecttext="Card Status: All">
+                                                <option>Active</option>
+                                                <option>Closed</option>
+                                                <option>Suspended</option>
+                                                <option>Blocked</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-group accordion" id="accordion3">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" data-target="#collapse_3_2" aria-expanded="false"> CONTACT </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse_3_2" class="panel-collapse collapse" aria-expanded="false">
+                                    <div class="">
+                                        <div class="form-group">
+                                            <label>Contact Person</label>
+                                            <input class="form-control" placeholder="Input a contact person's name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Mobile Phone No.</label>
+                                            <input class="form-control" placeholder="Input a mobile phone number">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input class="form-control" placeholder="Input an email address">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-group accordion" id="accordion-address">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion-address" data-target="#address-detail" aria-expanded="false"> ADDRESS </a>
+                                    </h4>
+                                </div>
+                                <div id="address-detail" class="panel-collapse collapse" aria-expanded="false">
+                                    <div class="">
+                                        <div class="form-group">
+                                            <label>City</label>
+                                            <input class="form-control" placeholder="Input a city name">
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="mt-multiselect btn btn-default" multiple="multiple" data-width="100%" data-placeholder="State: All" noneselecttext="State: All">
+                                                <option>Melaka</option>
+                                                <option>Negeri Sembilan</option>
+                                                <option>Pahang</option>
+                                                <option>Perak</option>
+                                                <option>Perlis</option>
+                                                <option>Penang</option>
+                                                <option>Sabah</option>
+                                                <option>Sarawak</option>
+                                                <option>Selangor</option>
+                                                <option>Terengganu</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet-footer">
+                        <button ng-click="OnSearch();" type="button" class="btn blue"><i class="material-icons">search</i> Search</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <span class="caption-subject">Results</span>
+                        </div>
+                    </div>
+                    <div class="portlet-body result-search">
+                        <div class="search-data">
+                            <table dtable options="customerLst" class="table table-bordered hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Card No.</th>
+                                        <th>Name on Card</th>
+                                        <th>Card Status</th>
+                                        <th>Card Expiry Date</th>
+                                        <th>Created On</th>
+                                        <th>Created By</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tb-pointer"></tbody>
+                            </table>
+                        </div>
+                        <div class="not-search">
+                            <a class="dashboard-stat dashboard-search">
+                                <i class="material-icons">search</i>
+                            </a>
+                            <h3>Nothing to display here.</h3>
+                            <span>Cards you search for will appear here.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- END FORM-->
+        <!-- END MAIN CONTENT-->
+        @*<script src="~/assets/global/plugins/bootstrap-multiselect/js/bootstrap-multiselect.js"></script>*@
+    </div>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            // Remove left menu
+            $('body').addClass('layout1menu');
+            
+            $(".mt-multiselect").each(function (index) {
+                $(this).multiselect({
+                    nonSelectedText: $(this).attr('noneSelectText'),
+                    maxHeight: 250
+                });
+            });
+        });
+    </script>
+</script>
+<script type="text/ng-template" id="CrdChangeSts">
+    <div class="ngdialog-message">
+        <div class="modal-header">
+            <h4 class="modal-title">{{ngDialogData.title}}</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row warning" ng-show="ngDialogData.newSts=='Terminated'">
+                <div class="col-md-12">
+                    <span><i class="material-icons">error_outline</i> Once this card is terminated, you cannot reactivate it.</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Current Card Status</label>
+                        <input class="form-control" readonly value="{{ngDialogData.oldSts}}" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>New Card Status</label>
+                        <input class="form-control" readonly value="{{ngDialogData.newSts}}" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Status Change Reason</label>
+                        <select ng-model="changeReason" class="form-control">
+                            <option>Activation</option>
+                            <option>Replacement</option>
+                            <option>Suspected Fraud</option>
+                            <option>Fraud Detected</option>
+                            <option>Lost</option>
+                            <option>Damaged</option>
+                            <option value="-1">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group" ng-show="changeReason==-1">
+                        <label>Other Status Change Reason</label>
+                        <textarea placeholder="Specify your reason here" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Remarks</label>
+                        <textarea class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-form-action">
+            <button ng-click="closeThisDialog(0)" type="button" class="btn white">Cancel</button>
+            <button type="button" class="btn blue">Save</button>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="CrdReplace">
+    <div class="ngdialog-message">
+        <div class="modal-header">
+            <h4 class="modal-title">{{ngDialogData.title}}</h4>
+        </div>
+        <div class="modal-body"> @*model-scroll*@
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>New Card Media Type</label>
+                        <select class="form-control">
+                            <option>Magnetic Strip</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Apply Replacement Fee?</label>
+                        <div class="mt-radio-inline">
+                            <label class="mt-radio">
+                                <input type="radio" name="optionsRadios1" value="option1" checked="">Yes
+                                <span></span>
+                            </label>
+                            <label class="mt-radio">
+                                <input type="radio" name="optionsRadios1" value="option2" checked="">No
+                                <span></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Replacement Reason</label>
+                        <select ng-model="changeReason" class="form-control">
+                            <option>Lost</option>
+                            <option>Damaged</option>
+                            <option value="-1">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group" ng-show="changeReason==-1">
+                        <label>Other Replacement Reason</label>
+                        <textarea class="form-control" placeholder="Specify your reason here" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Remarks</label>
+                        <textarea placeholder="Specify your reason here" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <p class="col-md-6 bold">
+                    Current Card Status:
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Terminate Current Card?</label>
+                        <div class="mt-radio-inline">
+                            <label class="mt-radio">
+                                <input type="radio" ng-model="TerminateCurCrd" name="TerminateCurCrd" ng-value="true" checked="checked">Yes
+                                <span></span>
+                            </label>
+                            <label class="mt-radio">
+                                <input type="radio" ng-model="TerminateCurCrd" name="TerminateCurCrd" ng-value="false" checked="">No
+                                <span></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-show="TerminateCurCrd">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>New Status for Current Card</label>
+                        <input class="form-control" readonly value="Terminated" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Status Change Reason</label>
+                        <input class="form-control" readonly value="Replacement" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-form-action">
+            <button ng-click="closeThisDialog(0)" type="button" class="btn white">Cancel</button>
+            <button type="button" class="btn blue">Confirm</button>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="CrdGeneratePin">
+    <div class="ngdialog-message">
+        <div class="modal-header">
+            <h4 class="modal-title">Confirmation</h4>
+        </div>
+        <div class="modal-body">
+            <span>Are you sure you want to generate a new PIN for this card?</span>
+        </div>
+        <div class="modal-form-action">
+            <button ng-click="closeThisDialog(0)" type="button" class="btn white">No</button>
+            <button type="button" class="btn blue">Yes</button>
+        </div>
+    </div>
+</script>
+@section CustomPageScript
+{
+    @Scripts.Render("~/Content/Scripts/cards")
+}

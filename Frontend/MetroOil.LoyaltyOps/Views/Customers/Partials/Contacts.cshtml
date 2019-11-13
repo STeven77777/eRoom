@@ -1,0 +1,96 @@
+﻿<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="~/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="#">All Customers</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="#">Customer Profile</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="#">Customer Details</a>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    @*<h1 class="page-title">
+            All Customers
+        </h1>*@
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+    <div class="portlet light bordered">
+        <div class="portlet-title">
+            <div class="caption">
+                <span class="caption-subject">Contact</span>
+            </div>
+            <div class="actions">
+                <div class="btn-group">
+                    <button ng-click="gotoContactNew();" type="button" class="btn blue btn-circle btn-outline"><i class="fa fa-plus" aria-hidden="true"></i>Add</button>
+                </div>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div class="portlet-body flip-scroll">
+                <!-- BEGIN BASIC INFORMATION -->
+                <div class="page-bar quick-info">
+                    <ul class="page-breadcrumb">
+                        <li>
+                            <i class="bg-green status-block"></i>
+                            <span>HSBC Sentul</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span>9894934943</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span>Postpaid</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span>VIP</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span>02/12/2016</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END BASIC INFORMATION -->
+                <div>
+                    <table dtable options="dtOptions" class="table table-bordered table-striped table-condensed flip-content hover">
+                        <thead class="flip-content">
+                            <tr>
+                                <th>#</th>
+                                <th>Contact Person</th>
+                                <th>Position</th>
+                                <th>Work Phone No.</th>
+                                <th>Mobile Phone No.</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- END FORM-->
+            <!-- END MAIN CONTENT-->
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('body').removeClass('layout1menu');
+    });
+</script>

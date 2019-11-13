@@ -1,0 +1,22 @@
+﻿/* Styles go here */
+
+ul.tree-view-wrapper {
+    list-style: none;
+    padding-left:0;
+}
+    .tree-view-wrapper ul {
+        list-style: none;
+        padding-left: 50px;
+    }
+.show-hide, .edit{cursor:pointer;}
+.tree-checkbox{margin: 6px !important;}
+.edit i {color: #D77105;}
+.hide{display:none;}
+.show{display:block;}
+.main-li > label{
+    font-weight: bold;
+}
+.main-li > ul {
+    padding-bottom: 30px;
+    padding-left: 10px!important;
+}

@@ -1,0 +1,345 @@
+﻿@using CardTrend.FleetOps.Helpers
+@model CardTrend.FleetOps.Models.AcctSignUpModel
+@using AplLeftMenu = Resources.ApplicationLeftMenu
+@{
+    ViewBag.Title = "Full Application";
+    Layout = "~/Views/Shared/_Layout2Menu.cshtml";
+}
+
+<div class="page-content">
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="#">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="#">Create Applications</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Full Application</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <h1 class="page-title"></h1>
+    <div class="portlet box blue ">
+        <div class="portlet-title">
+            <div class="caption">@AplLeftMenu.CusAccCusInfo</div>
+        </div>
+        <div class="portlet-body form">
+            <ui-view>
+            </ui-view>
+        </div>
+    </div>
+    <script type="text/ng-template" id="index.html">
+        <form id="fullApplicationForm" class="horizontal-form form">
+            <div class="form-body">
+                <!-- BEGIN BASIC INFORMATION -->
+                <div class="page-bar quick-info">
+                    <ul class="page-breadcrumb">
+                        <li>
+                            <i class="bg-green status-block"></i>
+                            <span>HSBC Sentul</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span>9894934943</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span>PostPaid</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span>VIP</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span>02/12/2016</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END BASIC INFORMATION -->
+                <div class="main-content">
+                    <h4 class="form-section">Account Info</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Account No.</label>
+                                <input readonly="readonly" class="form-control" value="22237284" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Application ID</label>
+                                <input readonly="readonly" class="form-control" value="156732898" />
+                            </div>
+                        </div>
+                        <!--/span-->
+                    </div>
+                    <!--/row-->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Plastic Type<span>*</span></label>
+                                <select class="form-control">
+                                    <option>PostPaid</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!--/span-->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Name on Card<span>*</span></label>
+                                <input class="form-control" value="HSBC Sentul" />
+                                <h6 class="help-block">Maximum 15 characters.</h6>
+                            </div>
+                        </div>
+                        <!--/span-->
+                    </div>
+                    <!--/row-->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Account Type</label>
+                                <select class="form-control">
+                                    <option>VIP</option>
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+                        <!--/span-->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Customer Category</label>
+                                <select class="form-control">
+                                    <option>Corporate</option>
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+                        <!--/span-->
+                    </div>
+                    <!--/row-->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Corporate Account Name</label>
+                                <select class="form-control">
+                                    <option>HSBC Group</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!--/span-->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Authorized Signatory<i class="help material-icons">help_outline</i></label>
+                                <input class="form-control" value="Alex Tan" />
+                            </div>
+                        </div>
+                    </div>
+                    <!--/row-->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Approved On</label>
+                                <div class="input-group input-medium date date-picker" data-date-format="dd-mm-yyyy">
+                                    <input class="form-control" readonly="readonly" type="text" value="15-04-2016">
+                                    <span class="input-group-btn">
+                                        <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/span-->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Approved By</label>
+                                <input class="form-control" readonly="readonly" value="user01" />
+                            </div>
+                        </div>
+                        <!--/span-->
+                    </div>
+                    <div class="form-section section-custom">
+                        <h4>Account Status</h4>
+                        <div class="right-actions">
+                            <span onclick="showStatusHistory();" class="action tooltips" data-original-title="View History"><i class="material-icons">history</i></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label>Current Account Status</label>
+                                <input class="form-control" value="Active" readonly="readonly" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label>New Account Status</label>
+                                <select class="form-control">
+                                    <option>Suspended</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label>Status Change Reason</label>
+                                <select class="form-control">
+                                    <option>Others</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label>Other Status Change Reason</label>
+                                <textarea class="form-control" placeholder="Specify your reason here"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label>Remarks</label>
+                                <textarea class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="form-section">Company / Personal Info</h4>
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label>Company / Individual Name<span>*</span></label>
+                                <input class="form-control" value="HSBC Sentul" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label>Company Type</label>
+                                <select class="form-control">
+                                    <option>Sendirian Berhad</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Business Type<i class="help material-icons">help_outline</i></label>
+                                <select class="form-control">
+                                    <option>Banking</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!--/span-->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Company Registration No. / Identity Card No.</label>
+                                <input class="form-control" value="0440040414" />
+                            </div>
+                        </div>
+                        <!--/span-->
+                    </div>
+                    <!--/row-->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Company Registration Date</label>
+                                <div class="input-group input-medium date date-picker" data-date-format="dd-mm-yyyy">
+                                    <input class="form-control" readonly="readonly" type="text" value="12-03-2016">
+                                    <span class="input-group-btn">
+                                        <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/span-->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Website</label>
+                                <input class="form-control" value="www.hsbc.com.my" />
+                            </div>
+                        </div>
+                        <!--/span-->
+                    </div>
+                    <!--/row-->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Preferred Language<span>*</span></label>
+                                <select class="form-control">
+                                    <option>English</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!--/span-->
+                    </div>
+                    <!--/row-->
+                </div>
+                <div class="stt-history" style="display:none">
+                    <h4 class="form-section">Account Status History</h4>
+                    <table dtable options="dtOptions" class="table table-bordered table-striped table-condensed flip-content">
+                        <thead class="flip-content">
+                            <tr>
+                                <th>Changed From</th>
+                                <th>Changed To</th>
+                                <th>Status Change Reason</th>
+                                <th>Changed On</th>
+                                <th>Change By</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="form-actions right">
+                <div class="main-content">
+                    <button type="button" class="btn white">Cancel</button>
+                    <button type="button" data-validation-form data-customsubmit="SaveGeneralInfo();" class="btn blue">Save</button>
+                </div>
+                <div class="stt-history" style="display:none">
+                    <button onclick="backToMainContent();" type="button" class="btn blue"><i class="material-icons">arrow_back</i>Back</button>
+                </div>
+            </div>
+        </form>
+    </script>
+    <!-- END FORM-->
+    <!-- END MAIN CONTENT-->
+</div>
+@section CustomPageScript
+{
+    @Scripts.Render("~/Content/Scripts/customer-details")
+    @*<script src="~/ng/routes/fullAppConfig.js"></script>*@
+    <script src="~/ng/services/httpInterceptors.js"></script>
+    @*<script src="~/ng/services/applicationService.js"></script>*@
+    @*<script src="~/ng/controllers/application/fullApplicationController.js"></script>*@
+    <script type="text/javascript">
+        $(function () {
+            $('.date-picker').datepicker();
+            //App.alert({
+            //    place: 'append', // append or prepent in container
+            //    type: 'success', // alert's type
+            //    message: 'You have created an application successfully. Application ID: <b>748389391</b>', // alert's message
+            //    close: true, // make alert closable
+            //    reset: false, // close all previouse alerts first
+            //    focus: false, // auto scroll to the alert after shown
+            //    //closeInSeconds: 5 // auto close after defined seconds
+            //    //icon: 'fa fa-check-circle' // put icon class before the message
+            //});
+        });
+        function showStatusHistory() {
+            $('.main-content').hide();
+            $('.stt-history').show();
+        };
+
+        function backToMainContent() {
+            $('.main-content').show();
+            $('.stt-history').hide();
+        }
+    </script>
+}

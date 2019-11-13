@@ -1,0 +1,185 @@
+﻿@using AcctLeftMenu = Resources.AccountLeftMenu
+@{
+    string pgCd = ViewBag.PgCd;
+    if (pgCd == null)
+    {
+        pgCd = string.Empty;
+    }
+}
+<li class="heading">
+    <h3 class="uppercase">INFO</h3>
+</li>
+<li class="nav-item  no-submenu start ">
+    <a href="/Customers#/9894934943" class="nav-link nav-toggle">
+        <i class="material-icons">assessment</i>
+        <span class="title">@AcctLeftMenu.AcctSummary</span>
+    </a>
+</li>
+<li class="nav-item  ">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="material-icons">account_box</i>
+        <span class="title">@AcctLeftMenu.CusCustomerProfile</span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+        <li class="nav-item">
+            <a target="_top" href="/Customers#/9894934943/AcctCusInfo" class="nav-link ">
+                <span class="title">@AcctLeftMenu.CusAccCusInfo</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a target="_top" href="/Customers#/9894934943/Contact" class="nav-link ">
+                <span class="title">@AcctLeftMenu.CusContact</span>
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a target="_top" href="/Customers#/9894934943/Address" href="#" class="nav-link ">
+                <span class="title">@AcctLeftMenu.CusAddress</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="nav-item  ">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        @*<i class="fa fa-calculator"></i>*@
+        <i class="material-icons">account_balance</i>
+        <span class="title">@AcctLeftMenu.FinFinancialDetails</span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+        <li class="nav-item ">
+            <a target="_top" href="/Customers#/9894934943/FinancialPosition" class="nav-link ">
+                <span class="title">Financial Position</span>
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a target="_top" href="/Customers#/9894934943/FinancialInfo" class="nav-link ">
+                <span class="title">Billing &amp; Payment Info</span>
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a target="_top" href="/Customers#/9894934943/Creditability" class="nav-link ">
+                <span class="title">Creditability</span>
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a target="_top" href="/Customers#/9894934943/SecurityDeposit" class="nav-link ">
+                <span class="title">Security Deposit</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="heading">
+    <h3 class="uppercase">CONTROLS</h3>
+</li>
+<li class="nav-item ">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="material-icons">monetization_on</i>
+        <span class="title">@AcctLeftMenu.PrdPricingDetails</span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+        <li class="nav-item  ">
+            <a target="_top" href="/Customers#/9894934943/ProductPrice" class="nav-link ">
+                <span class="title">Product Price</span>
+            </a>
+        </li>
+        <li class="nav-item  ">
+            <a target="_top" href="/Customers#/9894934943/DiscountRebate" class="nav-link ">
+                <span class="title">Discount &amp; Rebate Plan</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="nav-item  ">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="material-icons">security</i>
+        <span class="title">@AcctLeftMenu.UsUsageControl</span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+        <li class="nav-item  ">
+            <a target="_top" href="/Customers#/9894934943/UsageControl/ProductAcceptance" class="nav-link ">
+                <span class="title">Product Acceptance</span>
+            </a>
+        </li>
+        <li class="nav-item  ">
+            <a target="_top" href="/Customers#/9894934943/UsageControl/VelocityLimit" class="nav-link ">
+                <span class="title">Velocity Limit</span>
+            </a>
+        </li>
+        <li class="nav-item  ">
+            <a target="_top" href="/Customers#/9894934943/UsageControl/LocationAcceptance" class="nav-link ">
+                <span class="title">Location Acceptance</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="heading">
+    <h3 class="uppercase">UNITS</h3>
+</li>
+<li class="nav-item  ">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="material-icons">account_balance_wallet</i>
+        <span class="title">@AcctLeftMenu.CstCostCentre</span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+        <li class="nav-item  ">
+            <a target="_top" href="/Customers#/9894934943/CostCentre" class="nav-link ">
+                <span class="title">Cost Centre</span>
+            </a>
+        </li>
+        <li class="nav-item  ">
+            <a target="_top" href="/Customers#/9894934943/CostCentre/ProductRestrictions" class="nav-link ">
+                <span class="title">Product Restrictions</span>
+            </a>
+        </li>
+        <li class="nav-item  ">
+            <a target="_top" href="/Customers#/9894934943/CostCentre/VelocityLimit" class="nav-link ">
+                <span class="title">Velocity Limit</span>
+            </a>
+        </li>
+        <li class="nav-item  ">
+            <a target="_top" href="/Customers#/9894934943/CostCentre/LocationAcceptance" class="nav-link ">
+                <span class="title">Location Acceptance</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="nav-item no-submenu">
+    <a target="_top" href="/Customers#/9894934943/Cardlist" class="nav-link nav-toggle">
+        <i class="material-icons">credit_card</i>
+        <span class="title">@AcctLeftMenu.CrdCardList</span>
+    </a>
+</li>
+<li class="heading">
+    <h3 class="uppercase">ADMIN</h3>
+</li>
+<li class="nav-item  no-submenu">
+    <a href="/Customers#/9894934943/Event-notification" class="nav-link nav-toggle">
+        <i class="material-icons">event_available</i>
+        <span class="title">@AcctLeftMenu.EvtEventNotify</span>
+    </a>
+</li>
+<li class="nav-item  no-submenu">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="material-icons">recent_actors</i>
+        <span class="title">@AcctLeftMenu.CuspCustomerPortal</span>
+    </a>
+</li>
+<li class="nav-item  no-submenu">
+    <a href="/Customers#/9894934943/FileManager" class="nav-link nav-toggle">
+        <i class="material-icons">folder_open</i>
+        <span class="title">@AcctLeftMenu.FmgrFileManager</span>
+    </a>
+</li>
+<li class="heading">
+    <h3 class="uppercase">TRANSACTIONS</h3>
+</li>
+<li class="nav-item  no-submenu">
+    <a href="/Customers#/9894934943/Transactions" class="nav-link nav-toggle">
+        <i class="material-icons">receipt</i>
+        <span class="title">@AcctLeftMenu.Transactions</span>
+    </a>
+</li>

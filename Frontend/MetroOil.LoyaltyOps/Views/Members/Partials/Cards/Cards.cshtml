@@ -1,0 +1,87 @@
+﻿@{
+    var urlPrefix = System.Configuration.ConfigurationManager.AppSettings["urlPrefix"];
+}
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="@urlPrefix/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                @*<a href="#/{{_GeneralInfo.AcctNoHash}}">Account Summary</a>*@
+                <span>Account Summary</span>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Card</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    @*<h1 class="page-title">
+            All Customers
+        </h1>*@
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+    <div class="portlet box blue">
+        <div class="portlet-title">
+            <div class="caption">
+                <span class="caption-subject">Card History</span>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <!-- BEGIN BASIC INFORMATION -->
+            <div class="page-bar quick-info">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <span class="tooltips" data-original-title="Member Account No.">{{_GeneralInfo.AcctNo}}</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span class="tooltips" data-original-title="Full Name">{{_GeneralInfo.FullName}}</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span class="tooltips" data-original-title="Status">{{_GeneralInfo.StsName}}</span>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span class="tooltips" data-original-title="Joining Date">{{_GeneralInfo.JoinDateStr}}</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- END BASIC INFORMATION -->
+            <table dtable options="dtOptions" class="table table-bordered hover">
+                <thead class="">
+                    <tr>
+                        <th>Card No.</th>
+                        <th>Card Logo</th>
+                        <th>Plastic Type</th>
+                        <th>Name on Card</th>
+                        <th>Card Validity Start Date</th>
+                        <th>Card Validity End Date</th>
+                        <th>Card Status</th>
+                        <th>Card Type</th>
+                        <th>Remarks</th>
+                        <th>Changed On</th>
+                        <th>Changed By</th>
+                    </tr>
+                </thead>
+                <tbody class="tb-pointer"></tbody>
+            </table>
+            <!-- END FORM-->
+            <!-- END MAIN CONTENT-->
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('body').removeClass('layout1menu');
+    });
+</script>

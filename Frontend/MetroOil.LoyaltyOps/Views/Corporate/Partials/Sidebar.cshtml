@@ -1,0 +1,136 @@
+﻿@using AcctLeftMenu = Resources.AccountLeftMenu
+@{
+    string pgCd = ViewBag.PgCd;
+    if (pgCd == null)
+    {
+        pgCd = string.Empty;
+    }
+}
+<li class="heading">
+    <h3 class="uppercase">INFO</h3>
+</li>
+<li class="nav-item start ">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="material-icons">account_balance</i>
+        <span class="title">Corporate Details</span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+        @*<li class="nav-item">
+                <a target="_top" href="/Customers#/CustomerDetails" class="nav-link ">
+                    <span class="title">@AcctLeftMenu.CusAccCusInfo</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a target="_top" href="/Customers#/Contact" class="nav-link ">
+                    <span class="title">@AcctLeftMenu.CusContact</span>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a target="_top" href="/Customers#/Address" href="#" class="nav-link ">
+                    <span class="title">@AcctLeftMenu.CusAddress</span>
+                </a>
+            </li>*@
+    </ul>
+</li>
+<li class="nav-item  ">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="fa fa-calculator"></i>
+        <span class="title">@AcctLeftMenu.FinFinancialDetails</span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+        @*<li class="nav-item ">
+                <a target="_top" href="/Customers#/FinancialPosition" class="nav-link ">
+                    <span class="title">Financial Position</span>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a target="_top" href="/Customers#/FinancialInfo" class="nav-link ">
+                    <span class="title">Finance / Bank / Payment Info</span>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a target="_top" href="/Customers#/CreditAssessment" class="nav-link ">
+                    <span class="title">Credit Assessment</span>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a target="_top" href="/Customers#/SecurityDeposit" class="nav-link ">
+                    <span class="title">Security Deposit</span>
+                </a>
+            </li>*@
+    </ul>
+</li>
+<li class="heading">
+    <h3 class="uppercase">CONTROLS</h3>
+</li>
+<li class="nav-item ">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="material-icons">monetization_on</i>
+        <span class="title">@AcctLeftMenu.PrdPricingDetails</span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+        @*<li class="nav-item  ">
+                <a target="_top" href="/Customers#/ProductPrice" class="nav-link ">
+                    <span class="title">Product Price</span>
+                </a>
+            </li>*@
+    </ul>
+</li>
+<li class="nav-item  ">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="material-icons">security</i>
+        <span class="title">@AcctLeftMenu.UsUsageControl</span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+        @*<li class="nav-item  ">
+                <a target="_top" href="/Customers#/UsageControl/ProductRestrictions" class="nav-link ">
+                    <span class="title">Product Restrictions</span>
+                </a>
+            </li>*@
+    </ul>
+</li>
+<li class="heading">
+    <h3 class="uppercase">UNITS</h3>
+</li>
+<li class="nav-item  ">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="material-icons">subject</i>
+        <span class="title">Account List</span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+        @*<li class="nav-item  ">
+                <a target="_top" href="/Customers#/CostCentre" class="nav-link ">
+                    <span class="title">Cost Centre</span>
+                </a>
+            </li>*@
+    </ul>
+</li>
+<li class="heading">
+    <h3 class="uppercase">ADMIN</h3>
+</li>
+<li class="nav-item  no-submenu">
+    <a href="/Customers#/Event-notification" class="nav-link nav-toggle">
+        <i class="material-icons">supervisor_account</i>
+        <span class="title">Corporate Portal</span>
+    </a>
+</li>
+<li class="nav-item  no-submenu">
+    <a href="/Customers#/FileManager" class="nav-link nav-toggle">
+        <i class="material-icons">folder_open</i>
+        <span class="title">@AcctLeftMenu.FmgrFileManager</span>
+    </a>
+</li>
+<li class="heading">
+    <h3 class="uppercase">TRANSACTIONS</h3>
+</li>
+<li class="nav-item  no-submenu">
+    <a href="/Customers#/Transactions" class="nav-link nav-toggle">
+        <i class="material-icons">receipt</i>
+        <span class="title">@AcctLeftMenu.Transactions</span>
+    </a>
+</li>

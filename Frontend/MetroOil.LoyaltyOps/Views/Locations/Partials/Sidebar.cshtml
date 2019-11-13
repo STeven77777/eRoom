@@ -1,0 +1,87 @@
+﻿@using AcctLeftMenu = Resources.AccountLeftMenu
+@{
+    string pgCd = ViewBag.PgCd;
+    if (pgCd == null)
+    {
+        pgCd = string.Empty;
+    }
+}
+<li class="heading">
+    <h3 class="uppercase">INFO</h3>
+</li>
+<li class="nav-item start ">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="material-icons">location_on</i>
+        <span class="title">Location Details</span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+        <li class="nav-item">
+            <a target="_top" href="/Locations#/56484950/LocBusInfo" class="nav-link ">
+                <span class="title">Location Business Info</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a target="_top" href="/Locations#/56484950/Contact" class="nav-link ">
+                <span class="title">@AcctLeftMenu.CusContact</span>
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a target="_top" href="/Locations#/56484950/Address" class="nav-link ">
+                <span class="title">@AcctLeftMenu.CusAddress</span>
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a target="_top" href="/Locations#/56484950/Terminal" class="nav-link ">
+                <span class="title">Terminal</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="nav-item  ">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="fa fa-calculator"></i>
+        <span class="title">@AcctLeftMenu.FinFinancialDetails</span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+        <li class="nav-item ">
+            <a target="_top" href="/Locations#/56484950/FinancialPosition" class="nav-link ">
+                <span class="title">Financial Position</span>
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a target="_top" href="/Locations#/56484950/FinancialInfo" class="nav-link ">
+                <span class="title">Finance / Bank Info</span>
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a target="_top" href="/Locations#/56484950/CreditAssessment" class="nav-link ">
+                <span class="title">Credit Assessment</span>
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a target="_top" href="/Locations#/56484950/SecurityDeposit" class="nav-link ">
+                <span class="title">Security Deposit</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="heading">
+    <h3 class="uppercase">CONTROL</h3>
+</li>
+<li class="nav-item  no-submenu">
+    <a href="/Locations#/56484950/TopUpLimit" class="nav-link nav-toggle">
+        <i class="material-icons">add_shopping_cart</i>
+        <span class="title">Top Up Limit</span>
+    </a>
+</li>
+<li class="heading">
+    <h3 class="uppercase">TRANSACTIONS</h3>
+</li>
+<li class="nav-item  no-submenu">
+    <a href="/Locations#/56484950/Transactions" class="nav-link nav-toggle">
+        <i class="material-icons">receipt</i>
+        <span class="title">@AcctLeftMenu.Transactions</span>
+    </a>
+</li>

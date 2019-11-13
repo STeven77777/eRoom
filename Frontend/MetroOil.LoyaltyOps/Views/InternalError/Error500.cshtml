@@ -1,0 +1,38 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Internal Server Error</title>
+    @Styles.Render("~/Content/Styles/css")
+    @Styles.Render("~/Content/Styles/global")
+    @Styles.Render("~/Content/Styles/error")
+</head>
+<body class="page-500-full-page">
+    <div class="row">
+        <div class="col-md-12 page-500">
+            <div class=" number font-red"> 500 </div>
+            <div class=" details">
+                <h3>Internal Server Error</h3>
+                <p>
+                    There was an unfortunate error happened while processing your request. Please check if the network is online. If the error still persist, contact your administrator.
+                    <br>
+                </p>
+                @if (ViewBag.ExcMessage != null)
+                {
+                <p>
+                    @ViewBag.ExcMessage
+                    <br />
+                </p>
+                }
+                <p>
+                    <a href="@Url.Action("Index","Home")" class="btn red btn-outline"> Return home </a>
+                    <br>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

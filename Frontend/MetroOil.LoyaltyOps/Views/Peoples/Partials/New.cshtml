@@ -1,0 +1,186 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@model MetroOil.LoyaltyOps.Models.eRoom.PeopleModel
+@{
+    var urlPrefix = System.Configuration.ConfigurationManager.AppSettings["urlPrefix"];
+}
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="@urlPrefix/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Add New People Infomation</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN MAIN CONTENT-->
+    <!-- BEGIN FORM-->
+
+    <div class="portlet box blue">
+        <div class="portlet-title">
+            <div class="caption">ADD New People Info</div>
+        </div>
+        <div class="portlet-body form">
+            <form class="horizontal-form form">
+                <div class="form-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.PeopleID, null, new { })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.FullName, null, new { })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.FirstName, null, new { })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.LastName, null, new { })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            @*@Html.CustomNgTextBoxFor(model => model.Birthday, null, new { })*@
+                            @Html.CustomNgTextBoxFor(model => model.Birthday, null, new { @date_time = "", @view = "date", @min_view = "date", @auto_close = "true", @format = "DD/MM/YYYY" })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.Phone, null, new { })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.JobName, null, new { })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.HomeTown, null, new { })
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.FatherID, null, new { })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.FatherFullName, null, new { })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.FatherPhone, null, new { })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.FatherJob, null, new { })
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.MotherID, null, new { })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.MotherFullName, null, new { })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.MotherPhone, null, new { })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.MotherJob, null, new { })
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.CreateDate, null, new { @disabled = "disabled" })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.CreateUser, null, new { @disabled = "disabled" })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.UpdateDate, null, new { @disabled = "disabled" })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.UpdateUser, null, new { @disabled = "disabled" })
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            @*@Html.CustomNgCheckBoxFor(model => model.IsDelete)*@
+                            @*@Html.CustomNgTextBoxFor(model => model.IsDelete, null, new { })*@
+                            @Html.CustomNgCheckBoxFor(model => model.IsDelete, null, new { @section = "IsDelete" })
+                            @*<div class="form-group">
+                                    <div class="mt-checkbox-list">
+                                        <label class="mt-checkbox mt-checkbox-outline">
+                                            <input ng-model="_object.IsDelete" section="new" type="checkbox" class="ng-pristine ng-untouched ng-valid ng-empty">Is Delete<span></span>
+                                        </label>
+                                    </div><span></span>
+                                </div>*@
+
+
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.DeleteDate, null, new { @disabled = "disabled" })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.DeleteUser, null, new { @disabled = "disabled" })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.CustomNgTextBoxFor(model => model.Description, null, new { })
+                        </div>
+                    </div>
+
+                    @*<div class="row">
+                            <div class="col-md-2">
+
+                                <div class="form-group">
+                                    <div class="mt-checkbox-list">
+                                        <label class="mt-checkbox mt-checkbox-outline" >
+                                            <input ng-model="_Object.IsActive" ng-checked="true" section="new" type="checkbox" class="ng-pristine ng-untouched ng-valid ng-empty" >Is Active<span></span>
+                                        </label>
+                                    </div><span></span>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+
+                                <div class="form-group">
+                                    <div class="mt-checkbox-list">
+                                        <label class="mt-checkbox mt-checkbox-outline">
+                                            <input ng-model="_Object.IsDelete" section="new" type="checkbox" class="ng-pristine ng-untouched ng-valid ng-empty">Is Delete<span></span>
+                                        </label>
+                                    </div><span></span>
+                                </div>
+                            </div>
+                        </div>*@
+
+                    @*<div class="row">
+                            <div class="col-md-12">
+                                @Html.CustomNgTextBoxFor(model => model.Description, null, new { })
+                            </div>
+                        </div>*@
+
+                </div>
+                <div class="form-actions right">
+                    @if (Html.SectionIsEnabled("MerchAcctNew"))
+                    {
+                        <span class=" quick-link">No merchant account yet? Click <a href="@(urlPrefix + "/Merchants#/Accounts/New")" class="link">here</a> to create one.</span>
+                    }
+                    <button type="button" ng-click="BackToList();" class="btn white">Cancel</button>
+                    <button type="button" data-validation-form data-customsubmit="SaveInfo()" class="btn blue">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('.date-picker').datepicker();
+        $('body').addClass('layout1menu');
+    });
+</script>

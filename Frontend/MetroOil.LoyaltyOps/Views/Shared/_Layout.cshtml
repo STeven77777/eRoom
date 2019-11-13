@@ -1,0 +1,131 @@
+﻿@{ 
+    var urlPrefix = @System.Configuration.ConfigurationManager.AppSettings["urlPrefix"];
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" ng-app="loyaltyApp">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    @*<base href="/">*@
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Preview page of Metronic Admin Theme #1 for statistics, charts, recent events and reports" name="description" />
+    <meta content="" name="author" />
+
+    @*<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />*@
+    @Styles.Render("~/Content/Styles/css")
+    @Styles.Render("~/Content/Styles/plugin")
+    @Styles.Render("~/Content/Styles/global")
+    @Styles.Render("~/Content/Styles/layout")
+    @Styles.Render("~/Content/Styles/custom")
+
+    @RenderSection("CustomPageCss", false)
+
+    <link rel="shortcut icon" href="favicon.png" />
+</head>
+<!-- END HEAD -->
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white layout1menu">
+    <input type="hidden" id="hdUrlPrefix" value="@urlPrefix" />
+    <div class="page-wrapper">
+        <!-- BEGIN HEADER -->
+        @Html.Partial("Partials/Header")
+        <!-- END HEADER -->
+        <!-- BEGIN HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"> </div>
+        <!-- END HEADER & CONTENT DIVIDER -->
+        <!-- BEGIN CONTAINER -->
+        @RenderBody()
+        <!-- END CONTAINER -->
+        <!-- BEGIN FOOTER -->
+        @Html.Partial("Partials/Footer")
+        <!-- END FOOTER -->
+    </div>
+    <div wc-overlay />
+
+    <script type="text/ng-template" id="SimpleDialogID">
+        <div class="ngdialog-message">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ngDialogData.title}}</h4>
+            </div>
+            <div class="modal-body">
+                <p>{{ngDialogData.content}}</p>
+            </div>
+        </div>
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="~/assets/global/plugins/respond.min.js"></script>
+    <script src="~/assets/global/plugins/excanvas.min.js"></script>
+    <script src="~/assets/global/plugins/ie8.fix.min.js"></script>
+    <![endif]-->
+    @Scripts.Render("~/Content/Scripts/core")
+    <script src="~/Scripts/jsapi.js" type="text/javascript"></script>
+    @Scripts.Render("~/Content/Scripts/global")
+    @Scripts.Render("~/Content/Scripts/component")
+    @Scripts.Render("~/Content/Scripts/layout")
+    @Scripts.Render("~/Content/Scripts/angularjs")
+
+    <script src="~/ng/Utils.js"></script>
+    <script src="~/assets/pages/scripts/charts-google.js" type="text/javascript"></script>
+    @RenderSection("CustomPageScript", false)
+    <script type="text/javascript">
+        $(function () {
+            if (!String.prototype.endsWith) {
+                String.prototype.endsWith = function (search, this_len) {
+                    if (this_len === undefined || this_len > this.length) {
+                        this_len = this.length;
+                    }
+                    return this.substring(this_len - search.length, this_len) === search;
+                };
+            }
+
+            //var urlHash = window.location.hash;
+            //$('.leftMenu li a').each(function () {
+            //    var $this = $(this);
+            //    // if the current path is like this link, make it active
+            //    var attrValue = $this.attr('href');
+            //    if (attrValue && attrValue.endsWith(urlHash)) {
+            //        var liDiv = $($this).parent();
+            //        liDiv.addClass('active');
+
+            //        var ulDiv = $(liDiv).parent();
+            //        if ($(ulDiv).hasClass('sub-menu')) {
+            //            var livMainMenu = $(ulDiv).parent();
+            //            livMainMenu.addClass('active');
+            //        }
+            //    }
+            //})
+
+            //var urlPathName = window.location.pathname;
+            var urlPathFull = window.location.pathname + window.location.hash;
+            $('#topMenu li a').each(function () {
+                var $this = $(this);
+                // if the current path is like this link, make it active
+                var attrValue = $this.attr('href');
+                //if (attrValue && urlPathName != '/' && attrValue.startsWith(urlPathName)) {
+                //if (attrValue && urlPathFull.startsWith(attrValue)) {
+                if (attrValue && urlPathFull.indexOf(attrValue) === 0) {
+                    //debugger
+                    var liDiv = $($this).parent();
+                    liDiv.addClass('active');
+
+                    var ulDiv = $(liDiv).parent();
+                    if ($(ulDiv).hasClass('dropdown-menu')) {
+                        var livMainMenu = $(ulDiv).parent();
+                        livMainMenu.addClass('active');
+                    }
+                }
+            })
+
+
+            //Dropzone.autoDiscover = false;
+            //This will prevent Dropzone to instantiate on it's own unless you are using dropzone class for styling
+        })
+    </script>
+</body>
+</html>

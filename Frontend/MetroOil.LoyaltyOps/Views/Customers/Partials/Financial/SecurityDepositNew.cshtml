@@ -1,0 +1,160 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@model MetroOil.LoyaltyOps.Models.CreditAssessmentModel
+
+<div class="page-content">
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Customers#/">All Customers</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <a href="/Customers#/9894934943">Account Summary</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Financial Details</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <div class="portlet box blue ">
+        <div class="portlet-title">
+            <div class="caption">Security Deposit</div>
+        </div>
+        <div class="portlet-body form">
+            <form id="fullApplicationForm" class="horizontal-form form">
+                <div class="form-body">
+                    <!-- BEGIN BASIC INFORMATION -->
+                    <div class="page-bar quick-info">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <span class="tooltips" data-original-title="Company Name on Card">HSBC Sentul</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Customer Account No.">9894934943</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Program Type">Postpaid</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Customer Class">VIP</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Approved On">15/04/2016</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END BASIC INFORMATION -->
+                    <div class="main-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Security Deposit Amount<span>(required)</span></label>
+                                    <input class="form-control" value="" />
+                                </div>
+                            </div>
+                            @*<div class="col-md-6">
+                                    @Html.CustomNgSelectListFor(model => model.DepositType, Model.DepositTypeLst, new { required = true }, new { @Name = "DepositTypeLst", @section = "gen" }, null)
+                                </div>*@
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label>Security Deposit Type<span>(required)</span></label>
+                                    <select class="form-control">
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label>Reference No.</label>
+                                    <input class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label>ERP No.</label>
+                                    <input class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group"><label for="ExpDate">Expiry Date</label><div class="input-icon right input-medium"><i class="material-icons">today</i><input autocomplete="on" class="form-control ng-valid ng-isolate-scope ng-dirty ng-not-empty ng-touched" date_picker="" id="ExpDate" name="ExpDate" ng-model="_Object.ExpDate" section="gen" type="text" value=""></div><span class="help-block"><span class="field-validation-valid help-inline" data-valmsg-for="ExpDate" data-valmsg-replace="true"></span></span></div>
+                            </div>
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label>Bank Name</label>
+                                    <select class="form-control">
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                            @*<div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Attachment</label>
+                                    <input type="file" class="form-control" />
+                                </div>
+                            </div>*@
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label>Bank Branch Code</label>
+                                    <input class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label>Bank Account Type</label>
+                                    <select class="form-control">
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label>Bank Account No.</label>
+                                    <input class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label>Remarks</label>
+                                    <textarea class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions right">
+                    <a ng-click="backToList();" class="link quick-link">< Back to list</a>
+                    <div class="main-content">
+                        <button type="button" ng-click="backToList();" class="btn white">Cancel</button>
+                        <button type="button" data-validation-form data-customsubmit="" class="btn blue">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- END FORM-->
+    <!-- END MAIN CONTENT-->
+</div>
+<script type="text/javascript">
+    $(function () {
+        App.init(); // init metronic core componets
+        $('body').removeClass('layout1menu');
+    });
+</script>

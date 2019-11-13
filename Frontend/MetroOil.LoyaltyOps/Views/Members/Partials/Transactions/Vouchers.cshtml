@@ -1,0 +1,204 @@
+﻿@using MetroOil.LoyaltyOps.Helpers
+@model MetroOil.LoyaltyOps.Models.Members.TxnVoucherSearchModel
+@{
+    var urlPrefix = System.Configuration.ConfigurationManager.AppSettings["urlPrefix"];
+}
+<div class="page-content">
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="@urlPrefix/">Home</a>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                @*<a href="#/{{$root.obj.acctNoHash}}">Account Summary</a>*@
+                <span>Account Summary</span>
+                <i class="fa fa-caret-right"></i>
+            </li>
+            <li>
+                <span>Transactions</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <div class="portlet box blue ">
+        <div class="portlet-title">
+            <div class="caption">VOUCHERS</div>
+        </div>
+        <div class="portlet-body form">
+            <form class="horizontal-form form">
+                <div class="form-body">
+                    <!-- BEGIN BASIC INFORMATION -->
+                    <div class="page-bar quick-info">
+                        <ul class="page-breadcrumb">
+                            <li>
+                                <span class="tooltips" data-original-title="Member Account No.">{{_GeneralInfo.AcctNo}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Full Name">{{_GeneralInfo.FullName}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Status">{{_GeneralInfo.StsName}}</span>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <span class="tooltips" data-original-title="Joining Date">{{_GeneralInfo.JoinDateStr}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END BASIC INFORMATION -->
+                    <div class="tab-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgTextBoxFor(model => model.VoucherNo, null, new { @placeholder = "Input a voucher code" })
+                            </div>
+                            <div class="col-md-6 ">
+                                @Html.CustomNgTextBoxFor(model => model.TxnId, null, new { @placeholder = "Input a transaction number" })
+                            </div>
+                            @*<div class="col-md-6">
+                                @Html.CustomNgSelectListFor(model => model.VoucherSourceCd, Model.VoucherSourceCds, null, new { @LstName = "VoucherSourceCds" })
+                            </div>*@
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgDateRangeFor(model => model.VoucherStartDateFrom, m => m.VoucherStartDateTo, "Voucher Start Date & Time", null, new { @emptyWrapper = "", @date_time = "", @view = "date", @min_view = "minutes", @auto_close = "true", @format = "YYYY/MM/DD, HH:mm:ss" }, new { @emptyWrapper = "", @date_time = "", @view = "date", @min_view = "minutes", @auto_close = "true", @format = "YYYY/MM/DD, HH:mm:ss" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgDateRangeFor(model => model.VoucherExpiredDateFrom, m => m.VoucherExpiredDateTo, "Voucher Expiry Date & Time", null, new { @emptyWrapper = "", @date_time = "", @view = "date", @min_view = "minutes", @auto_close = "true", @format = "YYYY/MM/DD, HH:mm:ss" }, new { @emptyWrapper = "", @date_time = "", @view = "date", @min_view = "minutes", @auto_close = "true", @format = "YYYY/MM/DD, HH:mm:ss" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.CustomNgDateRangeFor(model => model.RedeemedDateFrom, m => m.RedeemedDateTo, "Voucher Redeemed Date & Time", null, new { @emptyWrapper = "", @date_time = "", @view = "date", @min_view = "minutes", @auto_close = "true", @format = "YYYY/MM/DD, HH:mm:ss" }, new { @emptyWrapper = "", @date_time = "", @view = "date", @min_view = "minutes", @auto_close = "true", @format = "YYYY/MM/DD, HH:mm:ss" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.CustomNgSelectListFor(model => model.Sts, Model.Stses, null, new { @LstName = "Stses" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-actions-custom">
+                                <button ng-click="OnSearch()" class="btn blue btn-right" type="button">Search</button>
+                            </div>
+                        </div>
+                        <div class="row tc-top">
+                            <div class="col-md-12">
+                                <table dtable options="txnLst" class="table table-bordered table-striped table-condensed ">
+                                    <thead class="">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Voucher Code</th>
+                                            <th>Txn. No.</th>
+                                            <th>Voucher Source</th>
+                                            <th>Voucher Name</th>
+                                            <th>Description</th>
+                                            <th>Voucher Start Date &amp; Time</th>
+                                            <th>Voucher Expiry Date &amp; Time</th>
+                                            <th>Voucher Redeemed Date &amp; Time</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="tb-pointer"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </form>
+        </div>
+    </div>
+    <!-- END FORM-->
+    <!-- END MAIN CONTENT-->
+</div>
+@*<div class="modal md-modal md-effect-1" data-keyboard="true" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel" tabindex="-1" app-modal trigger="modelTxnDetails" aria-hidden="true">*@
+<div class="modal md-modal fade" role="dialog" app-modal trigger="modelTxnDetails" data-keyboard="false" data-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" data-toggle="modal">
+                <h4 class="modal-title">TRANSACTION DETAILS</h4>
+                <button ng-click="modelTxnDetails=false;" aria-label="Close" class="ngdialog-close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- BEGIN BASIC INFORMATION -->
+                <div class="page-bar quick-info">
+                    <ul class="page-breadcrumb">
+                        <li>
+                            <span class="tooltips" data-original-title="Member Account No.">{{_GeneralInfo.AcctNo}}</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="tooltips" data-original-title="Full Name">{{_GeneralInfo.FullName}}</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="tooltips" data-original-title="Status">{{_GeneralInfo.StsName}}</span>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="tooltips" data-original-title="Joining Date">{{_GeneralInfo.JoinDateStr}}</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END BASIC INFORMATION -->
+                <div class="portlet-body ">
+                    <div class="row form-group">
+                        <div class="col-md-3"><label>Txn. No.</label></div>
+                        <div class="col-md-3"><span class="txt-bold">{{_TxnDetail.TxnNo}}</span></div>
+                        <div class="col-md-3"><label>Total Points</label></div>
+                        <div class="col-md-3"><span class="txt-bold">{{_TxnDetail.TxnPoints | number : 2}}</span></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3"><label>Txn. Category</label></div>
+                        <div class="col-md-3"><span class="txt-bold">{{_TxnDetail.TxnCategoryName}}</span></div>
+                        <div class="col-md-3"><label>Business Location No.</label></div>
+                        <div class="col-md-3"><span class="txt-bold">{{_TxnDetail.BusinessLocationName}}</span></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3"><label>Txn. Date &amp; Time</label></div>
+                        <div class="col-md-3"><span class="txt-bold">{{_TxnDetail.TxnDate}}</span></div>
+                        <div class="col-md-3"><label>Terminal No. / User ID (Merchant)</label></div>
+                        <div class="col-md-3"><span class="txt-bold">{{_TxnDetail.TermId}}</span></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3"><label>Process Date</label></div>
+                        <div class="col-md-3"><span class="txt-bold">{{_TxnDetail.PrcsDate}}</span></div>
+                        <div class="col-md-3"><label>Retrieval Ref. No. (RRN)</label></div>
+                        <div class="col-md-3"><span class="txt-bold">{{_TxnDetail.RefNo}}</span></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3"><label>Txn. Amt. ($)</label></div>
+                        <div class="col-md-3"><span class="txt-bold">{{_TxnDetail.TxnAmount | number : 2}}</span></div>
+                        <div class="col-md-3"><label>Card No.</label></div>
+                        <div class="col-md-3"><span class="txt-bold">{{_TxnDetail.CardNo}}</span></div>
+                    </div>
+                    <div class="txn-item">
+                        <p>Transaction Item</p>
+                        <table dtable options="txnProductLst" class="table table-bordered table-striped table-condensed ">
+                            <thead class="">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Product Name</th>
+                                    <th>Product Type</th>
+                                    <th>Product Quantity</th>
+                                    <th>Product Amt. ($)</th>
+                                    <th>Points</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/ng/services/httpInterceptors.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('body').removeClass('layout1menu');
+    });
+</script>
