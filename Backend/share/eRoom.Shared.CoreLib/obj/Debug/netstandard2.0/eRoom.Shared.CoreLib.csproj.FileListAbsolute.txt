@@ -37,3 +37,16 @@ C:\Users\tung.pham\source\repos\STeven77777\eRoom\Backend\share\eRoom.Shared.Cor
 C:\Users\tung.pham\source\repos\STeven77777\eRoom\Backend\share\eRoom.Shared.CoreLib\obj\Debug\netstandard2.0\eRoom.Shared.CoreLib.csproj.CopyComplete
 C:\Users\tung.pham\source\repos\STeven77777\eRoom\Backend\share\eRoom.Shared.CoreLib\obj\Debug\netstandard2.0\eRoom.Shared.CoreLib.dll
 C:\Users\tung.pham\source\repos\STeven77777\eRoom\Backend\share\eRoom.Shared.CoreLib\obj\Debug\netstandard2.0\eRoom.Shared.CoreLib.pdb
+C:\Users\tung.pham\Documents\eRoom\Backend\share\eRoom.Shared.CoreLib\bin\Debug\netstandard2.0\eRoom.Shared.CoreLib.deps.json
+C:\Users\tung.pham\Documents\eRoom\Backend\share\eRoom.Shared.CoreLib\bin\Debug\netstandard2.0\eRoom.Shared.CoreLib.dll
+C:\Users\tung.pham\Documents\eRoom\Backend\share\eRoom.Shared.CoreLib\bin\Debug\netstandard2.0\eRoom.Shared.CoreLib.pdb
+C:\Users\tung.pham\Documents\eRoom\Backend\share\eRoom.Shared.CoreLib\bin\Debug\netstandard2.0\eRoom.Shared.Entity.dll
+C:\Users\tung.pham\Documents\eRoom\Backend\share\eRoom.Shared.CoreLib\bin\Debug\netstandard2.0\EntityFramework.dll
+C:\Users\tung.pham\Documents\eRoom\Backend\share\eRoom.Shared.CoreLib\bin\Debug\netstandard2.0\eRoom.Shared.Entity.pdb
+C:\Users\tung.pham\Documents\eRoom\Backend\share\eRoom.Shared.CoreLib\bin\Debug\netstandard2.0\eRoom.Shared.Entity.dll.config
+C:\Users\tung.pham\Documents\eRoom\Backend\share\eRoom.Shared.CoreLib\obj\Debug\netstandard2.0\eRoom.Shared.CoreLib.csprojAssemblyReference.cache
+C:\Users\tung.pham\Documents\eRoom\Backend\share\eRoom.Shared.CoreLib\obj\Debug\netstandard2.0\eRoom.Shared.CoreLib.AssemblyInfoInputs.cache
+C:\Users\tung.pham\Documents\eRoom\Backend\share\eRoom.Shared.CoreLib\obj\Debug\netstandard2.0\eRoom.Shared.CoreLib.AssemblyInfo.cs
+C:\Users\tung.pham\Documents\eRoom\Backend\share\eRoom.Shared.CoreLib\obj\Debug\netstandard2.0\eRoom.Shared.CoreLib.csproj.CopyComplete
+C:\Users\tung.pham\Documents\eRoom\Backend\share\eRoom.Shared.CoreLib\obj\Debug\netstandard2.0\eRoom.Shared.CoreLib.dll
+C:\Users\tung.pham\Documents\eRoom\Backend\share\eRoom.Shared.CoreLib\obj\Debug\netstandard2.0\eRoom.Shared.CoreLib.pdb

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\Backend\\ops\\eRoom.CoreLib\\eRoom.CoreLib.csproj": {}
+    "C:\\Users\\tung.pham\\Documents\\eRoom\\Backend\\ops\\eRoom.CoreLib\\eRoom.CoreLib.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\Backend\\ops\\eRoom.CoreLib\\eRoom.CoreLib.csproj": {
+    "C:\\Users\\tung.pham\\Documents\\eRoom\\Backend\\ops\\eRoom.CoreLib\\eRoom.CoreLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\Backend\\ops\\eRoom.CoreLib\\eRoom.CoreLib.csproj",
+        "projectUniqueName": "C:\\Users\\tung.pham\\Documents\\eRoom\\Backend\\ops\\eRoom.CoreLib\\eRoom.CoreLib.csproj",
         "projectName": "eRoom.CoreLib",
-        "projectPath": "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\Backend\\ops\\eRoom.CoreLib\\eRoom.CoreLib.csproj",
+        "projectPath": "C:\\Users\\tung.pham\\Documents\\eRoom\\Backend\\ops\\eRoom.CoreLib\\eRoom.CoreLib.csproj",
         "packagesPath": "C:\\Users\\tung.pham\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\Backend\\ops\\eRoom.CoreLib\\obj\\",
+        "outputPath": "C:\\Users\\tung.pham\\Documents\\eRoom\\Backend\\ops\\eRoom.CoreLib\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -30,8 +30,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\Backend\\share\\eRoom.Shared.CoreLib\\eRoom.Shared.CoreLib.csproj": {
-                "projectPath": "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\Backend\\share\\eRoom.Shared.CoreLib\\eRoom.Shared.CoreLib.csproj"
+              "C:\\Users\\tung.pham\\Documents\\eRoom\\Backend\\share\\eRoom.Shared.CoreLib\\eRoom.Shared.CoreLib.csproj": {
+                "projectPath": "C:\\Users\\tung.pham\\Documents\\eRoom\\Backend\\share\\eRoom.Shared.CoreLib\\eRoom.Shared.CoreLib.csproj"
               }
             }
           }
@@ -84,14 +84,14 @@
         }
       }
     },
-    "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\Backend\\share\\eRoom.Shared.CoreLib\\eRoom.Shared.CoreLib.csproj": {
+    "C:\\Users\\tung.pham\\Documents\\eRoom\\Backend\\share\\eRoom.Shared.CoreLib\\eRoom.Shared.CoreLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\Backend\\share\\eRoom.Shared.CoreLib\\eRoom.Shared.CoreLib.csproj",
+        "projectUniqueName": "C:\\Users\\tung.pham\\Documents\\eRoom\\Backend\\share\\eRoom.Shared.CoreLib\\eRoom.Shared.CoreLib.csproj",
         "projectName": "eRoom.Shared.CoreLib",
-        "projectPath": "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\Backend\\share\\eRoom.Shared.CoreLib\\eRoom.Shared.CoreLib.csproj",
+        "projectPath": "C:\\Users\\tung.pham\\Documents\\eRoom\\Backend\\share\\eRoom.Shared.CoreLib\\eRoom.Shared.CoreLib.csproj",
         "packagesPath": "C:\\Users\\tung.pham\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\Backend\\share\\eRoom.Shared.CoreLib\\obj\\",
+        "outputPath": "C:\\Users\\tung.pham\\Documents\\eRoom\\Backend\\share\\eRoom.Shared.CoreLib\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -110,8 +110,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\SharedLibrary\\eRoom.Shared.Entity\\eRoom.Shared.Entity.csproj": {
-                "projectPath": "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\SharedLibrary\\eRoom.Shared.Entity\\eRoom.Shared.Entity.csproj"
+              "C:\\Users\\tung.pham\\Documents\\eRoom\\SharedLibrary\\eRoom.Shared.Entity\\eRoom.Shared.Entity.csproj": {
+                "projectPath": "C:\\Users\\tung.pham\\Documents\\eRoom\\SharedLibrary\\eRoom.Shared.Entity\\eRoom.Shared.Entity.csproj"
               }
             }
           }
@@ -160,15 +160,53 @@
         }
       }
     },
-    "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\SharedLibrary\\eRoom.Shared.Entity\\eRoom.Shared.Entity.csproj": {
+    "C:\\Users\\tung.pham\\Documents\\eRoom\\SharedLibrary\\eRoom.Shared.Entity\\eRoom.Shared.Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\SharedLibrary\\eRoom.Shared.Entity\\eRoom.Shared.Entity.csproj",
+        "projectUniqueName": "C:\\Users\\tung.pham\\Documents\\eRoom\\SharedLibrary\\eRoom.Shared.Entity\\eRoom.Shared.Entity.csproj",
         "projectName": "eRoom.Shared.Entity",
-        "projectPath": "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\SharedLibrary\\eRoom.Shared.Entity\\eRoom.Shared.Entity.csproj"
+        "projectPath": "C:\\Users\\tung.pham\\Documents\\eRoom\\SharedLibrary\\eRoom.Shared.Entity\\eRoom.Shared.Entity.csproj",
+        "packagesPath": "C:\\Users\\tung.pham\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tung.pham\\Documents\\eRoom\\SharedLibrary\\eRoom.Shared.Entity\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "C:\\Users\\tung.pham\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net46"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net46": {
+            "projectReferences": {}
+          }
+        }
       },
       "frameworks": {
-        "net46": {}
+        "net46": {
+          "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.2.0, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
       }
     }
   }

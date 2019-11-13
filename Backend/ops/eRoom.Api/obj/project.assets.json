@@ -4856,6 +4856,7 @@
       },
       "eRoom.Shared.Entity/1.0.0": {
         "type": "project",
+        "framework": ".NETFramework,Version=v4.6",
         "compile": {
           "bin/placeholder/eRoom.Shared.Entity.dll": {}
         },
@@ -13192,11 +13193,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\Backend\\ops\\eRoom.Api\\eRoom.API.csproj",
+      "projectUniqueName": "C:\\Users\\tung.pham\\Documents\\eRoom\\Backend\\ops\\eRoom.Api\\eRoom.API.csproj",
       "projectName": "eRoom.API",
-      "projectPath": "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\Backend\\ops\\eRoom.Api\\eRoom.API.csproj",
+      "projectPath": "C:\\Users\\tung.pham\\Documents\\eRoom\\Backend\\ops\\eRoom.Api\\eRoom.API.csproj",
       "packagesPath": "C:\\Users\\tung.pham\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\Backend\\ops\\eRoom.Api\\obj\\",
+      "outputPath": "C:\\Users\\tung.pham\\Documents\\eRoom\\Backend\\ops\\eRoom.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13215,14 +13216,14 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\Backend\\ops\\eRoom.CoreLib\\eRoom.CoreLib.csproj": {
-              "projectPath": "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\Backend\\ops\\eRoom.CoreLib\\eRoom.CoreLib.csproj"
+            "C:\\Users\\tung.pham\\Documents\\eRoom\\Backend\\ops\\eRoom.CoreLib\\eRoom.CoreLib.csproj": {
+              "projectPath": "C:\\Users\\tung.pham\\Documents\\eRoom\\Backend\\ops\\eRoom.CoreLib\\eRoom.CoreLib.csproj"
             },
-            "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\Backend\\share\\eRoom.Shared.Api\\eRoom.Shared.Api.csproj": {
-              "projectPath": "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\Backend\\share\\eRoom.Shared.Api\\eRoom.Shared.Api.csproj"
+            "C:\\Users\\tung.pham\\Documents\\eRoom\\Backend\\share\\eRoom.Shared.Api\\eRoom.Shared.Api.csproj": {
+              "projectPath": "C:\\Users\\tung.pham\\Documents\\eRoom\\Backend\\share\\eRoom.Shared.Api\\eRoom.Shared.Api.csproj"
             },
-            "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\Backend\\share\\eRoom.Shared.CoreLib\\eRoom.Shared.CoreLib.csproj": {
-              "projectPath": "C:\\Users\\tung.pham\\source\\repos\\STeven77777\\eRoom\\Backend\\share\\eRoom.Shared.CoreLib\\eRoom.Shared.CoreLib.csproj"
+            "C:\\Users\\tung.pham\\Documents\\eRoom\\Backend\\share\\eRoom.Shared.CoreLib\\eRoom.Shared.CoreLib.csproj": {
+              "projectPath": "C:\\Users\\tung.pham\\Documents\\eRoom\\Backend\\share\\eRoom.Shared.CoreLib\\eRoom.Shared.CoreLib.csproj"
             }
           }
         }

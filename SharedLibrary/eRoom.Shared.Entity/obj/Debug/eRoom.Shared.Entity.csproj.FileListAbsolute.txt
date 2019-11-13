@@ -21,3 +21,12 @@ C:\Users\tung.pham\source\repos\STeven77777\eRoom\SharedLibrary\eRoom.Shared.Ent
 C:\Users\tung.pham\source\repos\STeven77777\eRoom\SharedLibrary\eRoom.Shared.Entity\obj\Debug\eRoom.Shared.Entity.csproj.CopyComplete
 C:\Users\tung.pham\source\repos\STeven77777\eRoom\SharedLibrary\eRoom.Shared.Entity\obj\Debug\eRoom.Shared.Entity.dll
 C:\Users\tung.pham\source\repos\STeven77777\eRoom\SharedLibrary\eRoom.Shared.Entity\obj\Debug\eRoom.Shared.Entity.pdb
+C:\Users\tung.pham\Documents\eRoom\SharedLibrary\eRoom.Shared.Entity\bin\Debug\eRoom.Shared.Entity.dll.config
+C:\Users\tung.pham\Documents\eRoom\SharedLibrary\eRoom.Shared.Entity\bin\Debug\eRoom.Shared.Entity.dll
+C:\Users\tung.pham\Documents\eRoom\SharedLibrary\eRoom.Shared.Entity\bin\Debug\eRoom.Shared.Entity.pdb
+C:\Users\tung.pham\Documents\eRoom\SharedLibrary\eRoom.Shared.Entity\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\tung.pham\Documents\eRoom\SharedLibrary\eRoom.Shared.Entity\bin\Debug\EntityFramework.dll
+C:\Users\tung.pham\Documents\eRoom\SharedLibrary\eRoom.Shared.Entity\obj\Debug\eRoom.Shared.Entity.csprojAssemblyReference.cache
+C:\Users\tung.pham\Documents\eRoom\SharedLibrary\eRoom.Shared.Entity\obj\Debug\eRoom.Shared.Entity.csproj.CopyComplete
+C:\Users\tung.pham\Documents\eRoom\SharedLibrary\eRoom.Shared.Entity\obj\Debug\eRoom.Shared.Entity.dll
+C:\Users\tung.pham\Documents\eRoom\SharedLibrary\eRoom.Shared.Entity\obj\Debug\eRoom.Shared.Entity.pdb
