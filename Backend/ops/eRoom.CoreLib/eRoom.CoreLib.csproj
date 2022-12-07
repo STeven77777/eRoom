@@ -9,7 +9,7 @@
     <PackageReference Include="Dapper" Version="2.0.30" />
     <PackageReference Include="Microsoft.CSharp" Version="4.6.0" />
     <PackageReference Include="Microsoft.SqlServer.SqlManagementObjects" Version="150.18178.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="System.Data.SqlClient" Version="4.7.0" />
   </ItemGroup>
 
